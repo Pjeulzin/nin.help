@@ -210,16 +210,28 @@
     const soon = forV.filter((m) => m.lv > lv).slice(0, 3);
     const lvTag = EN ? 'Lv' : 'Nv';
 
+    // Nome da missão vira link para a wiki quando há página (por vila ou geral)
+    const mName = (m, cls) => {
+      const page = typeof m.wiki === 'string' ? m.wiki : m.wiki && m.wiki[vk];
+      if (!page) return el('span', cls, m.name);
+      const a = el('a', `${cls} m-wiki`, m.name);
+      a.href = D.config.wikiBase + encodeURIComponent(page.replace(/ /g, '_'));
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.title = `Wiki: ${page}`;
+      return a;
+    };
+
     $('m-now').replaceChildren(...now.map((m) => {
       const row = el('div', 'm-row');
-      row.append(el('span', 'm-lv', `${lvTag} ${m.lv}`), el('span', 'm-name', m.name));
+      row.append(el('span', 'm-lv', `${lvTag} ${m.lv}`), mName(m, 'm-name'));
       if (m.lv === lv) row.append(el('span', 'm-new', t.isNew));
       return row;
     }));
     $('m-none').hidden = now.length > 0;
     $('m-soon').replaceChildren(...soon.map((m) => {
       const row = el('div', 'm-row');
-      row.append(el('span', 'm-lv out', `${lvTag} ${m.lv}`), el('span', 'm-name muted', m.name));
+      row.append(el('span', 'm-lv out', `${lvTag} ${m.lv}`), mName(m, 'm-name muted'));
       return row;
     }));
 

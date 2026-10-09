@@ -106,6 +106,9 @@ button{font-family:inherit}
 .m-lv.out{color:#f0a93c;background:transparent;border:1px solid #5a4320;padding:1px 4px}
 .m-name{flex:1;font-size:14px;line-height:1.45;color:#e7e1d2}
 .m-name.muted{color:#a7afbd}
+.m-wiki{text-decoration:underline;text-decoration-color:#5a4320;text-underline-offset:3px}
+.m-wiki::after{content:" ↗";font-size:11px;color:#f0a93c}
+.m-wiki:hover{color:#f0a93c;text-decoration-color:#f0a93c}
 .m-new{flex:none;font-size:10px;font-weight:800;color:#0b1a08;background:#7fd06b;border-radius:4px;padding:2px 6px}
 .d-build{display:flex;align-items:center;gap:10px}
 .d-build .dot{width:12px;height:12px;border-radius:50%}

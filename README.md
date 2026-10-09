@@ -32,6 +32,7 @@ Tudo fica em `assets/data.json` (dá para editar direto pelo site do GitHub, no 
   - Rota: `["mob", "mapa", "dica"]` · Alternativa: `["mob", "mapa"]`
   - Por vila: `{ "leaf": [...], "sand": [...], "mist": [...] }`, ou `{ "all": [...] }` para todas.
 - **Missões (`MISSIONS`)**: `{ "lv": 23, "name": "..." }`, em ordem de nível. Use `"v": "leaf"` para missão exclusiva de uma vila.
+  - Link para a wiki: `"wiki": "Nome da Página"` (título exato da página em `config.wikiBase`), ou `{ "leaf": "...", "sand": "..." }` quando muda por vila. Sem `wiki`, o nome aparece como texto.
 - **Pendências**: escreva `[... a confirmar]` onde ainda não há dado; o validador lista essas pendências como aviso.
 - **Mapa**: preencha `config.mapUrl` para mostrar o botão "Abrir no Mapa da Região".
 

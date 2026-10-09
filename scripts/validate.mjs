@@ -100,6 +100,15 @@ D.MISSIONS.forEach((m, i) => {
   if (!isStr(m.name)) err(`${where}: name vazio`);
   if (m.v !== undefined && !villages.includes(m.v)) err(`${where}: vila "${m.v}" desconhecida`);
   if (isPlaceholder(m.name)) pending.push(`${where}: ${m.name}`);
+  if (m.wiki !== undefined) {
+    if (!isStr(D.config?.wikiBase)) err(`${where}: tem "wiki" mas falta config.wikiBase`);
+    const pages = typeof m.wiki === 'string' ? [m.wiki] : m.wiki && typeof m.wiki === 'object' ? Object.entries(m.wiki) : null;
+    if (!pages) err(`${where}: "wiki" deve ser o nome da página ou { vila: página }`);
+    else if (typeof m.wiki !== 'string') for (const [k, p] of pages) {
+      if (!villages.includes(k)) err(`${where}.wiki: vila "${k}" desconhecida`);
+      if (!isStr(p)) err(`${where}.wiki.${k}: página vazia`);
+    } else if (!isStr(m.wiki)) err(`${where}.wiki: página vazia`);
+  }
   if (i > 0 && m.lv < D.MISSIONS[i - 1].lv) err(`${where} (Nv ${m.lv}): fora de ordem; mantenha as missões em ordem de nível`);
 });
 
