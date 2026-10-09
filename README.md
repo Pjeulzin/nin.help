@@ -74,7 +74,7 @@ O estado vai na URL: `#v=sand&m=fire&lang=pt&lv=14`.
 
 ## Pendências de conteúdo
 
-- Níveis 61–70 (mob, mapa, missões, tamanho do grupo)
+- Níveis 61–70: tamanho do grupo ("Time recomendado" é palpite) e mapa dos Tengu Guards. Fonte: [wiki Land of Spirits](https://ninonline.fandom.com/wiki/Land_of_Spirits)
 - Rotas específicas de Rogue
 - `config.mapUrl` em `assets/data.json` (botão "Abrir no Mapa da Região" fica oculto enquanto for `null`)
 - Dicas de farm (`main`/`alt`) só estão em português
