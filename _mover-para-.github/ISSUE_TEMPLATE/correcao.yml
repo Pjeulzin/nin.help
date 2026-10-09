@@ -1,0 +1,55 @@
+name: Sugerir correção
+description: Rota, missão ou dica errada ou faltando no Pergaminho do Leveling
+title: "[Correção] "
+labels: ["dados"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por ajudar! Se você veio pelo site, os campos de nível, vila, maestria e "como está hoje" já vêm preenchidos.
+  - type: input
+    id: nivel
+    attributes:
+      label: Nível
+      placeholder: "ex.: 22"
+  - type: input
+    id: vila
+    attributes:
+      label: Vila
+      placeholder: Leaf, Sand, Mist ou Rogue
+  - type: input
+    id: maestria
+    attributes:
+      label: Maestria
+      placeholder: "ex.: Fire"
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: O que está errado?
+      options:
+        - Onde farmar (mob / mapa / dica)
+        - Alternativa de farm
+        - Missão ou quest
+        - Dica de build / maestria
+        - Dado faltando (ex.: 61–70, Rogue)
+        - Tradução
+        - Outro
+    validations:
+      required: true
+  - type: textarea
+    id: atual
+    attributes:
+      label: Como está hoje no site
+      render: text
+  - type: textarea
+    id: sugestao
+    attributes:
+      label: Como deveria ser
+      description: Mob, mapa, nível, dica... quanto mais específico, melhor.
+    validations:
+      required: true
+  - type: input
+    id: fonte
+    attributes:
+      label: Fonte (opcional)
+      description: Link de guia, vídeo, print, ou "testei no jogo em <data>".

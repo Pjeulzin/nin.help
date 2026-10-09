@@ -5,21 +5,47 @@ Guia de leveling do **Nin Online** (nível 1 ao 70): onde farmar, missões e dic
 ## Estrutura
 
 ```
-index.html        página
-assets/style.css  visual
-assets/data.js    TODOS os dados (rotas, missões, textos) — edite aqui
-assets/app.js     lógica da interface
-.nojekyll         faz o GitHub Pages servir os arquivos como estão
+index.html                       página
+assets/style.css                 visual
+assets/data.json                 TODOS os dados (rotas, missões, textos) — edite aqui
+assets/app.js                    lógica da interface
+scripts/validate.mjs             confere o data.json
+.github/workflows/validate.yml   roda o validador a cada push/PR
+.github/ISSUE_TEMPLATE/          formulário "Sugerir correção"
+.nojekyll                        faz o GitHub Pages servir os arquivos como estão
 ```
 
 ## Rodar localmente
 
-Abra `index.html` no navegador, ou:
+Os dados são carregados com `fetch`, então abrir o `index.html` direto (file://) não funciona. Use um servidor:
 
 ```bash
 python -m http.server 8000
 # http://localhost:8000
 ```
+
+## Editar o guia
+
+Tudo fica em `assets/data.json` (dá para editar direto pelo site do GitHub, no ícone de lápis).
+
+- **Faixas (`BRACKETS`)**: `from`/`to` precisam cobrir 1–70 sem buracos. Cada faixa tem `main` (obrigatório), `phys` (rota de builds físicas, opcional) e `alt` (alternativa, opcional).
+  - Rota: `["mob", "mapa", "dica"]` · Alternativa: `["mob", "mapa"]`
+  - Por vila: `{ "leaf": [...], "sand": [...], "mist": [...] }`, ou `{ "all": [...] }` para todas.
+- **Missões (`MISSIONS`)**: `{ "lv": 23, "name": "..." }`, em ordem de nível. Use `"v": "leaf"` para missão exclusiva de uma vila.
+- **Pendências**: escreva `[... a confirmar]` onde ainda não há dado; o validador lista essas pendências como aviso.
+- **Mapa**: preencha `config.mapUrl` para mostrar o botão "Abrir no Mapa da Região".
+
+Antes de publicar:
+
+```bash
+node scripts/validate.mjs
+```
+
+Ele falha (e o GitHub Actions marca ❌) se faltar rota para uma vila, se houver buraco ou sobreposição entre níveis, tradução faltando etc. O resumo da Action lista as pendências de conteúdo.
+
+## Correções da comunidade
+
+O painel de cada nível tem **"Sugerir correção para este nível"**, que abre uma issue no GitHub com nível, vila, maestria e o texto atual já preenchidos (formulário em `.github/ISSUE_TEMPLATE/correcao.yml`). Crie a label `dados` no repositório para elas virem marcadas. O repositório usado nos links fica em `config.repo`.
 
 ## Publicar no GitHub Pages
 
@@ -50,5 +76,5 @@ O estado vai na URL: `#v=sand&m=fire&lang=pt&lv=14`.
 
 - Níveis 61–70 (mob, mapa, missões, tamanho do grupo)
 - Rotas específicas de Rogue
-- `MAP_URL` em `assets/data.js` (botão "Abrir no Mapa da Região" fica oculto enquanto for `null`)
+- `config.mapUrl` em `assets/data.json` (botão "Abrir no Mapa da Região" fica oculto enquanto for `null`)
 - Dicas de farm (`main`/`alt`) só estão em português
