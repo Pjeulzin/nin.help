@@ -229,9 +229,9 @@
     "Melhor grind da faixa: cerca de 200–300k XP/h, variando com as Danger Zones.": "Best grind in this range: about 200–300k XP/h, depending on Danger Zones.",
     "Builds corpo a corpo seguem nas feras da vila até o 15.": "Melee builds stay on the village beasts until 15.",
     "Builds corpo a corpo seguem nas feras até o 15.": "Melee builds stay on the beasts until 15.",
-    "Rota de Intelligence para maestrias elementais. Tiger (Nv 13) dá 97 XP e White Tiger (Nv 17), 127.": "Intelligence route for elemental masteries. Tiger (Lv 13) gives 97 XP and White Tiger (Lv 17) 127.",
-    "Rota de Intelligence para maestrias elementais. Scarab (Nv 13) dá 97 XP.": "Intelligence route for elemental masteries. Scarab (Lv 13) gives 97 XP.",
-    "Rota de Intelligence para maestrias elementais. Boar (Nv 13) dá 97 XP e Black Boar (Nv 17), 127. O Sealed Temple só abre com a missão de seals de Mist (Nv 20). No 18, troque pela missão repetível dos caranguejos no barco.": "Intelligence route for elemental masteries. Boar (Lv 13) gives 97 XP and Black Boar (Lv 17) 127. The Sealed Temple only opens with the Mist seals mission (Lv 20). At 18, switch to the repeatable crab mission on the ship.",
+    "Rota para builds de Intelligence (elementais e Weapon INT). Tiger (Nv 13) dá 97 XP e White Tiger (Nv 17), 127.": "Route for Intelligence builds (elementals and Weapon INT). Tiger (Lv 13) gives 97 XP and White Tiger (Lv 17) 127.",
+    "Rota para builds de Intelligence (elementais e Weapon INT). Scarab (Nv 13) dá 97 XP.": "Route for Intelligence builds (elementals and Weapon INT). Scarab (Lv 13) gives 97 XP.",
+    "Rota para builds de Intelligence (elementais e Weapon INT). Boar (Nv 13) dá 97 XP e Black Boar (Nv 17), 127. O Sealed Temple só abre com a missão de seals de Mist (Nv 20). No 18, troque pela missão repetível dos caranguejos no barco.": "Route for Intelligence builds (elementals and Weapon INT). Boar (Lv 13) gives 97 XP and Black Boar (Lv 17) 127. The Sealed Temple only opens with the Mist seals mission (Lv 20). At 18, switch to the repeatable crab mission on the ship.",
     "Corpo a corpo continua nas Snakes até o 19.": "Melee stays on Snakes until 19.",
     "Tigers até o 20.": "Tigers until 20.",
     "Tunneler (Nv 17) dá 127 XP. No 20, os seals de Sand liberam a Secret Desert Cavern, com Big Scarabs (Nv 23).": "Tunneler (Lv 17) gives 127 XP. At 20, the Sand seals unlock the Secret Desert Cavern, with Big Scarabs (Lv 23).",
@@ -396,10 +396,10 @@
       "tag": "Rota INT",
       "party": "Solo",
       "main": {
-        "leaf": ["Tigers / White Tigers", "Striped Lake", "Rota de Intelligence para maestrias elementais. Tiger (Nv 13) dá 97 XP e White Tiger (Nv 17), 127."],
-        "sand": ["Scarabs", "Desert Cave", "Rota de Intelligence para maestrias elementais. Scarab (Nv 13) dá 97 XP."],
-        "mist": ["Boars / Black Boars", "Misty Hides", "Rota de Intelligence para maestrias elementais. Boar (Nv 13) dá 97 XP e Black Boar (Nv 17), 127. O Sealed Temple só abre com a missão de seals de Mist (Nv 20). No 18, troque pela missão repetível dos caranguejos no barco."],
-        "rogue": ["Tigers / White Tigers", "Sea Breeze Vale / Path to the River Country", "Rota de Intelligence para maestrias elementais. Tiger (Nv 13) dá 97 XP e White Tiger (Nv 17), 127."]
+        "leaf": ["Tigers / White Tigers", "Striped Lake", "Rota para builds de Intelligence (elementais e Weapon INT). Tiger (Nv 13) dá 97 XP e White Tiger (Nv 17), 127."],
+        "sand": ["Scarabs", "Desert Cave", "Rota para builds de Intelligence (elementais e Weapon INT). Scarab (Nv 13) dá 97 XP."],
+        "mist": ["Boars / Black Boars", "Misty Hides", "Rota para builds de Intelligence (elementais e Weapon INT). Boar (Nv 13) dá 97 XP e Black Boar (Nv 17), 127. O Sealed Temple só abre com a missão de seals de Mist (Nv 20). No 18, troque pela missão repetível dos caranguejos no barco."],
+        "rogue": ["Tigers / White Tigers", "Sea Breeze Vale / Path to the River Country", "Rota para builds de Intelligence (elementais e Weapon INT). Tiger (Nv 13) dá 97 XP e White Tiger (Nv 17), 127."]
       },
       "phys": {
         "all": ["Snakes", "Abandoned Lair", "Corpo a corpo continua nas Snakes até o 19."]
