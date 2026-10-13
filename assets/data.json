@@ -27,8 +27,8 @@
       "color": "#5aaee0",
       "ink": "#1f5f8a",
       "d": "M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z",
-      "note": "Segunda mais fácil, mas isolada (5 min de barco). Não há seals locais: os de Leaf e Sand são feitos fora.",
-      "noteEn": "Second easiest, but isolated (5 min by boat). No local seals: Leaf and Sand seals are done outside."
+      "note": "Segunda mais fácil, mas isolada (5 min de barco). Os seals de Mist ficam dentro da vila (Ikayasu) e liberam o Sealed Temple.",
+      "noteEn": "Second easiest, but isolated (5 min by boat). Mist's seals are inside the village (Ikayasu) and unlock the Sealed Temple."
     },
     "rogue": {
       "name": "Rogue",
@@ -166,6 +166,7 @@
     "Rota INT": "INT Route",
     "Grandes feras": "Big Beasts",
     "Selva": "Wilds",
+    "Genin": "Genin",
     "Oni e Tengu": "Oni & Tengu"
   },
   "PARTY_EN": {
@@ -212,12 +213,15 @@
     {
       "from": 11,
       "to": 12,
-      "tag": "Seals",
+      "tag": "Genin",
       "party": "Solo",
       "main": {
-        "leaf": ["Leaf Seals → Sand Seals", "Missões de Selo", "Leaf Seals no 10–11 e Sand Seals no 11."],
-        "sand": ["Sand Seals → Leaf Seals", "Missões de Selo", "Sand Seals no 10–11, Leaf Seals no 11–12. Os de Sand ficam fora dos limites da vila."],
-        "mist": ["Sand Seals → Leaf Seals", "Missões de Selo (fora da vila)", "Mist não tem seals próprios: faça os de Sand e depois os de Leaf."]
+        "leaf": ["Wolves / Crazy Spider", "Outskirts Dead End / Mountain Peak", "Wolf (Nv 9) dá 67 XP e Crazy Spider (Nv 10), 370. Os seals de Leaf só são entregues no 20, mas dá para ir coletando."],
+        "sand": ["Desert Coyote / Big Scorpion", "West Desert Valley / Howling Canyon", "Coyote (Nv 9) dá 67 XP e Big Scorpion (Nv 10), 370. Os seals de Sand só são entregues no 20, mas dá para ir coletando."],
+        "mist": ["Foxes / Boars", "By The River / Misty Hides", "Fox (Nv 9) dá 67 XP e Boar (Nv 13), 97. Os seals de Mist só são entregues no 20, mas dá para ir coletando."]
+      },
+      "alt": {
+        "all": ["Snakes", "Abandoned Lair"]
       }
     },
     {
@@ -368,7 +372,6 @@
     { "lv": 1, "v": "leaf", "name": "Esconde-esconde com as crianças no Playground", "wiki": "Hide & Seek" },
     { "lv": 1, "v": "sand", "name": "Estátua da Cabaça: entregar Kazecola / Sand Up às crianças" },
     { "lv": 1, "v": "mist", "name": "Missão Gold Bars" },
-    { "lv": 10, "name": "Missões de Selo da vila", "wiki": {"leaf":"Darker Places – Leaf Seals","sand":"Hidden in the Desert - (Sand Seals)","mist":"Cleanse The Temple - (Mist Seals and temple)"} },
     { "lv": 10, "name": "Yuu Questline em Takumi (3 missões, até ~15)", "wiki": "Yuu Mini Questline" },
     { "lv": 12, "name": "RP Mission I: 11.600 XP (precisa de Chuunin+ e 3 jogadores)" },
     { "lv": 15, "name": "Mobster Questline em Tanzaku", "wiki": "Tanzaku Mobsters Mini Questline" },
@@ -376,6 +379,7 @@
     { "lv": 20, "name": "Land of Waves Arc (Train)", "wiki": "Land Of Waves" },
     { "lv": 20, "name": "Dull Edges and Sharp Minds: derrotar Guren (nível grátis)", "wiki": "Dull Edges and Sharp Minds" },
     { "lv": 20, "name": "Yozo the Bozo (aposta, RNG)", "wiki": "Yozo the Bozo" },
+    { "lv": 20, "name": "Missões de Selo da vila: 30.900 XP (os selos podem ser coletados antes)", "wiki": {"leaf":"Darker Places – Leaf Seals","sand":"Hidden in the Desert - (Sand Seals)","mist":"Cleanse The Temple - (Mist Seals and temple)"} },
     { "lv": 22, "name": "Kiari's Parcel", "wiki": "Kiari's Parcel" },
     { "lv": 23, "name": "The Venomous Requirement: 100 Snake Venom", "wiki": "The Venomous Requirement" },
     { "lv": 25, "name": "Honey Hive Hunt · libera Invocação", "wiki": "Honey Hive Hunt" },
