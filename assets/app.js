@@ -139,7 +139,19 @@
 
     // Sobre a vila: passiva, organização exclusiva, invocações e clãs
     $('vinfo-sum').textContent = `${t.vinfo}: ${vill.name}`;
-    $('vinfo-list').replaceChildren(...Object.entries(vill.info || {}).flatMap(([k, s]) => [el('dt', null, t[k]), el('dd', null, tr(s))]));
+    $('vinfo-list').replaceChildren(...Object.entries(vill.info || {}).flatMap(([k, s]) => {
+      const dd = el('dd');
+      const page = vill.infoWiki?.[k];
+      if (page) {
+        const a = el('a', 'vinfo-wiki', tr(s));
+        a.href = D.config.wikiBase + encodeURIComponent(page.replace(/ /g, '_'));
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.title = `Wiki: ${page}`;
+        dd.append(a);
+      } else dd.textContent = tr(s);
+      return [el('dt', null, t['info_' + k]), dd];
+    }));
     $('vinfo-common').hidden = vk === 'rogue';
 
     // Trilha

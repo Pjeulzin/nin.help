@@ -14,11 +14,31 @@ const pending = [];
 const err = (msg) => errors.push(msg);
 
 let D;
+const RAW = readFileSync(FILE, 'utf8');
 try {
-  D = JSON.parse(readFileSync(FILE, 'utf8'));
+  D = JSON.parse(RAW);
 } catch (e) {
   console.error(`${CI ? '::error file=assets/data.json::' : '✗ '}JSON inválido: ${e.message}`);
   process.exit(1);
+}
+
+// JSON.parse aceita chave repetida e fica só com a última: procura repetições no texto
+{
+  const stack = [];
+  let path = [];
+  const re = /"((?:[^"\\]|\\.)*)"(\s*:)?|[{}[\]]/g;
+  let m;
+  while ((m = re.exec(RAW))) {
+    const tok = m[0];
+    if (tok === '{') { stack.push(new Set()); continue; }
+    if (tok === '[') { stack.push(null); continue; }
+    if (tok === '}' || tok === ']') { stack.pop(); path = path.slice(0, stack.length); continue; }
+    const keys = stack[stack.length - 1];
+    if (!m[2] || !keys) continue;
+    if (keys.has(m[1])) err(`chave "${m[1]}" repetida no mesmo objeto (${[...path.slice(0, stack.length - 1)].join('.') || 'raiz'}); a primeira é ignorada`);
+    keys.add(m[1]);
+    path[stack.length - 1] = m[1];
+  }
 }
 
 const isStr = (v) => typeof v === 'string' && v.trim() !== '';
@@ -46,6 +66,10 @@ for (const [k, v] of Object.entries(D.VILLAGES)) {
     if (!['passive', 'mastery', 'org', 'items', 'summons', 'clans', 'become'].includes(f)) err(`VILLAGES.${k}.info: campo "${f}" desconhecido (use passive, mastery, org, items, summons, clans ou become)`);
     if (!isStr(s)) err(`VILLAGES.${k}.info.${f}: texto vazio`);
     else if (!isStr(D.TEXT_EN?.[s])) pending.push(`VILLAGES.${k}.info.${f}: sem tradução em TEXT_EN`);
+  }
+  for (const [f, p] of Object.entries(v.infoWiki || {})) {
+    if (!(f in (v.info || {}))) err(`VILLAGES.${k}.infoWiki.${f}: não existe "${f}" em info`);
+    if (!isStr(p)) err(`VILLAGES.${k}.infoWiki.${f}: página vazia`);
   }
 }
 const masteries = Object.keys(D.MASTERIES);
@@ -138,7 +162,7 @@ const dailyTexts = [];
     if (!isStr(D.TEXT_EN?.[t])) pending.push(`${where}: "${t.slice(0, 40)}" sem tradução em TEXT_EN`);
   }
 });
-for (const k of ['dailies', 'dailiesEarly', 'dailiesReset', 'dailiesRogue', 'noDailies', 'avoid', 'good', 'playerTip', 'vinfo', 'vinfoCommon', 'passive', 'mastery', 'org', 'items', 'summons', 'clans', 'become'])
+for (const k of ['dailies', 'dailiesEarly', 'dailiesReset', 'dailiesRogue', 'noDailies', 'avoid', 'good', 'playerTip', 'vinfo', 'vinfoCommon', 'info_passive', 'info_mastery', 'info_org', 'info_items', 'info_summons', 'info_clans', 'info_become'])
   if (!isStr(D.I18N.pt?.[k])) err(`I18N.pt: falta o texto "${k}" usado pelo painel`);
 
 // ---- Traduções (TEXT_EN: texto em português -> inglês) ----

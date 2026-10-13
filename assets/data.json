@@ -20,6 +20,14 @@
         "items": "12 Guardian Waistcloth: +10 em todos os atributos (Nv 25+, só para os Twelve Guardians; cai ao morrer).",
         "summons": "Sapo (Toad) e Lesma (Slug).",
         "clans": "Sasayaki, Muteki, Suwa, Ukiyo e Hayashi."
+      },
+      "infoWiki": {
+        "passive": "Leaf Village",
+        "mastery": "Taijutsu Mastery",
+        "org": "Corps",
+        "items": "12 Guardian Waistcloth",
+        "summons": "Summoning Technique",
+        "clans": "Clans"
       }
     },
     "sand": {
@@ -36,6 +44,14 @@
         "items": "Marionetes (Sand Puppeteering): qualquer ninja da Sand aprende; têm ~550 HP e golpes de 30. A Grand Puppet, só da Puppet Brigade, tem ~700 HP e golpes de 51.",
         "summons": "Doninha (Weasel) e Falcão (Hawk).",
         "clans": "Sashiba, Ketsueki, Tendo, Toitsu e Jakusha."
+      },
+      "infoWiki": {
+        "passive": "Cloak of Invisibility Technique",
+        "mastery": "Wind Mastery",
+        "org": "Corps",
+        "items": "Sand Puppeteering",
+        "summons": "Summoning Technique",
+        "clans": "Clans"
       }
     },
     "mist": {
@@ -52,6 +68,14 @@
         "items": "Seven Swords of the Mist: espadas lendárias exclusivas da Mist (Nv 35, 80 Strength).",
         "summons": "Molusco (Clam) e Panda.",
         "clans": "Yagyu, Murasame, Hoshi, Kazuki e Sakame."
+      },
+      "infoWiki": {
+        "passive": "Mist Village",
+        "mastery": "Water Mastery",
+        "org": "Corps",
+        "items": "Seven Swords of the Mist",
+        "summons": "Summoning Technique",
+        "clans": "Clans"
       }
     },
     "rogue": {
@@ -64,6 +88,10 @@
       "info": {
         "become": "Todo personagem nasce numa vila. Vira Rogue quem é exilado pelo Kage, foge da prisão ou mata um aliado 3 vezes em Danger Zone ou War Zone.",
         "org": "Neo-Akatsuki: a organização criminosa mais temida, sediada em Takumi."
+      },
+      "infoWiki": {
+        "become": "Missing Ninja",
+        "org": "Corps"
       }
     }
   },
@@ -183,13 +211,13 @@
       "playerTip": "Dica de jogador:",
       "dailiesReset": "Guarde os Scrolls of Daily Reset até o 36, quando aparece a Medicine Supplies III.",
       "vinfo": "Sobre a vila",
-      "passive": "Passiva",
-      "org": "Organização exclusiva",
-      "summons": "Invocações exclusivas",
-      "clans": "Clãs",
-      "mastery": "Maestria exclusiva",
-      "items": "Itens exclusivos",
-      "become": "Como virar Rogue",
+      "info_passive": "Passiva",
+      "info_org": "Organização exclusiva",
+      "info_summons": "Invocações exclusivas",
+      "info_clans": "Clãs",
+      "info_mastery": "Maestria exclusiva",
+      "info_items": "Itens exclusivos",
+      "info_become": "Como virar Rogue",
       "vinfoCommon": "Clãs não mudam nada no jogo: só liberam roupas exclusivas. Toda vila tem ANBU, Polícia Militar e Unidade Médica, e todos podem invocar Ninken, Monkey e Snake a partir do 25. A máscara da ANBU dá +7 em todos os atributos."
     },
     "en": {
@@ -228,13 +256,13 @@
       "playerTip": "Player tip:",
       "dailiesReset": "Save your Scrolls of Daily Reset until 36, when Medicine Supplies III shows up.",
       "vinfo": "About the village",
-      "passive": "Passive",
-      "org": "Exclusive organization",
-      "summons": "Exclusive summons",
-      "clans": "Clans",
-      "mastery": "Exclusive mastery",
-      "items": "Exclusive items",
-      "become": "How to become a Rogue",
+      "info_passive": "Passive",
+      "info_org": "Exclusive organization",
+      "info_summons": "Exclusive summons",
+      "info_clans": "Clans",
+      "info_mastery": "Exclusive mastery",
+      "info_items": "Exclusive items",
+      "info_become": "How to become a Rogue",
       "vinfoCommon": "Clans change nothing in gameplay: they only unlock exclusive outfits. Every village has ANBU, Military Police and a Medical Unit, and everyone can summon Ninken, Monkey and Snake from level 25. The ANBU mask gives +7 to all stats."
     }
   },

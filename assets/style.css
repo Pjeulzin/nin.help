@@ -39,6 +39,10 @@ button{font-family:inherit}
 .vinfo dl{margin:0;padding:0 12px 4px;display:grid;grid-template-columns:auto 1fr;gap:6px 12px}
 .vinfo dt{font-size:12px;font-weight:800;color:#7a5228;padding-top:1px}
 .vinfo dd{margin:0;font-size:13px;line-height:1.45;color:#3b2814}
+.vinfo-wiki{color:#3b2814;text-decoration:underline;text-decoration-color:#b89a5e;text-underline-offset:3px}
+.vinfo-wiki::after{content:" ↗";font-size:11px;color:#b8321f}
+.vinfo-wiki:hover{color:#8a1f12;text-decoration-color:#b8321f}
+.vinfo-wiki:focus-visible{outline:3px solid #b8321f;outline-offset:2px;border-radius:3px}
 .vinfo-common{margin:6px 12px 12px;padding-top:8px;border-top:1px dashed #c4ad78;font-size:12px;line-height:1.5;color:#5a4320}
 @media (max-width:480px){.vinfo dl{grid-template-columns:1fr;gap:2px}.vinfo dd{margin-bottom:6px}}
 .masteries{display:flex;flex-wrap:wrap;gap:6px}
