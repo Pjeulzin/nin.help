@@ -7,7 +7,7 @@ import { dirname, join } from 'node:path';
 
 const FILE = join(dirname(fileURLToPath(import.meta.url)), '..', 'assets', 'data.json');
 const MAX = 70;
-const VILLAGE_KEYS = ['leaf', 'sand', 'mist']; // rotas obrigatórias; Rogue usa a rota neutra
+const VILLAGE_KEYS = ['leaf', 'sand', 'mist', 'rogue']; // rotas obrigatórias quando a faixa não usa "all"
 const CI = !!process.env.GITHUB_ACTIONS;
 const errors = [];
 const pending = [];
@@ -27,7 +27,7 @@ const isPlaceholder = (s) => typeof s === 'string' && /\[[^\]]*(confirmar|confir
 const need = (obj, keys, where) => keys.forEach((k) => { if (!isStr(obj?.[k])) err(`${where}: campo "${k}" ausente ou vazio`); });
 
 // ---- Seções obrigatórias ----
-for (const k of ['config', 'VILLAGES', 'MASTERIES', 'SECOND', 'ROGUE_SPOT', 'I18N', 'TAG_EN', 'PARTY_EN', 'BRACKETS', 'MISSIONS', 'MILESTONES', 'BAR_MILESTONES', 'TICKS']) {
+for (const k of ['config', 'VILLAGES', 'MASTERIES', 'SECOND', 'I18N', 'TAG_EN', 'PARTY_EN', 'BRACKETS', 'MISSIONS', 'MILESTONES', 'BAR_MILESTONES', 'TICKS']) {
   if (!(k in D)) err(`seção "${k}" não existe`);
 }
 if (errors.length) finish();
@@ -38,7 +38,7 @@ if (D.config.mapUrl !== null && !/^https?:\/\//.test(D.config.mapUrl || '')) err
 
 // ---- Vilas e maestrias ----
 const villages = Object.keys(D.VILLAGES);
-for (const k of [...VILLAGE_KEYS, 'rogue']) if (!villages.includes(k)) err(`VILLAGES: falta a vila "${k}"`);
+for (const k of VILLAGE_KEYS) if (!villages.includes(k)) err(`VILLAGES: falta a vila "${k}"`);
 for (const [k, v] of Object.entries(D.VILLAGES)) {
   need(v, ['name', 'color', 'ink', 'd', 'note', 'noteEn'], `VILLAGES.${k}`);
   for (const c of ['color', 'ink']) if (!/^#[0-9a-f]{6}$/i.test(v[c] || '')) err(`VILLAGES.${k}.${c} deve ser uma cor #rrggbb`);
@@ -52,8 +52,6 @@ for (const [v, pair] of Object.entries(D.SECOND)) {
   if (!villages.includes(v)) err(`SECOND.${v}: vila desconhecida`);
   if (!Array.isArray(pair) || !masteries.includes(pair[0]) || !isStr(pair[1])) err(`SECOND.${v} deve ser ["maestria", "nome"]`);
 }
-if (!Array.isArray(D.ROGUE_SPOT) || D.ROGUE_SPOT.length !== 3) err('ROGUE_SPOT deve ter [mob, mapa, dica]');
-else if (D.ROGUE_SPOT.some(isPlaceholder)) pending.push('ROGUE_SPOT: rotas de Rogue ainda usam o texto provisório');
 
 // ---- Textos (pt e en com as mesmas chaves) ----
 const ptKeys = Object.keys(D.I18N.pt || {}), enKeys = Object.keys(D.I18N.en || {});
@@ -70,7 +68,7 @@ const spot = (arr, len, where) => {
 };
 const checkSet = (set, len, where, required) => {
   if (set == null) return;
-  if (typeof set !== 'object' || Array.isArray(set)) return err(`${where} deve ser um objeto { leaf, sand, mist } ou { all }`);
+  if (typeof set !== 'object' || Array.isArray(set)) return err(`${where} deve ser um objeto { leaf, sand, mist, rogue } ou { all }`);
   for (const k of Object.keys(set)) {
     if (k !== 'all' && !villages.includes(k)) err(`${where}: chave desconhecida "${k}" (use leaf, sand, mist, rogue ou all)`);
     spot(set[k], len, `${where}.${k}`);

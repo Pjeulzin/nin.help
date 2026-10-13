@@ -119,7 +119,7 @@
     const vill = D.VILLAGES[vk], mast = D.MASTERIES[mk];
     const tagOf = (b) => (EN ? D.TAG_EN[b.tag] || b.tag : b.tag);
     const pickSet = (s) => (s ? s[vk] || s.all : null);
-    const spotFor = (b) => (mast.phys && b.phys ? pickSet(b.phys) : null) || pickSet(b.main) || D.ROGUE_SPOT;
+    const spotFor = (b) => (mast.phys && b.phys ? pickSet(b.phys) : null) || pickSet(b.main);
 
     document.documentElement.lang = EN ? 'en' : 'pt-BR';
     document.title = `Nin Help — ${t.title}`;
