@@ -211,11 +211,13 @@
     "Builds corpo a corpo seguem nas feras até o 15.": "Melee builds stay on the beasts until 15.",
     "Rota de Intelligence para maestrias elementais. Tiger (Nv 13) dá 97 XP e White Tiger (Nv 17), 127.": "Intelligence route for elemental masteries. Tiger (Lv 13) gives 97 XP and White Tiger (Lv 17) 127.",
     "Rota de Intelligence para maestrias elementais. Scarab (Nv 13) dá 97 XP.": "Intelligence route for elemental masteries. Scarab (Lv 13) gives 97 XP.",
-    "Rota de Intelligence para maestrias elementais. Boar (Nv 13) dá 97 XP e Black Boar (Nv 17), 127. O Sealed Temple só abre com a missão de seals de Mist (Nv 20).": "Intelligence route for elemental masteries. Boar (Lv 13) gives 97 XP and Black Boar (Lv 17) 127. The Sealed Temple only opens with the Mist seals mission (Lv 20).",
+    "Rota de Intelligence para maestrias elementais. Boar (Nv 13) dá 97 XP e Black Boar (Nv 17), 127. O Sealed Temple só abre com a missão de seals de Mist (Nv 20). No 18, troque pela missão repetível dos caranguejos no barco.": "Intelligence route for elemental masteries. Boar (Lv 13) gives 97 XP and Black Boar (Lv 17) 127. The Sealed Temple only opens with the Mist seals mission (Lv 20). At 18, switch to the repeatable crab mission on the ship.",
     "Corpo a corpo continua nas Snakes até o 19.": "Melee stays on Snakes until 19.",
     "Tigers até o 20.": "Tigers until 20.",
     "Tunneler (Nv 17) dá 127 XP. No 20, os seals de Sand liberam a Secret Desert Cavern, com Big Scarabs (Nv 23).": "Tunneler (Lv 17) gives 127 XP. At 20, the Sand seals unlock the Secret Desert Cavern, with Big Scarabs (Lv 23).",
-    "Só se você conseguir kitar.": "Only if you can kite.",
+    "Pegue a missão repetível de matar caranguejos no barco e repita até o 20. Crab é Nv 21 e pacífico: só ataca se for atacado.": "Take the repeatable crab-killing mission on the ship and repeat it until 20. Crabs are Lv 21 and peaceful: they only fight back when attacked.",
+    "Barco (Ship)": "Ship",
+    "Missão repetível dos caranguejos no barco (Crabs, até o 20)": "Repeatable crab mission on the ship (Crabs, until 20)",
     "White Tiger e Tunneler (Nv 17) dão 127 XP.": "White Tiger and Tunneler (Lv 17) give 127 XP.",
     "Mobs do Trem": "Train mobs",
     "Arco rende 3–4 níveis (+1 com World Blessing). Farme os mobs dentro do trem.": "The arc gives 3–4 levels (+1 with World Blessing). Farm the mobs inside the train.",
@@ -373,7 +375,7 @@
       "main": {
         "leaf": ["Tigers / White Tigers", "Striped Lake", "Rota de Intelligence para maestrias elementais. Tiger (Nv 13) dá 97 XP e White Tiger (Nv 17), 127."],
         "sand": ["Scarabs", "Desert Cave", "Rota de Intelligence para maestrias elementais. Scarab (Nv 13) dá 97 XP."],
-        "mist": ["Boars / Black Boars", "Misty Hides", "Rota de Intelligence para maestrias elementais. Boar (Nv 13) dá 97 XP e Black Boar (Nv 17), 127. O Sealed Temple só abre com a missão de seals de Mist (Nv 20)."],
+        "mist": ["Boars / Black Boars", "Misty Hides", "Rota de Intelligence para maestrias elementais. Boar (Nv 13) dá 97 XP e Black Boar (Nv 17), 127. O Sealed Temple só abre com a missão de seals de Mist (Nv 20). No 18, troque pela missão repetível dos caranguejos no barco."],
         "rogue": ["Tigers / White Tigers", "Sea Breeze Vale / Path to the River Country", "Rota de Intelligence para maestrias elementais. Tiger (Nv 13) dá 97 XP e White Tiger (Nv 17), 127."]
       },
       "phys": {
@@ -391,8 +393,11 @@
       "main": {
         "leaf": ["Tigers", "Striped Lake", "Tigers até o 20."],
         "sand": ["Scarabs / Tunnelers", "Desert Cave / Infested Desert Road", "Tunneler (Nv 17) dá 127 XP. No 20, os seals de Sand liberam a Secret Desert Cavern, com Big Scarabs (Nv 23)."],
-        "mist": ["Giant Fire Ants / Giant Ants", "Bloody Peninsula / Misty Pond", "Só se você conseguir kitar."],
+        "mist": ["Crabs", "Barco (Ship)", "Pegue a missão repetível de matar caranguejos no barco e repita até o 20. Crab é Nv 21 e pacífico: só ataca se for atacado."],
         "rogue": ["White Tigers / Tunnelers", "Sea Breeze Vale / Beach Cave", "White Tiger e Tunneler (Nv 17) dão 127 XP."]
+      },
+      "alt": {
+        "mist": ["Giant Fire Ants / Giant Ants", "Bloody Peninsula / Misty Pond (kite)"]
       }
     },
     {
@@ -504,6 +509,7 @@
     { "lv": 12, "name": "RP Mission I: 11.600 XP (precisa de Chuunin+ e 3 jogadores)" },
     { "lv": 15, "name": "Mobster Questline em Kinsen Quarters (antiga Tanzaku)", "wiki": "Tanzaku Mobsters Mini Questline" },
     { "lv": 17, "name": "RP Mission II: 34.850 XP" },
+    { "lv": 18, "v": "mist", "name": "Missão repetível dos caranguejos no barco (Crabs, até o 20)" },
     { "lv": 20, "name": "Land of Waves Arc (Train)", "wiki": "Land Of Waves" },
     { "lv": 20, "name": "Dull Edges and Sharp Minds: derrotar Guren (nível grátis)", "wiki": "Dull Edges and Sharp Minds" },
     { "lv": 20, "name": "Yozo the Bozo (aposta, RNG)", "wiki": "Yozo the Bozo" },
