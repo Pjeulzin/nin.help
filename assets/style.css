@@ -68,7 +68,7 @@ button{font-family:inherit}
 .msbtn{position:absolute;left:0;transform:translateY(50%);display:flex;align-items:center;gap:6px;padding:4px 6px 4px 0;cursor:pointer;background:transparent;border:none;white-space:nowrap;text-align:left}
 .msbtn i{width:12px;border-top:1.5px dashed #8a5a26}
 .msbtn b{font-family:'Cinzel',serif;font-size:12px;font-weight:800}
-.msbtn span{font-size:12px;font-weight:700;color:#4a3218}
+.msbtn span{font-size:12px;font-weight:700;color:#4a3218;white-space:normal;max-width:96px;line-height:1.2}
 .footer{margin:0;font-size:11px;line-height:1.7;color:#6a4a24;text-align:center}
 .footer a{color:#2f6a17;font-weight:800}.footer a:hover{color:#1d3f0e}
 .suggest-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;border-radius:8px;border:1px dashed #3a4a63;font-size:13px;font-weight:700;color:#a7afbd;text-decoration:none}
@@ -145,6 +145,7 @@ button{font-family:inherit}
   .d-range{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .d-peek{display:block;font-size:13px;font-weight:700;color:#f0a93c;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .details.open .d-peek{display:none}
+  .details.open .d-tag,.details.open .d-range{white-space:normal}
   #sheet-toggle svg{transform:rotate(0);transition:transform .2s}
   .details.open #sheet-toggle svg{transform:rotate(180deg)}
   .sheet-backdrop{display:block;position:fixed;inset:0;z-index:19;background:rgba(5,8,14,.6)}
