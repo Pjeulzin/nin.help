@@ -118,6 +118,7 @@
     const vk = state.village, mk = state.mastery, lv = state.level;
     const vill = D.VILLAGES[vk], mast = D.MASTERIES[mk];
     const tagOf = (b) => (EN ? D.TAG_EN[b.tag] || b.tag : b.tag);
+    const tr = (s) => (EN ? D.TEXT_EN[s] || s : s);
     const pickSet = (s) => (s ? s[vk] || s.all : null);
     const spotFor = (b) => (mast.phys && b.phys ? pickSet(b.phys) : null) || pickSet(b.main);
 
@@ -182,16 +183,16 @@
     $('next').disabled = lv >= MAX;
 
     const raw = spotFor(br);
-    $('s-mob').textContent = raw[0];
-    $('s-zone').textContent = raw[1];
-    $('s-how').textContent = raw[2];
-    $('d-peek').textContent = `${raw[0]} · ${raw[1]}`;
+    $('s-mob').textContent = tr(raw[0]);
+    $('s-zone').textContent = tr(raw[1]);
+    $('s-how').textContent = tr(raw[2]);
+    $('d-peek').textContent = `${tr(raw[0])} · ${tr(raw[1])}`;
 
     let altRaw = pickSet(br.alt);
     if (mast.phys && br.phys) altRaw = pickSet(br.main);
     if (altRaw && altRaw[0] === raw[0]) altRaw = null;
     $('alt').hidden = !altRaw;
-    if (altRaw) { $('alt-mob').textContent = altRaw[0]; $('alt-zone').textContent = altRaw[1]; }
+    if (altRaw) { $('alt-mob').textContent = tr(altRaw[0]); $('alt-zone').textContent = tr(altRaw[1]); }
 
     const mapLink = $('map-link');
     mapLink.hidden = !D.config.mapUrl;
@@ -213,8 +214,8 @@
     // Nome da missão vira link para a wiki quando há página (por vila ou geral)
     const mName = (m, cls) => {
       const page = typeof m.wiki === 'string' ? m.wiki : m.wiki && m.wiki[vk];
-      if (!page) return el('span', cls, m.name);
-      const a = el('a', `${cls} m-wiki`, m.name);
+      if (!page) return el('span', cls, tr(m.name));
+      const a = el('a', `${cls} m-wiki`, tr(m.name));
       a.href = D.config.wikiBase + encodeURIComponent(page.replace(/ /g, '_'));
       a.target = '_blank';
       a.rel = 'noopener';

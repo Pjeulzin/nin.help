@@ -27,7 +27,7 @@ const isPlaceholder = (s) => typeof s === 'string' && /\[[^\]]*(confirmar|confir
 const need = (obj, keys, where) => keys.forEach((k) => { if (!isStr(obj?.[k])) err(`${where}: campo "${k}" ausente ou vazio`); });
 
 // ---- Seções obrigatórias ----
-for (const k of ['config', 'VILLAGES', 'MASTERIES', 'SECOND', 'I18N', 'TAG_EN', 'PARTY_EN', 'BRACKETS', 'MISSIONS', 'MILESTONES', 'BAR_MILESTONES', 'TICKS']) {
+for (const k of ['config', 'VILLAGES', 'MASTERIES', 'SECOND', 'I18N', 'TAG_EN', 'PARTY_EN', 'TEXT_EN', 'BRACKETS', 'MISSIONS', 'MILESTONES', 'BAR_MILESTONES', 'TICKS']) {
   if (!(k in D)) err(`seção "${k}" não existe`);
 }
 if (errors.length) finish();
@@ -109,6 +109,20 @@ D.MISSIONS.forEach((m, i) => {
   }
   if (i > 0 && m.lv < D.MISSIONS[i - 1].lv) err(`${where} (Nv ${m.lv}): fora de ordem; mantenha as missões em ordem de nível`);
 });
+
+// ---- Traduções (TEXT_EN: texto em português -> inglês) ----
+const texts = new Set(D.MISSIONS.map((m) => m.name));
+D.BRACKETS.forEach((b, i) => {
+  for (const k of ['main', 'phys', 'alt']) for (const [v, arr] of Object.entries(b[k] || {})) {
+    if (!Array.isArray(arr)) continue;
+    arr.forEach((s) => texts.add(s));
+    if (k !== 'alt' && isStr(arr[2]) && !isStr(D.TEXT_EN?.[arr[2]])) pending.push(`BRACKETS[${i}].${k}.${v}: dica sem tradução em TEXT_EN`);
+  }
+});
+for (const [k, v] of Object.entries(D.TEXT_EN || {})) {
+  if (!texts.has(k)) err(`TEXT_EN: "${k.slice(0, 50)}" não aparece em nenhuma rota ou missão (texto mudou? atualize a chave)`);
+  if (!isStr(v)) err(`TEXT_EN: tradução vazia para "${k.slice(0, 50)}"`);
+}
 
 // ---- Marcos e marcações ----
 for (const lang of ['pt', 'en']) {

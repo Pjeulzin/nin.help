@@ -33,6 +33,7 @@ Tudo fica em `assets/data.json` (dá para editar direto pelo site do GitHub, no 
   - Por vila: `{ "leaf": [...], "sand": [...], "mist": [...], "rogue": [...] }`, ou `{ "all": [...] }` para todas. Em `main`, as quatro são obrigatórias.
 - **Missões (`MISSIONS`)**: `{ "lv": 23, "name": "..." }`, em ordem de nível. Use `"v": "leaf"` para missão exclusiva de uma vila.
   - Link para a wiki: `"wiki": "Nome da Página"` (título exato da página em `config.wikiBase`), ou `{ "leaf": "...", "sand": "..." }` quando muda por vila. Sem `wiki`, o nome aparece como texto.
+- **Inglês (`TEXT_EN`)**: `{ "texto em português": "English text" }` traduz mob, mapa, dica e nome de missão. Ao mudar um texto em português, mude também a chave em `TEXT_EN`; o validador acusa chave órfã e dica sem tradução. Nomes do jogo (mobs, mapas) não precisam de entrada.
 - **Pendências**: escreva `[... a confirmar]` onde ainda não há dado; o validador lista essas pendências como aviso.
 - **Mapa**: preencha `config.mapUrl` para mostrar o botão "Abrir no Mapa da Região".
 
@@ -77,4 +78,3 @@ O estado vai na URL: `#v=sand&m=fire&lang=pt&lv=14`.
 
 - Níveis 61–70: tamanho do grupo ("Time recomendado" é palpite) e mapa dos Tengu Guards. Fonte: [wiki Land of Spirits](https://ninonline.fandom.com/wiki/Land_of_Spirits)
 - `config.mapUrl` em `assets/data.json` (botão "Abrir no Mapa da Região" fica oculto enquanto for `null`)
-- Dicas de farm (`main`/`alt`) só estão em português
