@@ -176,17 +176,18 @@
     "[A confirmar]": "[To be confirmed]"
   },
   "TEXT_EN": {
-    "Suba pela escada perto da academia e vá para a direita. Zona segura.": "Take the stairs near the academy and go right. Safe zone.",
-    "A oeste da entrada da vila. Zona segura.": "West of the village entrance. Safe zone.",
-    "Saída leste, no início da bifurcação. Zona segura.": "East exit, at the start of the fork. Safe zone.",
+    "Suba pela escada perto da academia e vá para a direita. Zona segura. Faça as missões iniciais da vila e não gaste as diárias ainda.": "Take the stairs near the academy and go right. Safe zone. Do the village starter missions and don't spend your dailies yet.",
+    "A oeste da entrada da vila. Zona segura. Faça as missões iniciais da vila e não gaste as diárias ainda.": "West of the village entrance. Safe zone. Do the village starter missions and don't spend your dailies yet.",
+    "Saída leste, no início da bifurcação. Zona segura. Faça as missões iniciais da vila e não gaste as diárias ainda.": "East exit, at the start of the fork. Safe zone. Do the village starter missions and don't spend your dailies yet.",
     "Rogue renasce em Takumi: as Larvas ficam na entrada da vila.": "Rogues respawn in Takumi: the Larvae are at the village entrance.",
     "Mesma rota da academia. Bom para subir jutsus também.": "Same route as the academy. Good for leveling jutsu too.",
     "Guarde Scorpion Tails para missões futuras.": "Keep your Scorpion Tails for later missions.",
     "Windy Pond também tem Foxes para depois.": "Windy Pond also has Foxes for later.",
     "Spiderling e Dragonfly (Nv 5) dão 37 XP. Oak Trail também tem Foxes para depois.": "Spiderling and Dragonfly (Lv 5) give 37 XP. Oak Trail also has Foxes for later.",
-    "Último passo antes de escolher a maestria no 10.": "Last step before picking your mastery at 10.",
-    "Stingers até o 10, depois Coyotes.": "Stingers until 10, then Coyotes.",
-    "Fox e Wolf (Nv 9) dão 67 XP. Último passo antes de escolher a maestria no 10.": "Fox and Wolf (Lv 9) give 67 XP. Last step before picking your mastery at 10.",
+    "Wolf (Nv 9) dá 67 XP. Farme junto com as missões iniciais até o 10. Guarde as 4 diárias até o 15: as primeiras dão só 180–2.020 XP.": "Wolf (Lv 9) gives 67 XP. Farm alongside the starter missions until 10. Save your 4 dailies until 15: the first ones only give 180–2,020 XP.",
+    "Fox (Nv 9) dá 67 XP. Farme junto com as missões iniciais até o 10. Guarde as 4 diárias até o 15: as primeiras dão só 180–2.020 XP.": "Fox (Lv 9) gives 67 XP. Farm alongside the starter missions until 10. Save your 4 dailies until 15: the first ones only give 180–2,020 XP.",
+    "Stingers até o 10, depois Coyotes (Nv 9, 67 XP), junto com as missões iniciais. Guarde as 4 diárias até o 15: as primeiras dão só 180–2.020 XP.": "Stingers until 10, then Coyotes (Lv 9, 67 XP), alongside the starter missions. Save your 4 dailies until 15: the first ones only give 180–2,020 XP.",
+    "Fox e Wolf (Nv 9) dão 67 XP. Guarde as 4 diárias até o 15: as primeiras dão só 180–2.020 XP.": "Fox and Wolf (Lv 9) give 67 XP. Save your 4 dailies until 15: the first ones only give 180–2,020 XP.",
     "Wolf (Nv 9) dá 67 XP e Crazy Spider (Nv 10), 370. Os seals de Leaf só são entregues no 20, mas dá para ir coletando.": "Wolf (Lv 9) gives 67 XP and Crazy Spider (Lv 10) 370. Leaf seals can only be turned in at 20, but you can start collecting them.",
     "Coyote (Nv 9) dá 67 XP e Big Scorpion (Nv 10), 370. Os seals de Sand só são entregues no 20, mas dá para ir coletando.": "Coyote (Lv 9) gives 67 XP and Big Scorpion (Lv 10) 370. Sand seals can only be turned in at 20, but you can start collecting them.",
     "Fox (Nv 9) dá 67 XP e Boar (Nv 13), 97. Os seals de Mist só são entregues no 20, mas dá para ir coletando.": "Fox (Lv 9) gives 67 XP and Boar (Lv 13) 97. Mist seals can only be turned in at 20, but you can start collecting them.",
@@ -255,9 +256,9 @@
       "tag": "Academia",
       "party": "Solo",
       "main": {
-        "leaf": ["Larva", "Mountain Side", "Suba pela escada perto da academia e vá para a direita. Zona segura."],
-        "sand": ["Larva", "Sand Nesting Ground", "A oeste da entrada da vila. Zona segura."],
-        "mist": ["Larva", "Silky Crater", "Saída leste, no início da bifurcação. Zona segura."],
+        "leaf": ["Larva", "Mountain Side", "Suba pela escada perto da academia e vá para a direita. Zona segura. Faça as missões iniciais da vila e não gaste as diárias ainda."],
+        "sand": ["Larva", "Sand Nesting Ground", "A oeste da entrada da vila. Zona segura. Faça as missões iniciais da vila e não gaste as diárias ainda."],
+        "mist": ["Larva", "Silky Crater", "Saída leste, no início da bifurcação. Zona segura. Faça as missões iniciais da vila e não gaste as diárias ainda."],
         "rogue": ["Larva", "Entrance to Takumi Village", "Rogue renasce em Takumi: as Larvas ficam na entrada da vila."]
       }
     },
@@ -279,10 +280,10 @@
       "tag": "Feras",
       "party": "Solo",
       "main": {
-        "leaf": ["Wolves", "Outskirts Deadend / Mountain Peak", "Último passo antes de escolher a maestria no 10."],
-        "sand": ["Stingers → Coyotes", "Howling Canyon / West Desert Valley", "Stingers até o 10, depois Coyotes."],
-        "mist": ["Foxes", "Windy Pond / By the River", "Último passo antes de escolher a maestria no 10."],
-        "rogue": ["Foxes / Wolves", "Oak Trail / River Outskirts I", "Fox e Wolf (Nv 9) dão 67 XP. Último passo antes de escolher a maestria no 10."]
+        "leaf": ["Wolves", "Outskirts Deadend / Mountain Peak", "Wolf (Nv 9) dá 67 XP. Farme junto com as missões iniciais até o 10. Guarde as 4 diárias até o 15: as primeiras dão só 180–2.020 XP."],
+        "sand": ["Stingers → Coyotes", "Howling Canyon / West Desert Valley", "Stingers até o 10, depois Coyotes (Nv 9, 67 XP), junto com as missões iniciais. Guarde as 4 diárias até o 15: as primeiras dão só 180–2.020 XP."],
+        "mist": ["Foxes", "Windy Pond / By the River", "Fox (Nv 9) dá 67 XP. Farme junto com as missões iniciais até o 10. Guarde as 4 diárias até o 15: as primeiras dão só 180–2.020 XP."],
+        "rogue": ["Foxes / Wolves", "Oak Trail / River Outskirts I", "Fox e Wolf (Nv 9) dão 67 XP. Guarde as 4 diárias até o 15: as primeiras dão só 180–2.020 XP."]
       }
     },
     {
