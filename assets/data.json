@@ -135,7 +135,8 @@
       "noDailies": "Nenhuma diária com nível confirmado neste nível.",
       "avoid": "EVITE",
       "good": "VALE A PENA",
-      "playerTip": "Dica de jogador:"
+      "playerTip": "Dica de jogador:",
+      "dailiesReset": "Guarde os Scrolls of Daily Reset até o 36, quando aparece a Medicine Supplies III."
     },
     "en": {
       "lang": "Language",
@@ -169,7 +170,8 @@
       "noDailies": "No daily with a confirmed level gate at this level.",
       "avoid": "AVOID",
       "good": "WORTH IT",
-      "playerTip": "Player tip:"
+      "playerTip": "Player tip:",
+      "dailiesReset": "Save your Scrolls of Daily Reset until 36, when Medicine Supplies III shows up."
     }
   },
   "TAG_EN": {
@@ -295,7 +297,10 @@
     "Um dos maiores XP de diária.": "One of the highest daily XP payouts.",
     "Caçar o Dark Weasel no deserto profundo.": "Hunt the Dark Weasel in the deep desert.",
     "Maior XP de diária registrado.": "Highest daily XP on record.",
-    "Caçar o Dark Monkey King no Valley of the End (War Zone).": "Hunt the Dark Monkey King in the Valley of the End (War Zone)."
+    "Caçar o Dark Monkey King no Valley of the End (War Zone).": "Hunt the Dark Monkey King in the Valley of the End (War Zone).",
+    "223.300 XP, mais 270 Ryo.": "223,300 XP, plus 270 Ryo.",
+    "Leaf e Mist pedem 20 Big Scarab Shells, 10 DNA e 10 Bear Paws; Sand pede 15 Rat Tails, 10 DNA e 10 Bear Paws.": "Leaf and Mist ask for 20 Big Scarab Shells, 10 DNA and 10 Bear Paws; Sand asks for 15 Rat Tails, 10 DNA and 10 Bear Paws.",
+    "É a partir dela que vale gastar os Scrolls of Daily Reset.": "This is when it's worth spending your Scrolls of Daily Reset."
   },
   "BRACKETS": [
     {
@@ -548,6 +553,7 @@
     { "from": 26, "to": 35, "name": "Bounty Hunting II", "wiki": "Bounty Hunting", "rank": "B", "xp": 81800, "v": ["leaf", "sand", "mist"], "cons": ["PvP: cobrar recompensas de alvos do Bingo Book na Bounty Station."] },
     { "from": 27, "to": 38, "name": "Clear the Abandoned Lair II", "wiki": "Clear the Abandoned Lair II", "rank": "C", "xp": 59040, "v": ["leaf", "sand", "mist"], "cons": ["As Venomous Snakes ficam no 2º andar, que abre com The Venomous Requirement."] },
     { "from": 30, "to": 40, "name": "Spy on the Kage Office", "wiki": "Spy on Hokage/Kazekage/Mizukage Office", "rank": "A", "xp": 107362, "v": ["leaf", "sand", "mist"], "pros": ["Maior XP de diária na faixa dos 30."], "cons": ["Entrar numa vila inimiga até o escritório do Kage e sair vivo."] },
+    { "from": 36, "to": 57, "name": "Medicine Supplies III", "wiki": "Medical Supplies", "rank": "A", "xp": 223300, "v": ["leaf", "sand", "mist"], "verdict": "good", "tip": "É a partir dela que vale gastar os Scrolls of Daily Reset.", "pros": ["223.300 XP, mais 270 Ryo."], "cons": ["Leaf e Mist pedem 20 Big Scarab Shells, 10 DNA e 10 Bear Paws; Sand pede 15 Rat Tails, 10 DNA e 10 Bear Paws."] },
     { "from": 46, "to": 53, "name": "Shark Attack", "wiki": "Shark Attack", "rank": "C", "xp": 228390, "v": ["leaf", "sand", "mist"], "pros": ["Só mobs: 25 Great White Sharks."], "cons": ["Fica no mar (South Eastern Sea V); desde 29/07/2026 aparece lá o Great Blood Shark, uma versão enfurecida."] },
     { "from": 50, "name": "Escort the Foreign Envoy", "wiki": "Escort the Foreign Envoy", "rank": "S", "xp": 391250, "v": ["leaf", "sand", "mist"], "pros": ["Maior XP entre as diárias abaixo do 65."], "cons": ["Escoltar o enviado até outra vila."] },
     { "from": 51, "name": "Silent Shipment", "wiki": "Silent Shipment", "rank": "S", "xp": 264730, "v": ["leaf", "sand", "mist"], "cons": ["Roubar um pacote no mercado de outra vila (risco de PvP)."] },

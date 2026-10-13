@@ -242,7 +242,8 @@
     const daily = D.DAILIES
       .filter((d) => d.v.includes(vk) && d.from <= lv && lv <= (d.to || MAX))
       .sort((a, b) => (a.verdict === 'avoid') - (b.verdict === 'avoid') || topXp(b) - topXp(a));
-    const dlNote = vk === 'rogue' ? t.dailiesRogue : lv < 15 ? t.dailiesEarly : '';
+    const dlNote = vk === 'rogue' ? t.dailiesRogue
+      : [lv < 15 && t.dailiesEarly, lv < 36 && t.dailiesReset].filter(Boolean).join(' ');
     $('dl-note').textContent = dlNote;
     $('dl-note').hidden = !dlNote;
     $('dl-list').replaceChildren(...daily.map((d) => {
