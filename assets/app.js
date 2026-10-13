@@ -137,6 +137,11 @@
     });
     masteryBtns.forEach(({ k, b }) => b.setAttribute('aria-pressed', String(k === mk)));
 
+    // Sobre a vila: passiva, organização exclusiva, invocações e clãs
+    $('vinfo-sum').textContent = `${t.vinfo}: ${vill.name}`;
+    $('vinfo-list').replaceChildren(...Object.entries(vill.info || {}).flatMap(([k, s]) => [el('dt', null, t[k]), el('dd', null, tr(s))]));
+    $('vinfo-common').hidden = vk === 'rogue';
+
     // Trilha
     const curB = lv > 0 ? bracketOf(lv) : null;
     $('caption').textContent = curB

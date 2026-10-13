@@ -12,7 +12,13 @@
       "ink": "#2f6a17",
       "d": "M11 20A7 7 0 0 1 4 13c0-6 7-10 16-10 0 9-4 16-9 17zM4 21c4-4 7-7 10-10",
       "note": "Rota mais difícil: exige sair cedo da vila e farmar em Danger Zones nos níveis mais altos.",
-      "noteEn": "Hardest route: you have to leave the village early and farm in Danger Zones at higher levels."
+      "noteEn": "Hardest route: you have to leave the village early and farm in Danger Zones at higher levels.",
+      "info": {
+        "passive": "Will of Fire: 5% de chance de reviver sozinho ao ser derrotado.",
+        "org": "Twelve Guardian Ninja: guardam o Daimyo do País do Fogo, no alto da vila.",
+        "summons": "Sapo (Toad) e Lesma (Slug).",
+        "clans": "Sasayaki, Muteki, Suwa, Ukiyo e Hayashi."
+      }
     },
     "sand": {
       "name": "Sand",
@@ -20,7 +26,13 @@
       "ink": "#8a5a12",
       "d": "M6 3h12M6 21h12M7 3c0 6 10 7 10 18M17 3c0 6-10 7-10 18",
       "note": "Grind mais fácil: as áreas de treino ficam perto da vila.",
-      "noteEn": "Easiest grind: training areas are close to the village."
+      "noteEn": "Easiest grind: training areas are close to the village.",
+      "info": {
+        "passive": "Invisibilidade 100% perfeita com o Cloak of Invisibility Technique: some até para quem está perto.",
+        "org": "Puppet Brigade: ninjas que lutam com marionetes gigantes, em esquadrões de 3.",
+        "summons": "Doninha (Weasel), Falcão (Hawk) e Marionete (Sand Puppeteering).",
+        "clans": "Sashiba, Ketsueki, Tendo, Toitsu e Jakusha."
+      }
     },
     "mist": {
       "name": "Mist",
@@ -28,7 +40,13 @@
       "ink": "#1f5f8a",
       "d": "M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z",
       "note": "Segunda mais fácil, mas isolada (5 min de barco). Os seals de Mist ficam dentro da vila (Ikayasu) e liberam o Sealed Temple.",
-      "noteEn": "Second easiest, but isolated (5 min by boat). Mist's seals are inside the village (Ikayasu) and unlock the Sealed Temple."
+      "noteEn": "Second easiest, but isolated (5 min by boat). Mist's seals are inside the village (Ikayasu) and unlock the Sealed Temple.",
+      "info": {
+        "passive": "Corre e recarrega chakra em cima da água; as outras vilas perdem chakra na água.",
+        "org": "Seven Swordsmen of the Mist: mais um título que um grupo; caçam sozinhos ou em até 3. Na Mist, a ANBU se chama Hunter-Nin.",
+        "summons": "Molusco (Clam) e Panda.",
+        "clans": "Yagyu, Murasame, Hoshi, Kazuki e Sakame."
+      }
     },
     "rogue": {
       "name": "Rogue",
@@ -36,7 +54,11 @@
       "ink": "#7a1c10",
       "d": "M3 9h18v6H3zM6 19L18 5",
       "note": "Ninja sem vila: renasce de graça em Takumi e pega as missões com o Daimyo de lá. As rotas usam o território Rogue, em volta de Takumi.",
-      "noteEn": "Village-less ninja: respawns for free in Takumi and takes missions from the Daimyo there. Routes use Rogue Territory, around Takumi."
+      "noteEn": "Village-less ninja: respawns for free in Takumi and takes missions from the Daimyo there. Routes use Rogue Territory, around Takumi.",
+      "info": {
+        "become": "Todo personagem nasce numa vila. Vira Rogue quem é exilado pelo Kage, foge da prisão ou mata um aliado 3 vezes em Danger Zone ou War Zone.",
+        "org": "Neo-Akatsuki: a organização criminosa mais temida, sediada em Takumi."
+      }
     }
   },
   "MASTERIES": {
@@ -153,7 +175,14 @@
       "avoid": "EVITE",
       "good": "VALE A PENA",
       "playerTip": "Dica de jogador:",
-      "dailiesReset": "Guarde os Scrolls of Daily Reset até o 36, quando aparece a Medicine Supplies III."
+      "dailiesReset": "Guarde os Scrolls of Daily Reset até o 36, quando aparece a Medicine Supplies III.",
+      "vinfo": "Sobre a vila",
+      "passive": "Passiva",
+      "org": "Organização exclusiva",
+      "summons": "Invocações exclusivas",
+      "clans": "Clãs",
+      "become": "Como virar Rogue",
+      "vinfoCommon": "Clãs não mudam nada no jogo: só liberam roupas exclusivas. Toda vila tem ANBU, Polícia Militar e Unidade Médica, e todos podem invocar Ninken, Monkey e Snake a partir do 25."
     },
     "en": {
       "lang": "Language",
@@ -189,7 +218,14 @@
       "avoid": "AVOID",
       "good": "WORTH IT",
       "playerTip": "Player tip:",
-      "dailiesReset": "Save your Scrolls of Daily Reset until 36, when Medicine Supplies III shows up."
+      "dailiesReset": "Save your Scrolls of Daily Reset until 36, when Medicine Supplies III shows up.",
+      "vinfo": "About the village",
+      "passive": "Passive",
+      "org": "Exclusive organization",
+      "summons": "Exclusive summons",
+      "clans": "Clans",
+      "become": "How to become a Rogue",
+      "vinfoCommon": "Clans change nothing in gameplay: they only unlock exclusive outfits. Every village has ANBU, Military Police and a Medical Unit, and everyone can summon Ninken, Monkey and Snake from level 25."
     }
   },
   "TAG_EN": {
@@ -318,7 +354,21 @@
     "Caçar o Dark Monkey King no Valley of the End (War Zone).": "Hunt the Dark Monkey King in the Valley of the End (War Zone).",
     "223.300 XP, mais 270 Ryo.": "223,300 XP, plus 270 Ryo.",
     "Leaf e Mist pedem 20 Big Scarab Shells, 10 DNA e 10 Bear Paws; Sand pede 15 Rat Tails, 10 DNA e 10 Bear Paws.": "Leaf and Mist ask for 20 Big Scarab Shells, 10 DNA and 10 Bear Paws; Sand asks for 15 Rat Tails, 10 DNA and 10 Bear Paws.",
-    "É a partir dela que vale gastar os Scrolls of Daily Reset.": "This is when it's worth spending your Scrolls of Daily Reset."
+    "É a partir dela que vale gastar os Scrolls of Daily Reset.": "This is when it's worth spending your Scrolls of Daily Reset.",
+    "Will of Fire: 5% de chance de reviver sozinho ao ser derrotado.": "Will of Fire: 5% chance to revive yourself when defeated.",
+    "Twelve Guardian Ninja: guardam o Daimyo do País do Fogo, no alto da vila.": "Twelve Guardian Ninja: they guard the Daimyo of the Land of Fire, at the village summit.",
+    "Sapo (Toad) e Lesma (Slug).": "Toad and Slug.",
+    "Sasayaki, Muteki, Suwa, Ukiyo e Hayashi.": "Sasayaki, Muteki, Suwa, Ukiyo and Hayashi.",
+    "Invisibilidade 100% perfeita com o Cloak of Invisibility Technique: some até para quem está perto.": "Fully perfect invisibility with the Cloak of Invisibility Technique: hidden even from players right next to you.",
+    "Puppet Brigade: ninjas que lutam com marionetes gigantes, em esquadrões de 3.": "Puppet Brigade: ninja who fight with giant puppets, in squads of 3.",
+    "Doninha (Weasel), Falcão (Hawk) e Marionete (Sand Puppeteering).": "Weasel, Hawk and Sand Puppeteering.",
+    "Sashiba, Ketsueki, Tendo, Toitsu e Jakusha.": "Sashiba, Ketsueki, Tendo, Toitsu and Jakusha.",
+    "Corre e recarrega chakra em cima da água; as outras vilas perdem chakra na água.": "Runs and recharges chakra on water; the other villages lose chakra on water.",
+    "Seven Swordsmen of the Mist: mais um título que um grupo; caçam sozinhos ou em até 3. Na Mist, a ANBU se chama Hunter-Nin.": "Seven Swordsmen of the Mist: more a title than a group; they hunt alone or in threes at most. In the Mist, the ANBU are called Hunter-Nin.",
+    "Molusco (Clam) e Panda.": "Clam and Panda.",
+    "Yagyu, Murasame, Hoshi, Kazuki e Sakame.": "Yagyu, Murasame, Hoshi, Kazuki and Sakame.",
+    "Todo personagem nasce numa vila. Vira Rogue quem é exilado pelo Kage, foge da prisão ou mata um aliado 3 vezes em Danger Zone ou War Zone.": "Every character starts in a village. You become a Rogue by being exiled by your Kage, escaping prison, or killing an ally 3 times in a Danger Zone or War Zone.",
+    "Neo-Akatsuki: a organização criminosa mais temida, sediada em Takumi.": "Neo-Akatsuki: the most feared criminal organization, based in Takumi."
   },
   "BRACKETS": [
     {

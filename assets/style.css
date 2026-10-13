@@ -33,6 +33,14 @@ button{font-family:inherit}
 .villages{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
 .vbtn{min-height:48px;display:flex;align-items:center;justify-content:center;gap:8px;padding:6px 8px;border-radius:8px;cursor:pointer;font-family:'Cinzel',serif;font-weight:800;font-size:14px;color:#3b2814;background:#f4e7c4;border:2px solid #a07a44}
 .vbtn[aria-pressed="true"]{color:#f6e7c1;background:#3b2814;border-color:#3b2814}
+.vinfo{margin-top:10px;border:1.5px dashed #a07a44;border-radius:8px;background:rgba(244,231,196,.55)}
+.vinfo summary{cursor:pointer;padding:10px 12px;font-family:'Cinzel',serif;font-weight:800;font-size:13px;color:#3b2814;list-style-position:inside}
+.vinfo summary:focus-visible{outline:3px solid #b8321f;outline-offset:2px;border-radius:6px}
+.vinfo dl{margin:0;padding:0 12px 4px;display:grid;grid-template-columns:auto 1fr;gap:6px 12px}
+.vinfo dt{font-size:12px;font-weight:800;color:#7a5228;padding-top:1px}
+.vinfo dd{margin:0;font-size:13px;line-height:1.45;color:#3b2814}
+.vinfo-common{margin:6px 12px 12px;padding-top:8px;border-top:1px dashed #c4ad78;font-size:12px;line-height:1.5;color:#5a4320}
+@media (max-width:480px){.vinfo dl{grid-template-columns:1fr;gap:2px}.vinfo dd{margin-bottom:6px}}
 .masteries{display:flex;flex-wrap:wrap;gap:6px}
 .mbtn{min-height:40px;display:flex;align-items:center;gap:7px;padding:6px 12px;border-radius:999px;cursor:pointer;font-size:13px;font-weight:800;color:#3b2814;background:#f4e7c4;border:1.5px solid #a07a44}
 .mbtn[aria-pressed="true"]{color:#f6e7c1;background:#3b2814;border-color:#3b2814}
