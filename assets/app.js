@@ -236,6 +236,36 @@
       return row;
     }));
 
+    // Diárias liberadas neste nível, da que paga mais para a que paga menos; as "evite" vão para o fim
+    const num = (n) => n.toLocaleString(EN ? 'en-US' : 'pt-BR');
+    const topXp = (d) => (Array.isArray(d.xp) ? d.xp[1] : d.xp);
+    const daily = D.DAILIES
+      .filter((d) => d.v.includes(vk) && d.from <= lv && lv <= (d.to || MAX))
+      .sort((a, b) => (a.verdict === 'avoid') - (b.verdict === 'avoid') || topXp(b) - topXp(a));
+    const dlNote = vk === 'rogue' ? t.dailiesRogue : lv < 15 ? t.dailiesEarly : '';
+    $('dl-note').textContent = dlNote;
+    $('dl-note').hidden = !dlNote;
+    $('dl-list').replaceChildren(...daily.map((d) => {
+      const card = el('div', 'dl-card');
+      const head = el('div', 'dl-head');
+      head.append(mName(d, 'm-name dl-name'));
+      if (d.verdict) head.append(el('span', `dl-verdict ${d.verdict}`, d.verdict === 'avoid' ? t.avoid : t.good));
+      const xp = Array.isArray(d.xp) ? `${num(d.xp[0])}–${num(d.xp[1])}` : num(d.xp);
+      card.append(head, el('div', 'dl-meta', `${lvTag} ${d.from}${d.to ? `–${d.to}` : '+'} · Rank ${d.rank} · ${xp} XP`));
+      for (const [k, sign] of [['pros', '+'], ['cons', '−']]) for (const s of d[k] || []) {
+        const line = el('div', `dl-${k}`);
+        line.append(el('span', 'dl-sign', sign), el('span', null, tr(s)));
+        card.append(line);
+      }
+      if (d.tip) {
+        const tip = el('div', 'dl-tip');
+        tip.append(el('strong', null, `${t.playerTip} `), document.createTextNode(tr(d.tip)));
+        card.append(tip);
+      }
+      return card;
+    }));
+    $('dl-none').hidden = daily.length > 0 || !!dlNote;
+
     // Build
     $('b-dot').style.background = mast.color;
     $('b-name').textContent = mast.name;

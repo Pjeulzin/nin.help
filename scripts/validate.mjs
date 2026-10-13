@@ -27,7 +27,7 @@ const isPlaceholder = (s) => typeof s === 'string' && /\[[^\]]*(confirmar|confir
 const need = (obj, keys, where) => keys.forEach((k) => { if (!isStr(obj?.[k])) err(`${where}: campo "${k}" ausente ou vazio`); });
 
 // ---- Seções obrigatórias ----
-for (const k of ['config', 'VILLAGES', 'MASTERIES', 'SECOND', 'I18N', 'TAG_EN', 'PARTY_EN', 'TEXT_EN', 'BRACKETS', 'MISSIONS', 'MILESTONES', 'BAR_MILESTONES', 'TICKS']) {
+for (const k of ['config', 'VILLAGES', 'MASTERIES', 'SECOND', 'I18N', 'TAG_EN', 'PARTY_EN', 'TEXT_EN', 'BRACKETS', 'MISSIONS', 'DAILIES', 'MILESTONES', 'BAR_MILESTONES', 'TICKS']) {
   if (!(k in D)) err(`seção "${k}" não existe`);
 }
 if (errors.length) finish();
@@ -110,8 +110,33 @@ D.MISSIONS.forEach((m, i) => {
   if (i > 0 && m.lv < D.MISSIONS[i - 1].lv) err(`${where} (Nv ${m.lv}): fora de ordem; mantenha as missões em ordem de nível`);
 });
 
+// ---- Diárias ----
+const RANKS = ['D', 'C', 'B', 'A', 'S'];
+const VERDICTS = ['avoid', 'good'];
+const dailyTexts = [];
+(D.DAILIES || []).forEach((d, i) => {
+  const where = `DAILIES[${i}] (${d.name ?? '?'})`;
+  if (!isInt(d.from)) err(`${where}: from deve ser um inteiro de 1 a ${MAX}`);
+  if (d.to !== undefined && (!isInt(d.to) || d.to < d.from)) err(`${where}: to deve ser um inteiro >= from`);
+  if (!isStr(d.name)) err(`${where}: name vazio`);
+  if (!RANKS.includes(d.rank)) err(`${where}: rank deve ser ${RANKS.join(', ')}`);
+  const xpOk = (n) => Number.isInteger(n) && n > 0;
+  if (!(xpOk(d.xp) || (Array.isArray(d.xp) && d.xp.length === 2 && d.xp.every(xpOk) && d.xp[0] < d.xp[1]))) err(`${where}: xp deve ser um número ou [mínimo, máximo]`);
+  if (!Array.isArray(d.v) || !d.v.length || d.v.some((v) => !villages.includes(v))) err(`${where}: v deve listar vilas (${villages.join(', ')})`);
+  if (d.wiki !== undefined && !isStr(d.wiki)) err(`${where}: wiki vazia`);
+  if (d.verdict !== undefined && !VERDICTS.includes(d.verdict)) err(`${where}: verdict deve ser ${VERDICTS.join(' ou ')}`);
+  if (d.verdict !== undefined && !isStr(d.tip)) err(`${where}: verdict precisa de uma dica (tip) explicando o motivo`);
+  for (const k of ['pros', 'cons']) if (d[k] !== undefined && (!Array.isArray(d[k]) || !d[k].every(isStr))) err(`${where}: ${k} deve ser uma lista de textos`);
+  for (const t of [...(d.pros || []), ...(d.cons || []), ...(isStr(d.tip) ? [d.tip] : [])]) {
+    dailyTexts.push(t);
+    if (!isStr(D.TEXT_EN?.[t])) pending.push(`${where}: "${t.slice(0, 40)}" sem tradução em TEXT_EN`);
+  }
+});
+for (const k of ['dailies', 'dailiesEarly', 'dailiesRogue', 'noDailies', 'avoid', 'good', 'playerTip'])
+  if (!isStr(D.I18N.pt?.[k])) err(`I18N.pt: falta o texto "${k}" usado pelas diárias`);
+
 // ---- Traduções (TEXT_EN: texto em português -> inglês) ----
-const texts = new Set(D.MISSIONS.map((m) => m.name));
+const texts = new Set([...D.MISSIONS.map((m) => m.name), ...dailyTexts]);
 D.BRACKETS.forEach((b, i) => {
   for (const k of ['main', 'phys', 'alt']) for (const [v, arr] of Object.entries(b[k] || {})) {
     if (!Array.isArray(arr)) continue;
@@ -120,7 +145,7 @@ D.BRACKETS.forEach((b, i) => {
   }
 });
 for (const [k, v] of Object.entries(D.TEXT_EN || {})) {
-  if (!texts.has(k)) err(`TEXT_EN: "${k.slice(0, 50)}" não aparece em nenhuma rota ou missão (texto mudou? atualize a chave)`);
+  if (!texts.has(k)) err(`TEXT_EN: "${k.slice(0, 50)}" não aparece em nenhuma rota, missão ou diária (texto mudou? atualize a chave)`);
   if (!isStr(v)) err(`TEXT_EN: tradução vazia para "${k.slice(0, 50)}"`);
 }
 
@@ -145,6 +170,6 @@ function finish() {
   }
   console.log(errors.length
     ? `\n${errors.length} erro(s). Corrija antes de publicar.`
-    : `\n✓ data.json válido · ${D.BRACKETS?.length} faixas cobrindo 1–${MAX} · ${D.MISSIONS?.length} missões · ${pending.length} pendência(s)`);
+    : `\n✓ data.json válido · ${D.BRACKETS?.length} faixas cobrindo 1–${MAX} · ${D.MISSIONS?.length} missões · ${D.DAILIES?.length} diárias · ${pending.length} pendência(s)`);
   process.exit(errors.length ? 1 : 0);
 }

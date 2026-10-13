@@ -110,6 +110,21 @@ button{font-family:inherit}
 .m-wiki::after{content:" ↗";font-size:11px;color:#f0a93c}
 .m-wiki:hover{color:#f0a93c;text-decoration-color:#f0a93c}
 .m-new{flex:none;font-size:10px;font-weight:800;color:#0b1a08;background:#7fd06b;border-radius:4px;padding:2px 6px}
+.dl-note{margin:0;font-size:13px;line-height:1.5;color:#cfc9ba}
+.dl-list{display:flex;flex-direction:column;gap:10px}
+.dl-card{display:flex;flex-direction:column;gap:5px;padding:10px 12px;border-radius:8px;background:#141d2c;border:1px solid #1f2a3b}
+.dl-head{display:flex;align-items:flex-start;gap:8px}
+.dl-name{font-weight:700}
+.dl-verdict{flex:none;font-size:10px;font-weight:800;letter-spacing:.06em;border-radius:4px;padding:2px 6px}
+.dl-verdict.avoid{color:#fff;background:#b8321f}
+.dl-verdict.good{color:#0b1a08;background:#7fd06b}
+.dl-meta{font-size:12px;font-weight:700;color:#f0a93c}
+.dl-pros,.dl-cons{display:flex;gap:6px;font-size:13px;line-height:1.45;color:#cfc9ba}
+.dl-sign{flex:none;width:10px;font-weight:800}
+.dl-pros .dl-sign{color:#7fd06b}
+.dl-cons .dl-sign{color:#e6806e}
+.dl-tip{font-size:13px;line-height:1.45;color:#e7e1d2;padding-top:4px;border-top:1px dashed #26334a}
+.dl-tip strong{color:#f0a93c}
 .d-build{display:flex;align-items:center;gap:10px}
 .d-build .dot{width:12px;height:12px;border-radius:50%}
 .d-build strong{font-family:'Cinzel',serif;font-weight:800;font-size:18px;color:#f1ead8}

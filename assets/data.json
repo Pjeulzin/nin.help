@@ -128,7 +128,14 @@
       "selectLevel": "Selecionar nível",
       "level": "Nível",
       "suggest": "Sugerir correção para este nível",
-      "suggestGeneral": "Viu algo errado? Sugira uma correção"
+      "suggestGeneral": "Viu algo errado? Sugira uma correção",
+      "dailies": "DIÁRIAS · 4 POR DIA",
+      "dailiesEarly": "Até o 15, as diárias dão pouco XP (180–2.020): guarde as 4 do dia e farme.",
+      "dailiesRogue": "Rogue não pega diárias da vila: as missões vêm do Daimyo em Takumi.",
+      "noDailies": "Nenhuma diária com nível confirmado neste nível.",
+      "avoid": "EVITE",
+      "good": "VALE A PENA",
+      "playerTip": "Dica de jogador:"
     },
     "en": {
       "lang": "Language",
@@ -155,7 +162,14 @@
       "selectLevel": "Select level",
       "level": "Level",
       "suggest": "Suggest a correction for this level",
-      "suggestGeneral": "Spotted a mistake? Suggest a correction"
+      "suggestGeneral": "Spotted a mistake? Suggest a correction",
+      "dailies": "DAILIES · 4 PER DAY",
+      "dailiesEarly": "Until 15, dailies give little XP (180–2,020): save your 4 for the day and farm.",
+      "dailiesRogue": "Rogues don't get village dailies: their missions come from the Daimyo in Takumi.",
+      "noDailies": "No daily with a confirmed level gate at this level.",
+      "avoid": "AVOID",
+      "good": "WORTH IT",
+      "playerTip": "Player tip:"
     }
   },
   "TAG_EN": {
@@ -247,7 +261,39 @@
     "História: Land of Spirits → Among the Yokai → Binding Ofuda → The Memory Lane": "Story: Land of Spirits → Among the Yokai → Binding Ofuda → The Memory Lane",
     "Break the Chain: derrotar os 4 Sound Ninjas (490.400 XP)": "Break the Chain: defeat the 4 Sound Ninjas (490,400 XP)",
     "Echos of Yokai I–V (Okuri): pesquisa dos yokai, leva a The Whispering Well": "Echos of Yokai I–V (Okuri): yokai research, leads to The Whispering Well",
-    "Cleanse the Forest I–V (Nekomata): de Spiritevil Falls até Spiritstone Hollow": "Cleanse the Forest I–V (Nekomata): from Spiritevil Falls to Spiritstone Hollow"
+    "Cleanse the Forest I–V (Nekomata): de Spiritevil Falls até Spiritstone Hollow": "Cleanse the Forest I–V (Nekomata): from Spiritevil Falls to Spiritstone Hollow",
+    "Matar 70 Mutant Rats no Leaf Village Sewers, que só abre com os seals de Leaf.": "Kill 70 Mutant Rats in the Leaf Village Sewers, which only open with the Leaf seals.",
+    "Diária principal do Rogue: no 15, duas delas rendem 1–2 níveis.": "The Rogue's main daily: at 15, two of them give 1–2 levels.",
+    "PvP: só contam alvos até 10 níveis abaixo de você.": "PvP: only targets up to 10 levels below you count.",
+    "Basta descansar nas termas da vila.": "Just rest at the village hot springs.",
+    "A janela de nível mais larga das diárias (19–50).": "The widest level window of any daily (19–50).",
+    "O XP não sobe com o nível: nos 40 rende pouco.": "The XP doesn't scale with level: it pays little in the 40s.",
+    "PvP: cobrar recompensas de alvos do Bingo Book na Bounty Station.": "PvP: collect bounties on Bingo Book targets at the Bounty Station.",
+    "PvP: matar inimigos em Danger Zone ou War Zone; alvos mais de 10 níveis abaixo não contam.": "PvP: kill enemies in a Danger Zone or War Zone; targets more than 10 levels below you don't count.",
+    "Bom XP para a faixa, mais 175 Ryo e 4 consumíveis.": "Good XP for the range, plus 175 Ryo and 4 consumables.",
+    "No Sand pede 30 Snake Venom (drop das Snakes do Abandoned Lair) e 25 Spider Eggs (perto da Leaf); os itens mudam por vila.": "In Sand it asks for 30 Snake Venom (dropped by Snakes in the Abandoned Lair) and 25 Spider Eggs (near Leaf); the items change by village.",
+    "Quase ninguém pega: farmar Snake Venom é muito ruim.": "Almost nobody takes it: farming Snake Venom is awful.",
+    "Só escoltar um mercador até Kinsen Quarters.": "Just escort a merchant to Kinsen Quarters.",
+    "Paga só 30 Ryo.": "Pays only 30 Ryo.",
+    "Snakes do Abandoned Lair: combina com o grind da faixa.": "Abandoned Lair Snakes: fits the grind for this range.",
+    "As Venomous Snakes ficam no 2º andar, que abre com The Venomous Requirement.": "Venomous Snakes are on the 2nd floor, which opens with The Venomous Requirement.",
+    "Maior XP de diária na faixa dos 30.": "Highest daily XP in the 30s.",
+    "Entrar numa vila inimiga até o escritório do Kage e sair vivo.": "Get into an enemy village, reach the Kage's office and get out alive.",
+    "Só mobs: 25 Great White Sharks.": "Mobs only: 25 Great White Sharks.",
+    "Fica no mar (South Eastern Sea V); desde 29/07/2026 aparece lá o Great Blood Shark, uma versão enfurecida.": "It is at sea (South Eastern Sea V); since July 29, 2026 the Great Blood Shark, an enraged version, spawns there.",
+    "Maior XP entre as diárias abaixo do 65.": "Highest XP among dailies below 65.",
+    "Escoltar o enviado até outra vila.": "Escort the envoy to another village.",
+    "Roubar um pacote no mercado de outra vila (risco de PvP).": "Steal a package from another village's market (PvP risk).",
+    "PvP: eliminar ninjas inimigos em Takumi.": "PvP: eliminate enemy ninja in Takumi.",
+    "PvP: matar alvos do Bingo Book \"B\" e cobrar na Bounty Station.": "PvP: kill Bingo Book \"B\" targets and claim at the Bounty Station.",
+    "Mais 200–300 Ryo e 4 consumíveis.": "Plus 200–300 Ryo and 4 consumables.",
+    "Coleta de ingredientes para o herbalista, como na Medicine Supplies II.": "Ingredient gathering for the herbalist, like Medicine Supplies II.",
+    "Eliminar Jonin da Leaf em território inimigo.": "Eliminate Leaf Jonin in enemy territory.",
+    "Eliminar Jonin da Mist em território inimigo.": "Eliminate Mist Jonin in enemy territory.",
+    "Um dos maiores XP de diária.": "One of the highest daily XP payouts.",
+    "Caçar o Dark Weasel no deserto profundo.": "Hunt the Dark Weasel in the deep desert.",
+    "Maior XP de diária registrado.": "Highest daily XP on record.",
+    "Caçar o Dark Monkey King no Valley of the End (War Zone).": "Hunt the Dark Monkey King in the Valley of the End (War Zone)."
   },
   "BRACKETS": [
     {
@@ -483,6 +529,29 @@
     { "lv": 60, "name": "Break the Chain: derrotar os 4 Sound Ninjas (490.400 XP)", "wiki": "Break the Chain" },
     { "lv": 60, "name": "Echos of Yokai I–V (Okuri): pesquisa dos yokai, leva a The Whispering Well", "wiki": "Echos of Yokai I" },
     { "lv": 60, "name": "Cleanse the Forest I–V (Nekomata): de Spiritevil Falls até Spiritstone Hollow", "wiki": "Cleanse the Forest I" }
+  ],
+  "DAILIES": [
+    { "from": 10, "name": "Mission: Mutant Rats", "wiki": "Mission: Mutant Rats", "rank": "C", "xp": 8600, "v": ["leaf"], "cons": ["Matar 70 Mutant Rats no Leaf Village Sewers, que só abre com os seals de Leaf."] },
+    { "from": 15, "name": "Cold-Blooded Killer", "wiki": "Cold-Blooded Killer", "rank": "B", "xp": [25875,327410], "v": ["rogue"], "pros": ["Diária principal do Rogue: no 15, duas delas rendem 1–2 níveis."], "cons": ["PvP: só contam alvos até 10 níveis abaixo de você."] },
+    { "from": 19, "to": 50, "name": "Guilty Pleasure", "wiki": "Guilty Pleasure", "rank": "B", "xp": 46400, "v": ["leaf", "sand", "mist"], "pros": ["Basta descansar nas termas da vila.", "A janela de nível mais larga das diárias (19–50)."], "cons": ["O XP não sobe com o nível: nos 40 rende pouco."] },
+    { "from": 21, "to": 30, "name": "Bounty Hunting I", "wiki": "Bounty Hunting", "rank": "B", "xp": 46500, "v": ["leaf", "sand", "mist"], "cons": ["PvP: cobrar recompensas de alvos do Bingo Book na Bounty Station."] },
+    { "from": 21, "to": 30, "name": "Waging War I", "wiki": "Waging War", "rank": "B", "xp": 40900, "v": ["leaf", "sand", "mist"], "cons": ["PvP: matar inimigos em Danger Zone ou War Zone; alvos mais de 10 níveis abaixo não contam."] },
+    { "from": 21, "to": 35, "name": "Medicine Supplies II", "wiki": "Medicine Supplies II", "rank": "B", "xp": 78100, "v": ["leaf", "sand", "mist"], "verdict": "avoid", "tip": "Quase ninguém pega: farmar Snake Venom é muito ruim.", "pros": ["Bom XP para a faixa, mais 175 Ryo e 4 consumíveis."], "cons": ["No Sand pede 30 Snake Venom (drop das Snakes do Abandoned Lair) e 25 Spider Eggs (perto da Leaf); os itens mudam por vila."] },
+    { "from": 25, "to": 30, "name": "Open for Business", "wiki": "Open for Business", "rank": "A", "xp": 69750, "v": ["leaf", "sand", "mist"], "pros": ["Só escoltar um mercador até Kinsen Quarters."], "cons": ["Paga só 30 Ryo."] },
+    { "from": 25, "to": 35, "name": "Clear the Abandoned Lair", "wiki": "Clear the Abandoned Lair", "rank": "C", "xp": 46500, "v": ["leaf", "sand", "mist"], "pros": ["Snakes do Abandoned Lair: combina com o grind da faixa."] },
+    { "from": 26, "to": 35, "name": "Bounty Hunting II", "wiki": "Bounty Hunting", "rank": "B", "xp": 81800, "v": ["leaf", "sand", "mist"], "cons": ["PvP: cobrar recompensas de alvos do Bingo Book na Bounty Station."] },
+    { "from": 27, "to": 38, "name": "Clear the Abandoned Lair II", "wiki": "Clear the Abandoned Lair II", "rank": "C", "xp": 59040, "v": ["leaf", "sand", "mist"], "cons": ["As Venomous Snakes ficam no 2º andar, que abre com The Venomous Requirement."] },
+    { "from": 30, "to": 40, "name": "Spy on the Kage Office", "wiki": "Spy on Hokage/Kazekage/Mizukage Office", "rank": "A", "xp": 107362, "v": ["leaf", "sand", "mist"], "pros": ["Maior XP de diária na faixa dos 30."], "cons": ["Entrar numa vila inimiga até o escritório do Kage e sair vivo."] },
+    { "from": 46, "to": 53, "name": "Shark Attack", "wiki": "Shark Attack", "rank": "C", "xp": 228390, "v": ["leaf", "sand", "mist"], "pros": ["Só mobs: 25 Great White Sharks."], "cons": ["Fica no mar (South Eastern Sea V); desde 29/07/2026 aparece lá o Great Blood Shark, uma versão enfurecida."] },
+    { "from": 50, "name": "Escort the Foreign Envoy", "wiki": "Escort the Foreign Envoy", "rank": "S", "xp": 391250, "v": ["leaf", "sand", "mist"], "pros": ["Maior XP entre as diárias abaixo do 65."], "cons": ["Escoltar o enviado até outra vila."] },
+    { "from": 51, "name": "Silent Shipment", "wiki": "Silent Shipment", "rank": "S", "xp": 264730, "v": ["leaf", "sand", "mist"], "cons": ["Roubar um pacote no mercado de outra vila (risco de PvP)."] },
+    { "from": 57, "to": 70, "name": "Takumi Watch", "wiki": "Takumi Watch", "rank": "S", "xp": 318400, "v": ["leaf", "sand", "mist"], "cons": ["PvP: eliminar ninjas inimigos em Takumi."] },
+    { "from": 57, "to": 70, "name": "Village's Most Wanted III", "wiki": "Village's Most Wanted III", "rank": "S", "xp": 343600, "v": ["leaf", "sand", "mist"], "cons": ["PvP: matar alvos do Bingo Book \"B\" e cobrar na Bounty Station."] },
+    { "from": 58, "to": 70, "name": "Medicine Supplies IV", "wiki": "Medicine Supplies IV", "rank": "A", "xp": 342640, "v": ["leaf", "sand", "mist"], "pros": ["Mais 200–300 Ryo e 4 consumíveis."], "cons": ["Coleta de ingredientes para o herbalista, como na Medicine Supplies II."] },
+    { "from": 59, "name": "Leaf Village Assault", "wiki": "Leaf Village Assault", "rank": "S", "xp": 310200, "v": ["sand", "mist"], "cons": ["Eliminar Jonin da Leaf em território inimigo."] },
+    { "from": 59, "name": "Mist Village Assault", "wiki": "Mist Village Assault", "rank": "S", "xp": 310200, "v": ["leaf", "sand"], "cons": ["Eliminar Jonin da Mist em território inimigo."] },
+    { "from": 65, "name": "The Sandstorm Predator", "wiki": "The Sandstorm Predator", "rank": "S", "xp": 461210, "v": ["leaf", "sand", "mist"], "pros": ["Um dos maiores XP de diária."], "cons": ["Caçar o Dark Weasel no deserto profundo."] },
+    { "from": 65, "name": "Dethrone the Beast", "wiki": "Dethrone the Beast", "rank": "S", "xp": 461370, "v": ["leaf", "sand", "mist"], "pros": ["Maior XP de diária registrado."], "cons": ["Caçar o Dark Monkey King no Valley of the End (War Zone)."] }
   ],
   "MILESTONES": {
     "pt": {
