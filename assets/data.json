@@ -102,7 +102,7 @@
     "sand": ["wind", "Fan"],
     "mist": ["water", "Bubble"]
   },
-  "ROGUE_SPOT": ["[Rota Rogue a confirmar]", "[Mapa a confirmar]", "Sem dados públicos de rota para Rogue nesta faixa. Preencha com os dados do Nin DB."],
+  "ROGUE_SPOT": ["[Rota Rogue a confirmar]", "[Mapa a confirmar]", "Sem dados públicos de rota para Rogue nesta faixa. Sabe a rota? Use \"Sugerir correção\"."],
   "I18N": {
     "pt": {
       "lang": "Idioma",

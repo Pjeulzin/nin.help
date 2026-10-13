@@ -122,7 +122,7 @@
     const spotFor = (b) => (mast.phys && b.phys ? pickSet(b.phys) : null) || pickSet(b.main) || D.ROGUE_SPOT;
 
     document.documentElement.lang = EN ? 'en' : 'pt-BR';
-    document.title = `Nin DB — ${t.title}`;
+    document.title = `Nin Help — ${t.title}`;
     document.querySelectorAll('[data-t]').forEach((n) => { n.textContent = t[n.dataset.t]; });
     $('lang-group').setAttribute('aria-label', t.lang);
     $('close').setAttribute('aria-label', t.close);
