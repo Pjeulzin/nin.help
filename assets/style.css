@@ -169,3 +169,5 @@ button{font-family:inherit}
 @media (prefers-reduced-motion:reduce){
   .details,#sheet-toggle svg{transition:none!important}
 }
+.b-stat{font-size:13px;color:#a7afbd}
+.b-stat strong{color:#f0a93c}

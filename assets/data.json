@@ -44,6 +44,7 @@
       "name": "Fire",
       "color": "#ef6a3d",
       "phys": false,
+      "stat": "Intelligence",
       "tip": "Multi-alvo e dano alto: junte grupos de mobs e limpe em área.",
       "tipEn": "Multi-target and high damage: pull groups of mobs and clear them with AoE."
     },
@@ -51,6 +52,7 @@
       "name": "Wind",
       "color": "#8fd3a0",
       "phys": false,
+      "stat": "Intelligence",
       "tip": "Rápido, afiado e letal: ótimo para rotacionar spawns sozinho.",
       "tipEn": "Fast, sharp and lethal: great for rotating spawns solo."
     },
@@ -58,6 +60,7 @@
       "name": "Lightning",
       "color": "#f2d04b",
       "phys": false,
+      "stat": "Intelligence",
       "tip": "Dano alto e imobilização: prenda o mob enquanto ataca.",
       "tipEn": "High damage and immobilization: lock the mob down while you attack."
     },
@@ -65,6 +68,7 @@
       "name": "Earth",
       "color": "#c39a62",
       "phys": false,
+      "stat": "Intelligence",
       "tip": "Área ampla e controle de grupo: segura vários mobs de uma vez.",
       "tipEn": "Wide AoE and crowd control: holds several mobs at once."
     },
@@ -72,6 +76,7 @@
       "name": "Water",
       "color": "#4ea6dc",
       "phys": false,
+      "stat": "Intelligence",
       "tip": "Equilibrado e versátil: rende bem em qualquer zona.",
       "tipEn": "Balanced and versatile: performs well in any zone."
     },
@@ -79,20 +84,31 @@
       "name": "Medical",
       "color": "#ec7aa6",
       "phys": true,
+      "stat": "Chakra",
       "tip": "Cura, revive e veneno: rende mais em time, principalmente nos arcos.",
       "tipEn": "Healing, revive and poison: best in a team, especially during arcs."
     },
     "weapon": {
-      "name": "Weapon",
+      "name": "Weapon STR",
       "color": "#b3bcc8",
       "phys": true,
-      "tip": "Técnicas de armas e ferramentas ninja.",
-      "tipEn": "Weapon techniques and ninja tools."
+      "stat": "Strength",
+      "tip": "Técnicas de armas e ferramentas ninja, com dano em Strength.",
+      "tipEn": "Weapon techniques and ninja tools, with Strength damage."
+    },
+    "weaponint": {
+      "name": "Weapon INT",
+      "color": "#9fb0c8",
+      "phys": false,
+      "stat": "Intelligence",
+      "tip": "Técnicas de armas e ferramentas ninja, com dano em Intelligence.",
+      "tipEn": "Weapon techniques and ninja tools, with Intelligence damage."
     },
     "taijutsu": {
       "name": "Taijutsu",
       "color": "#f0a93c",
       "phys": true,
+      "stat": "Agility",
       "tip": "Combate corpo a corpo puro.",
       "tipEn": "Pure hand-to-hand combat."
     }
@@ -125,6 +141,7 @@
       "noMissions": "Nenhuma missão nesta faixa: foco no grind e nas dailies.",
       "soon": "EM BREVE",
       "build": "SUA BUILD",
+      "scales": "Escala com",
       "selectLevel": "Selecionar nível",
       "level": "Nível",
       "suggest": "Sugerir correção para este nível",
@@ -160,6 +177,7 @@
       "noMissions": "No missions in this range: focus on grinding and dailies.",
       "soon": "COMING UP",
       "build": "YOUR BUILD",
+      "scales": "Scales with",
       "selectLevel": "Select level",
       "level": "Level",
       "suggest": "Suggest a correction for this level",

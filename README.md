@@ -71,7 +71,7 @@ Se for usar `nin.help`: em **Settings › Pages › Custom domain** digite `nin.
 
 O estado vai na URL: `#v=sand&m=fire&lang=pt&lv=14`.
 - `v`: leaf | sand | mist | rogue
-- `m`: fire | wind | lightning | earth | water | medical | weapon | taijutsu
+- `m`: fire | wind | lightning | earth | water | medical | weapon (STR) | weaponint (INT) | taijutsu
 - `lang`: pt | en
 - `lv`: 1–70
 

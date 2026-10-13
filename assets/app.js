@@ -271,6 +271,7 @@
     $('b-dot').style.background = mast.color;
     $('b-name').textContent = mast.name;
     $('b-village').textContent = `· ${vill.name}`;
+    $('b-stat').textContent = mast.stat;
     $('b-tip').textContent = EN ? mast.tipEn : mast.tip;
     $('v-name').textContent = `${vill.name}:`;
     $('v-name').style.color = vill.color;
@@ -281,9 +282,11 @@
     if (lv < 10) note = EN
       ? 'Your 1st mastery is chosen at level 10. Until then, put points into Agility and a little HP.'
       : 'A 1ª maestria é escolhida no nível 10. Até lá, distribua pontos em Agility e um pouco de HP.';
-    else if (lv >= 13 && lv <= 20) note = mast.phys
-      ? (EN ? 'Physical build: follow the melee route (village beasts and Snakes) in this range.' : 'Build física: segue a rota corpo a corpo (feras da vila e Snakes) nesta faixa.')
-      : (EN ? 'Elemental build (Intelligence): from level 16, take your village’s INT route.' : 'Build elemental (Intelligence): a partir do 16 vale a rota INT da sua vila.');
+    else if (lv >= 13 && lv <= 20) note = mast.stat === 'Chakra'
+      ? (EN ? 'Medic build (Chakra): soloing is tough; level with a kunai on the melee route (village beasts and Snakes), and a team helps a lot.' : 'Build de médico (Chakra): solar é difícil; upe com kunai na rota corpo a corpo (feras da vila e Snakes), e um time ajuda muito.')
+      : mast.phys
+      ? (EN ? `Physical build (${mast.stat}): follow the melee route (village beasts and Snakes) in this range.` : `Build física (${mast.stat}): segue a rota corpo a corpo (feras da vila e Snakes) nesta faixa.`)
+      : (EN ? 'Intelligence build: from level 16, take your village’s INT route.' : 'Build de Intelligence: a partir do 16 vale a rota INT da sua vila.');
     else if (!sec) note = lv >= 50
       ? (EN ? '2nd mastery unlocked.' : '2ª maestria liberada.')
       : (EN ? 'You choose your 2nd mastery at level 50.' : 'No nível 50 você escolhe a 2ª maestria.');

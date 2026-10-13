@@ -46,6 +46,7 @@ for (const [k, v] of Object.entries(D.VILLAGES)) {
 const masteries = Object.keys(D.MASTERIES);
 for (const [k, m] of Object.entries(D.MASTERIES)) {
   need(m, ['name', 'color', 'tip', 'tipEn'], `MASTERIES.${k}`);
+  if (!['Intelligence', 'Chakra', 'Strength', 'Agility'].includes(m.stat)) err(`MASTERIES.${k}.stat deve ser Intelligence, Chakra, Strength ou Agility`);
   if (typeof m.phys !== 'boolean') err(`MASTERIES.${k}.phys deve ser true ou false`);
 }
 for (const [v, pair] of Object.entries(D.SECOND)) {
