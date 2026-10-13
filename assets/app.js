@@ -296,11 +296,11 @@
       ? (EN ? '2nd mastery unlocked.' : '2ª maestria liberada.')
       : (EN ? 'You choose your 2nd mastery at level 50.' : 'No nível 50 você escolhe a 2ª maestria.');
     else if (lv >= 50) note = EN
-      ? `2nd mastery unlocked. ${vill.name} exclusive: ${sec[1]} (${D.MASTERIES[sec[0]].name} path).`
-      : `2ª maestria liberada. Exclusivo de ${vill.name}: ${sec[1]} (caminho ${D.MASTERIES[sec[0]].name}).`;
+      ? `2nd mastery unlocked. ${vill.name} exclusive: ${sec[1]} (${D.MASTERIES[sec[0]].name} branch, scales with Strength).`
+      : `2ª maestria liberada. Exclusivo de ${vill.name}: ${sec[1]} (ramo do ${D.MASTERIES[sec[0]].name}, escala com Strength).`;
     else note = EN
-      ? `You choose your 2nd mastery at level 50. ${vill.name} has access to the exclusive ${sec[1]} path.`
-      : `No nível 50 você escolhe a 2ª maestria. ${vill.name} tem acesso ao caminho exclusivo ${sec[1]}.`;
+      ? `You choose your 2nd mastery at level 50. ${vill.name} has access to the exclusive ${sec[1]} branch (scales with Strength).`
+      : `No nível 50 você escolhe a 2ª maestria. ${vill.name} tem acesso ao ramo exclusivo ${sec[1]} (escala com Strength).`;
     $('b-note').textContent = note;
 
     // Próximo marco

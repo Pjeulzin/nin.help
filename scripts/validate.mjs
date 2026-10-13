@@ -43,7 +43,7 @@ for (const [k, v] of Object.entries(D.VILLAGES)) {
   need(v, ['name', 'color', 'ink', 'd', 'note', 'noteEn'], `VILLAGES.${k}`);
   for (const c of ['color', 'ink']) if (!/^#[0-9a-f]{6}$/i.test(v[c] || '')) err(`VILLAGES.${k}.${c} deve ser uma cor #rrggbb`);
   for (const [f, s] of Object.entries(v.info || {})) {
-    if (!['passive', 'org', 'summons', 'clans', 'become'].includes(f)) err(`VILLAGES.${k}.info: campo "${f}" desconhecido (use passive, org, summons, clans ou become)`);
+    if (!['passive', 'mastery', 'org', 'items', 'summons', 'clans', 'become'].includes(f)) err(`VILLAGES.${k}.info: campo "${f}" desconhecido (use passive, mastery, org, items, summons, clans ou become)`);
     if (!isStr(s)) err(`VILLAGES.${k}.info.${f}: texto vazio`);
     else if (!isStr(D.TEXT_EN?.[s])) pending.push(`VILLAGES.${k}.info.${f}: sem tradução em TEXT_EN`);
   }
@@ -138,7 +138,7 @@ const dailyTexts = [];
     if (!isStr(D.TEXT_EN?.[t])) pending.push(`${where}: "${t.slice(0, 40)}" sem tradução em TEXT_EN`);
   }
 });
-for (const k of ['dailies', 'dailiesEarly', 'dailiesReset', 'dailiesRogue', 'noDailies', 'avoid', 'good', 'playerTip', 'vinfo', 'vinfoCommon', 'passive', 'org', 'summons', 'clans', 'become'])
+for (const k of ['dailies', 'dailiesEarly', 'dailiesReset', 'dailiesRogue', 'noDailies', 'avoid', 'good', 'playerTip', 'vinfo', 'vinfoCommon', 'passive', 'mastery', 'org', 'items', 'summons', 'clans', 'become'])
   if (!isStr(D.I18N.pt?.[k])) err(`I18N.pt: falta o texto "${k}" usado pelo painel`);
 
 // ---- Traduções (TEXT_EN: texto em português -> inglês) ----

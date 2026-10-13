@@ -15,7 +15,9 @@
       "noteEn": "Hardest route: you have to leave the village early and farm in Danger Zones at higher levels.",
       "info": {
         "passive": "Will of Fire: 5% de chance de reviver sozinho ao ser derrotado.",
+        "mastery": "Gentle Fist, ramo do Taijutsu liberado no 50. Escala com Strength: golpes rápidos, muito dano no 1x1 e dreno de chakra.",
         "org": "Twelve Guardian Ninja: guardam o Daimyo do País do Fogo, no alto da vila.",
+        "items": "12 Guardian Waistcloth: +10 em todos os atributos (Nv 25+, só para os Twelve Guardians; cai ao morrer).",
         "summons": "Sapo (Toad) e Lesma (Slug).",
         "clans": "Sasayaki, Muteki, Suwa, Ukiyo e Hayashi."
       }
@@ -29,7 +31,9 @@
       "noteEn": "Easiest grind: training areas are close to the village.",
       "info": {
         "passive": "Invisibilidade 100% perfeita com o Cloak of Invisibility Technique: some até para quem está perto.",
+        "mastery": "Fan, ramo do Wind liberado no 50. Escala com Strength: especialista em stun, luta com leques.",
         "org": "Puppet Brigade: ninjas que lutam com marionetes gigantes, em esquadrões de 3.",
+        "items": "Marionetes (Sand Puppeteering): qualquer ninja da Sand aprende; têm ~550 HP e golpes de 30. A Grand Puppet, só da Puppet Brigade, tem ~700 HP e golpes de 51.",
         "summons": "Doninha (Weasel), Falcão (Hawk) e Marionete (Sand Puppeteering).",
         "clans": "Sashiba, Ketsueki, Tendo, Toitsu e Jakusha."
       }
@@ -43,7 +47,9 @@
       "noteEn": "Second easiest, but isolated (5 min by boat). Mist's seals are inside the village (Ikayasu) and unlock the Sealed Temple.",
       "info": {
         "passive": "Corre e recarrega chakra em cima da água; as outras vilas perdem chakra na água.",
+        "mastery": "Bubble, ramo do Water liberado no 50. Escala com Strength: manobras estratégicas, usa cachimbos (pipes).",
         "org": "Seven Swordsmen of the Mist: mais um título que um grupo; caçam sozinhos ou em até 3. Na Mist, a ANBU se chama Hunter-Nin.",
+        "items": "Seven Swords of the Mist: espadas lendárias exclusivas da Mist (Nv 35, 80 Strength).",
         "summons": "Molusco (Clam) e Panda.",
         "clans": "Yagyu, Murasame, Hoshi, Kazuki e Sakame."
       }
@@ -181,8 +187,10 @@
       "org": "Organização exclusiva",
       "summons": "Invocações exclusivas",
       "clans": "Clãs",
+      "mastery": "Maestria exclusiva",
+      "items": "Itens exclusivos",
       "become": "Como virar Rogue",
-      "vinfoCommon": "Clãs não mudam nada no jogo: só liberam roupas exclusivas. Toda vila tem ANBU, Polícia Militar e Unidade Médica, e todos podem invocar Ninken, Monkey e Snake a partir do 25."
+      "vinfoCommon": "Clãs não mudam nada no jogo: só liberam roupas exclusivas. Toda vila tem ANBU, Polícia Militar e Unidade Médica, e todos podem invocar Ninken, Monkey e Snake a partir do 25. A máscara da ANBU dá +7 em todos os atributos."
     },
     "en": {
       "lang": "Language",
@@ -224,8 +232,10 @@
       "org": "Exclusive organization",
       "summons": "Exclusive summons",
       "clans": "Clans",
+      "mastery": "Exclusive mastery",
+      "items": "Exclusive items",
       "become": "How to become a Rogue",
-      "vinfoCommon": "Clans change nothing in gameplay: they only unlock exclusive outfits. Every village has ANBU, Military Police and a Medical Unit, and everyone can summon Ninken, Monkey and Snake from level 25."
+      "vinfoCommon": "Clans change nothing in gameplay: they only unlock exclusive outfits. Every village has ANBU, Military Police and a Medical Unit, and everyone can summon Ninken, Monkey and Snake from level 25. The ANBU mask gives +7 to all stats."
     }
   },
   "TAG_EN": {
@@ -368,7 +378,13 @@
     "Molusco (Clam) e Panda.": "Clam and Panda.",
     "Yagyu, Murasame, Hoshi, Kazuki e Sakame.": "Yagyu, Murasame, Hoshi, Kazuki and Sakame.",
     "Todo personagem nasce numa vila. Vira Rogue quem é exilado pelo Kage, foge da prisão ou mata um aliado 3 vezes em Danger Zone ou War Zone.": "Every character starts in a village. You become a Rogue by being exiled by your Kage, escaping prison, or killing an ally 3 times in a Danger Zone or War Zone.",
-    "Neo-Akatsuki: a organização criminosa mais temida, sediada em Takumi.": "Neo-Akatsuki: the most feared criminal organization, based in Takumi."
+    "Neo-Akatsuki: a organização criminosa mais temida, sediada em Takumi.": "Neo-Akatsuki: the most feared criminal organization, based in Takumi.",
+    "Gentle Fist, ramo do Taijutsu liberado no 50. Escala com Strength: golpes rápidos, muito dano no 1x1 e dreno de chakra.": "Gentle Fist, a Taijutsu branch unlocked at 50. Scales with Strength: fast strikes, heavy 1v1 damage and chakra drain.",
+    "12 Guardian Waistcloth: +10 em todos os atributos (Nv 25+, só para os Twelve Guardians; cai ao morrer).": "12 Guardian Waistcloth: +10 to all stats (Lv 25+, Twelve Guardians only; drops on death).",
+    "Fan, ramo do Wind liberado no 50. Escala com Strength: especialista em stun, luta com leques.": "Fan, a Wind branch unlocked at 50. Scales with Strength: a stun specialist that fights with fans.",
+    "Marionetes (Sand Puppeteering): qualquer ninja da Sand aprende; têm ~550 HP e golpes de 30. A Grand Puppet, só da Puppet Brigade, tem ~700 HP e golpes de 51.": "Puppets (Sand Puppeteering): any Sand ninja can learn them; ~550 HP and 30-damage strikes. The Grand Puppet, Puppet Brigade only, has ~700 HP and 51-damage strikes.",
+    "Bubble, ramo do Water liberado no 50. Escala com Strength: manobras estratégicas, usa cachimbos (pipes).": "Bubble, a Water branch unlocked at 50. Scales with Strength: strategic manoeuvres, uses pipes.",
+    "Seven Swords of the Mist: espadas lendárias exclusivas da Mist (Nv 35, 80 Strength).": "Seven Swords of the Mist: legendary swords exclusive to the Mist (Lv 35, 80 Strength)."
   },
   "BRACKETS": [
     {
