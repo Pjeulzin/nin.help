@@ -255,7 +255,7 @@
 
     // Diárias liberadas neste nível, da que paga mais para a que paga menos; as "evite" vão para o fim
     const num = (n) => n.toLocaleString(EN ? 'en-US' : 'pt-BR');
-    const topXp = (d) => (Array.isArray(d.xp) ? d.xp[1] : d.xp);
+    const topXp = (d) => (Array.isArray(d.xp) ? d.xp[1] : d.xp || 0);
     const daily = D.DAILIES
       .filter((d) => d.v.includes(vk) && d.from <= lv && lv <= (d.to || MAX))
       .sort((a, b) => (a.verdict === 'avoid') - (b.verdict === 'avoid') || topXp(b) - topXp(a));
@@ -268,8 +268,8 @@
       const head = el('div', 'dl-head');
       head.append(mName(d, 'm-name dl-name'));
       if (d.verdict) head.append(el('span', `dl-verdict ${d.verdict}`, d.verdict === 'avoid' ? t.avoid : t.good));
-      const xp = Array.isArray(d.xp) ? `${num(d.xp[0])}–${num(d.xp[1])}` : num(d.xp);
-      card.append(head, el('div', 'dl-meta', `${lvTag} ${d.from}${d.to ? `–${d.to}` : '+'} · Rank ${d.rank} · ${xp} XP`));
+      const xp = Array.isArray(d.xp) ? `${num(d.xp[0])}–${num(d.xp[1])} XP` : d.xp ? `${num(d.xp)} XP` : t.xpUnknown;
+      card.append(head, el('div', 'dl-meta', `${lvTag} ${d.from}${d.to ? `–${d.to}` : '+'} · Rank ${d.rank} · ${xp}`));
       for (const [k, sign] of [['pros', '+'], ['cons', '−']]) for (const s of d[k] || []) {
         const line = el('div', `dl-${k}`);
         line.append(el('span', 'dl-sign', sign), el('span', null, tr(s)));
@@ -314,6 +314,19 @@
       ? `You choose your 2nd mastery at level 50. ${vill.name} has access to the exclusive ${sec[1]} branch (scales with Strength).`
       : `No nível 50 você escolhe a 2ª maestria. ${vill.name} tem acesso ao ramo exclusivo ${sec[1]} (escala com Strength).`;
     $('b-note').textContent = note;
+
+    // Atributos sugeridos: a meta já alcançada (abaixo do 10, nenhuma) e a próxima
+    const plan = D.BUILDS[mast.stat] || [];
+    const reached = plan.filter((r) => r.lv <= lv);
+    const cur = reached[reached.length - 1];
+    const next = plan.find((r) => r.lv > lv);
+    const statLine = (label, r) => {
+      const p = el('p', 'bs-line');
+      p.append(el('strong', null, `${label} (${lvTag} ${r.lv}): `), el('span', 'bs-stats', r.stats), document.createTextNode(` — ${tr(r.tip)}`));
+      return p;
+    };
+    $('b-stats').hidden = !plan.length;
+    $('b-stats').replaceChildren(...[cur && statLine(t.statsNow, cur), next && statLine(t.statsNext, next), el('p', 'bs-src', t.statsSource)].filter(Boolean));
 
     // Próximo marco
     const nextLv = Object.keys(MS).map(Number).find((m) => m > lv);

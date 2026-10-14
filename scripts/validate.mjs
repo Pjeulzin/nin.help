@@ -47,7 +47,7 @@ const isPlaceholder = (s) => typeof s === 'string' && /\[[^\]]*(confirmar|confir
 const need = (obj, keys, where) => keys.forEach((k) => { if (!isStr(obj?.[k])) err(`${where}: campo "${k}" ausente ou vazio`); });
 
 // ---- Seções obrigatórias ----
-for (const k of ['config', 'VILLAGES', 'MASTERIES', 'SECOND', 'I18N', 'TAG_EN', 'PARTY_EN', 'TEXT_EN', 'BRACKETS', 'MISSIONS', 'DAILIES', 'MILESTONES', 'BAR_MILESTONES', 'TICKS']) {
+for (const k of ['config', 'VILLAGES', 'MASTERIES', 'SECOND', 'I18N', 'TAG_EN', 'PARTY_EN', 'TEXT_EN', 'BRACKETS', 'MISSIONS', 'DAILIES', 'BUILDS', 'MILESTONES', 'BAR_MILESTONES', 'TICKS']) {
   if (!(k in D)) err(`seção "${k}" não existe`);
 }
 if (errors.length) finish();
@@ -151,7 +151,7 @@ const dailyTexts = [];
   if (!isStr(d.name)) err(`${where}: name vazio`);
   if (!RANKS.includes(d.rank)) err(`${where}: rank deve ser ${RANKS.join(', ')}`);
   const xpOk = (n) => Number.isInteger(n) && n > 0;
-  if (!(xpOk(d.xp) || (Array.isArray(d.xp) && d.xp.length === 2 && d.xp.every(xpOk) && d.xp[0] < d.xp[1]))) err(`${where}: xp deve ser um número ou [mínimo, máximo]`);
+  if (d.xp !== undefined && !(xpOk(d.xp) || (Array.isArray(d.xp) && d.xp.length === 2 && d.xp.every(xpOk) && d.xp[0] < d.xp[1]))) err(`${where}: xp deve ser um número ou [mínimo, máximo] (ou ficar de fora se a wiki não registra)`);
   if (!Array.isArray(d.v) || !d.v.length || d.v.some((v) => !villages.includes(v))) err(`${where}: v deve listar vilas (${villages.join(', ')})`);
   if (d.wiki !== undefined && !isStr(d.wiki)) err(`${where}: wiki vazia`);
   if (d.verdict !== undefined && !VERDICTS.includes(d.verdict)) err(`${where}: verdict deve ser ${VERDICTS.join(' ou ')}`);
@@ -162,12 +162,28 @@ const dailyTexts = [];
     if (!isStr(D.TEXT_EN?.[t])) pending.push(`${where}: "${t.slice(0, 40)}" sem tradução em TEXT_EN`);
   }
 });
-for (const k of ['dailies', 'dailiesEarly', 'dailiesReset', 'dailiesRogue', 'noDailies', 'avoid', 'good', 'playerTip', 'vinfo', 'vinfoCommon', 'info_passive', 'info_mastery', 'info_org', 'info_items', 'info_summons', 'info_clans', 'info_become'])
+for (const k of ['dailies', 'dailiesEarly', 'dailiesReset', 'dailiesRogue', 'noDailies', 'avoid', 'good', 'playerTip', 'vinfo', 'vinfoCommon', 'info_passive', 'info_mastery', 'info_org', 'info_items', 'info_summons', 'info_clans', 'info_become', 'statsNow', 'statsNext', 'statsSource', 'xpUnknown'])
   if (!isStr(D.I18N.pt?.[k])) err(`I18N.pt: falta o texto "${k}" usado pelo painel`);
 
 // ---- Traduções (TEXT_EN: texto em português -> inglês) ----
+// ---- Builds por nível (atributos sugeridos para cada atributo principal das maestrias) ----
+const STATS = ['Intelligence', 'Chakra', 'Strength', 'Agility'];
+const buildTexts = [];
+for (const [k, rows] of Object.entries(D.BUILDS || {})) {
+  if (!STATS.includes(k)) err(`BUILDS: "${k}" não é um atributo (use ${STATS.join(", ")})`);
+  if (!Array.isArray(rows) || !rows.length) { err(`BUILDS.${k}: deve ser uma lista`); continue; }
+  rows.forEach((r, i) => {
+    if (!isInt(r.lv)) err(`BUILDS.${k}[${i}]: lv inválido`);
+    if (i > 0 && r.lv <= rows[i - 1].lv) err(`BUILDS.${k}[${i}]: níveis fora de ordem`);
+    if (!isStr(r.stats)) err(`BUILDS.${k}[${i}]: stats vazio`);
+    if (!isStr(r.tip)) err(`BUILDS.${k}[${i}]: tip vazio`);
+    else { buildTexts.push(r.tip); if (!isStr(D.TEXT_EN?.[r.tip])) pending.push(`BUILDS.${k}[${i}]: dica sem tradução em TEXT_EN`); }
+  });
+}
+for (const m of Object.values(D.MASTERIES)) if (m.stat && !D.BUILDS?.[m.stat]) pending.push(`BUILDS: sem build para o atributo ${m.stat}`);
+
 const villageTexts = Object.values(D.VILLAGES).flatMap((v) => Object.values(v.info || {}));
-const texts = new Set([...D.MISSIONS.map((m) => m.name), ...dailyTexts, ...villageTexts]);
+const texts = new Set([...D.MISSIONS.map((m) => m.name), ...dailyTexts, ...villageTexts, ...buildTexts]);
 D.BRACKETS.forEach((b, i) => {
   for (const k of ['main', 'phys', 'alt']) for (const [v, arr] of Object.entries(b[k] || {})) {
     if (!Array.isArray(arr)) continue;

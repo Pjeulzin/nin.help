@@ -198,6 +198,10 @@
       "soon": "EM BREVE",
       "build": "SUA BUILD",
       "scales": "Escala com",
+      "statsNow": "Atributos sugeridos",
+      "statsNext": "Próxima meta",
+      "statsSource": "Guia de builds de Mentor Silberrose (wiki), para upar até o 50.",
+      "xpUnknown": "XP não registrado",
       "selectLevel": "Selecionar nível",
       "level": "Nível",
       "suggest": "Sugerir correção para este nível",
@@ -243,6 +247,10 @@
       "soon": "COMING UP",
       "build": "YOUR BUILD",
       "scales": "Scales with",
+      "statsNow": "Suggested stats",
+      "statsNext": "Next target",
+      "statsSource": "Build guide by Mentor Silberrose (wiki), for leveling to 50.",
+      "xpUnknown": "XP not recorded",
       "selectLevel": "Select level",
       "level": "Level",
       "suggest": "Suggest a correction for this level",
@@ -310,7 +318,7 @@
     "Tigers até o 20.": "Tigers until 20.",
     "Tunneler (Nv 17) dá 127 XP. No 20, os seals de Sand liberam a Secret Desert Cavern, com Big Scarabs (Nv 23).": "Tunneler (Lv 17) gives 127 XP. At 20, the Sand seals unlock the Secret Desert Cavern, with Big Scarabs (Lv 23).",
     "Pegue a missão repetível de matar caranguejos no barco e repita até o 20. Crab é Nv 21 e pacífico: só ataca se for atacado.": "Take the repeatable crab-killing mission on the ship and repeat it until 20. Crabs are Lv 21 and peaceful: they only fight back when attacked.",
-    "Barco (Ship)": "Ship",
+    "Barco Across the Sea": "Across the Sea ship",
     "Missão repetível dos caranguejos no barco (Crabs, até o 20)": "Repeatable crab mission on the ship (Crabs, until 20)",
     "White Tiger e Tunneler (Nv 17) dão 127 XP.": "White Tiger and Tunneler (Lv 17) give 127 XP.",
     "Mobs do Trem": "Train mobs",
@@ -415,7 +423,29 @@
     "Seven Swords of the Mist: espadas lendárias exclusivas da Mist (Nv 35, 80 Strength).": "Seven Swords of the Mist: legendary swords exclusive to the Mist (Lv 35, 80 Strength).",
     "Compre um bounty: abra o Bingo Book, veja quem tem bounty acumulado e pergunte se vende. O preço costuma ser o dobro do bounty. Combinem um lugar, você paga e ele deixa você matá-lo. Em grupo, a recompensa é dividida entre quem lutou; sozinho, fica toda com você. O mesmo ninja só dá bounty de novo 30 minutos depois. É permitido; proibido é duas pessoas ficarem se matando para acumular bounty e farmar Ryo.": "Buy a bounty: open the Bingo Book, see who has a bounty built up and ask if they'll sell it. The price is usually double the bounty. Agree on a place, pay, and they let you kill them. In a party, the reward is split among everyone who fought; solo, you keep it all. The same ninja only pays a bounty again 30 minutes later. This is allowed; what is banned is two people repeatedly killing each other to stack bounty and farm Ryo.",
     "Dá para combinar a kill com outro jogador, como na compra de bounty pelo Bingo Book: vocês se encontram, você paga e ele deixa você matá-lo. A morte conta para todos que estão com a missão ativa, e só vale em Danger Zone ou War Zone, com ele no máximo 10 níveis abaixo de você. É permitido; proibido é duas pessoas ficarem se matando para acumular bounty e farmar Ryo.": "You can arrange the kill with another player, just like buying a bounty through the Bingo Book: meet up, pay, and they let you kill them. The death counts for everyone with the mission active, and only in a Danger Zone or War Zone, with them at most 10 levels below you. This is allowed; what is banned is two people repeatedly killing each other to stack bounty and farm Ryo.",
-    "Matar quem tem bounty não gera Crime, mesmo com diferença grande de nível.": "Killing someone with a bounty doesn't give Crime, even with a big level gap."
+    "Matar quem tem bounty não gera Crime, mesmo com diferença grande de nível.": "Killing someone with a bounty doesn't give Crime, even with a big level gap.",
+    "Scattered Report: achar 4 páginas de um relatório fora da vila (7.000 XP)": "Scattered Report: find 4 pages of a report outside the village (7,000 XP)",
+    "Botanical Research: frutas e ervas para o hospital da vila (7.500 XP)": "Botanical Research: berries and herbs for the village hospital (7,500 XP)",
+    "Wildlife Samples (missão de história da vila)": "Wildlife Samples (village story mission)",
+    "Bandit Hunt I e II e The Wolf Pack: repetíveis do Rizo após o Bandit Arc (74–80 mil XP)": "Bandit Hunt I and II and The Wolf Pack: Rizo's repeatables after the Bandit Arc (74–80k XP)",
+    "Questline do Denkai em Asoki: achar a carga perdida (nova desde 15/09/2026)": "Denkai's questline in Asoki: find the missing shipment (new since 15/09/2026)",
+    "Diária nova (17/08/2025): a wiki ainda não registra o objetivo nem o XP.": "New daily (17/08/2025): the wiki doesn't record its objective or XP yet.",
+    "Matar tentáculos do Kuraken pelo drop Tentacle; a wiki ainda não registra o XP.": "Kill Kuraken tentacles for the Tentacle drop; the wiki doesn't record the XP yet.",
+    "Comece pelos atributos de recurso e vá somando INT conforme ganha jutsus.": "Start with resource stats and add INT as you gain jutsu.",
+    "Com 3 jutsus de dano, equilibre os atributos com leve foco em INT.": "With 3 damage jutsu, balance your stats with a slight INT focus.",
+    "Arsenal completo: prepare-se para a 2ª maestria e o endgame.": "Full arsenal: get ready for your 2nd mastery and endgame.",
+    "Pronto para qualquer conteúdo; ajuste com Stat Reset Scrolls se precisar.": "Ready for any content; adjust with Stat Reset Scrolls if needed.",
+    "Priorize os requisitos da arma em vez do dano dos jutsus.": "Prioritise weapon requirements over jutsu damage.",
+    "Arma e jutsus novos: comece a investir em CHAK.": "New weapon and jutsu: start investing in CHAK.",
+    "Arma de meio de jogo: reforce os atributos principais.": "Mid-game weapon: build up your core stats.",
+    "Pronto para uma 2ª maestria híbrida.": "Ready for a hybrid 2nd mastery.",
+    "Parecido com STR, mas com mais AGI no lugar de vida.": "Like STR, but more AGI instead of health.",
+    "Invista CHAK para os jutsus, depois AGI e FORT.": "Put CHAK into jutsu, then AGI and FORT.",
+    "Resolva os requisitos de jutsu e arma e ganhe resistência.": "Meet your jutsu and weapon requirements and add bulk.",
+    "Solar é difícil. Opcional: 5 INT para usar a Kunai Dagger.": "Soloing is tough. Optional: 5 INT to use the Kunai Dagger.",
+    "Suba FORT e CHAK para sobreviver enquanto cura.": "Raise FORT and CHAK to survive while healing.",
+    "Cell Regeneration liberada: a vida fica mais fácil.": "Cell Regeneration unlocked: life gets easier.",
+    "Diversifique com jutsus de dano ou siga como curandeiro.": "Branch into damage jutsu or stay a healer."
   },
   "BRACKETS": [
     {
@@ -513,7 +543,7 @@
       "main": {
         "leaf": ["Tigers", "Striped Lake", "Tigers até o 20."],
         "sand": ["Scarabs / Tunnelers", "Desert Cave / Infested Desert Road", "Tunneler (Nv 17) dá 127 XP. No 20, os seals de Sand liberam a Secret Desert Cavern, com Big Scarabs (Nv 23)."],
-        "mist": ["Crabs", "Barco (Ship)", "Pegue a missão repetível de matar caranguejos no barco e repita até o 20. Crab é Nv 21 e pacífico: só ataca se for atacado."],
+        "mist": ["Crabs", "Barco Across the Sea", "Pegue a missão repetível de matar caranguejos no barco e repita até o 20. Crab é Nv 21 e pacífico: só ataca se for atacado."],
         "rogue": ["White Tigers / Tunnelers", "Sea Breeze Vale / Beach Cave", "White Tiger e Tunneler (Nv 17) dão 127 XP."]
       },
       "alt": {
@@ -626,7 +656,10 @@
     { "lv": 1, "v": "sand", "name": "Estátua da Cabaça: entregar Kazecola / Sand Up às crianças" },
     { "lv": 1, "v": "mist", "name": "Missão Gold Bars" },
     { "lv": 10, "name": "Yuu Questline em Takumi (3 missões, até ~15)", "wiki": "Yuu Mini Questline" },
+    { "lv": 10, "name": "Scattered Report: achar 4 páginas de um relatório fora da vila (7.000 XP)", "wiki": "Scattered Report" },
     { "lv": 12, "name": "RP Mission I: 11.600 XP (precisa de Chuunin+ e 3 jogadores)" },
+    { "lv": 12, "name": "Botanical Research: frutas e ervas para o hospital da vila (7.500 XP)", "wiki": "Botanical Research" },
+    { "lv": 12, "name": "Wildlife Samples (missão de história da vila)" },
     { "lv": 15, "name": "Mobster Questline em Kinsen Quarters (antiga Tanzaku)", "wiki": "Tanzaku Mobsters Mini Questline" },
     { "lv": 17, "name": "RP Mission II: 34.850 XP" },
     { "lv": 18, "v": "mist", "name": "Missão repetível dos caranguejos no barco (Crabs, até o 20)" },
@@ -648,6 +681,8 @@
     { "lv": 40, "name": "Gobori's Odd Request: 23 caudas de Raccoon, Scorpion e Rat", "wiki": "Gobori's Odd Request" },
     { "lv": 40, "name": "Bandit Arc (balcão da vila)", "wiki": "Bandit Questline" },
     { "lv": 43, "name": "Light Work: 5 Gray Bear Paws (Glacier Bears)", "wiki": "Light Work" },
+    { "lv": 44, "name": "Bandit Hunt I e II e The Wolf Pack: repetíveis do Rizo após o Bandit Arc (74–80 mil XP)", "wiki": "Bandit Questline" },
+    { "lv": 45, "name": "Questline do Denkai em Asoki: achar a carga perdida (nova desde 15/09/2026)" },
     { "lv": 50, "name": "Questline final + 2ª maestria" },
     { "lv": 50, "name": "Land of Iron Arc", "wiki": "Land of Iron" },
     { "lv": 60, "name": "Land of Spirits Arc: NPC Lv.60 Arc perto do Guren (100 Ryo)", "wiki": "Land of Spirits" },
@@ -659,6 +694,7 @@
   "DAILIES": [
     { "from": 10, "name": "Mission: Mutant Rats", "wiki": "Mission: Mutant Rats", "rank": "C", "xp": 8600, "v": ["leaf"], "cons": ["Matar 70 Mutant Rats no Leaf Village Sewers, que só abre com os seals de Leaf."] },
     { "from": 15, "name": "Cold-Blooded Killer", "wiki": "Cold-Blooded Killer", "rank": "B", "xp": [25875,327410], "v": ["rogue"], "tip": "Dá para combinar a kill com outro jogador, como na compra de bounty pelo Bingo Book: vocês se encontram, você paga e ele deixa você matá-lo. A morte conta para todos que estão com a missão ativa, e só vale em Danger Zone ou War Zone, com ele no máximo 10 níveis abaixo de você. É permitido; proibido é duas pessoas ficarem se matando para acumular bounty e farmar Ryo.", "pros": ["Diária principal do Rogue: no 15, duas delas rendem 1–2 níveis."], "cons": ["PvP: só contam alvos até 10 níveis abaixo de você."] },
+    { "from": 18, "to": 25, "name": "Blood Suckers", "rank": "C", "v": ["leaf", "sand", "mist"], "cons": ["Diária nova (17/08/2025): a wiki ainda não registra o objetivo nem o XP."] },
     { "from": 19, "to": 50, "name": "Guilty Pleasure", "wiki": "Guilty Pleasure", "rank": "B", "xp": 46400, "v": ["leaf", "sand", "mist"], "pros": ["Basta descansar nas termas da vila.", "A janela de nível mais larga das diárias (19–50)."], "cons": ["O XP não sobe com o nível: nos 40 rende pouco."] },
     { "from": 21, "to": 30, "name": "Bounty Hunting I", "wiki": "Bounty Hunting", "rank": "B", "xp": 46500, "v": ["leaf", "sand", "mist"], "tip": "Compre um bounty: abra o Bingo Book, veja quem tem bounty acumulado e pergunte se vende. O preço costuma ser o dobro do bounty. Combinem um lugar, você paga e ele deixa você matá-lo. Em grupo, a recompensa é dividida entre quem lutou; sozinho, fica toda com você. O mesmo ninja só dá bounty de novo 30 minutos depois. É permitido; proibido é duas pessoas ficarem se matando para acumular bounty e farmar Ryo.", "cons": ["PvP: cobrar recompensas de alvos do Bingo Book na Bounty Station."], "pros": ["Matar quem tem bounty não gera Crime, mesmo com diferença grande de nível."] },
     { "from": 21, "to": 30, "name": "Waging War I", "wiki": "Waging War", "rank": "B", "xp": 40900, "v": ["leaf", "sand", "mist"], "tip": "Dá para combinar a kill com outro jogador, como na compra de bounty pelo Bingo Book: vocês se encontram, você paga e ele deixa você matá-lo. A morte conta para todos que estão com a missão ativa, e só vale em Danger Zone ou War Zone, com ele no máximo 10 níveis abaixo de você. É permitido; proibido é duas pessoas ficarem se matando para acumular bounty e farmar Ryo.", "cons": ["PvP: matar inimigos em Danger Zone ou War Zone; alvos mais de 10 níveis abaixo não contam."] },
@@ -669,6 +705,7 @@
     { "from": 27, "to": 38, "name": "Clear the Abandoned Lair II", "wiki": "Clear the Abandoned Lair II", "rank": "C", "xp": 59040, "v": ["leaf", "sand", "mist"], "cons": ["As Venomous Snakes ficam no 2º andar, que abre com The Venomous Requirement."] },
     { "from": 30, "to": 40, "name": "Spy on the Kage Office", "wiki": "Spy on Hokage/Kazekage/Mizukage Office", "rank": "A", "xp": 107362, "v": ["leaf", "sand", "mist"], "pros": ["Maior XP de diária na faixa dos 30."], "cons": ["Entrar numa vila inimiga até o escritório do Kage e sair vivo."] },
     { "from": 36, "to": 57, "name": "Medicine Supplies III", "wiki": "Medical Supplies", "rank": "A", "xp": 223300, "v": ["leaf", "sand", "mist"], "verdict": "good", "tip": "É a partir dela que vale gastar os Scrolls of Daily Reset.", "pros": ["223.300 XP, mais 270 Ryo."], "cons": ["Leaf e Mist pedem 20 Big Scarab Shells, 10 DNA e 10 Bear Paws; Sand pede 15 Rat Tails, 10 DNA e 10 Bear Paws."] },
+    { "from": 37, "to": 43, "name": "Too Many Tentacles!", "rank": "C", "v": ["leaf", "sand", "mist"], "cons": ["Matar tentáculos do Kuraken pelo drop Tentacle; a wiki ainda não registra o XP."] },
     { "from": 46, "to": 53, "name": "Shark Attack", "wiki": "Shark Attack", "rank": "C", "xp": 228390, "v": ["leaf", "sand", "mist"], "pros": ["Só mobs: 25 Great White Sharks."], "cons": ["Fica no mar (South Eastern Sea V); desde 29/07/2026 aparece lá o Great Blood Shark, uma versão enfurecida."] },
     { "from": 50, "name": "Escort the Foreign Envoy", "wiki": "Escort the Foreign Envoy", "rank": "S", "xp": 391250, "v": ["leaf", "sand", "mist"], "pros": ["Maior XP entre as diárias abaixo do 65."], "cons": ["Escoltar o enviado até outra vila."] },
     { "from": 51, "name": "Silent Shipment", "wiki": "Silent Shipment", "rank": "S", "xp": 264730, "v": ["leaf", "sand", "mist"], "cons": ["Roubar um pacote no mercado de outra vila (risco de PvP)."] },
@@ -680,6 +717,31 @@
     { "from": 65, "name": "The Sandstorm Predator", "wiki": "The Sandstorm Predator", "rank": "S", "xp": 461210, "v": ["leaf", "sand", "mist"], "pros": ["Um dos maiores XP de diária."], "cons": ["Caçar o Dark Weasel no deserto profundo."] },
     { "from": 65, "name": "Dethrone the Beast", "wiki": "Dethrone the Beast", "rank": "S", "xp": 461370, "v": ["leaf", "sand", "mist"], "pros": ["Maior XP de diária registrado."], "cons": ["Caçar o Dark Monkey King no Valley of the End (War Zone)."] }
   ],
+  "BUILDS": {
+    "Intelligence": [
+      { "lv": 10, "stats": "50 INT / 10 CHAK / 30 FORT", "tip": "Comece pelos atributos de recurso e vá somando INT conforme ganha jutsus." },
+      { "lv": 20, "stats": "50 INT / 25 CHAK / 25 FORT", "tip": "Com 3 jutsus de dano, equilibre os atributos com leve foco em INT." },
+      { "lv": 35, "stats": "60 INT / 40 CHAK / 15 FORT", "tip": "Arsenal completo: prepare-se para a 2ª maestria e o endgame." },
+      { "lv": 40, "stats": "99 INT / 63 CHAK / 48 FORT", "tip": "Pronto para qualquer conteúdo; ajuste com Stat Reset Scrolls se precisar." }
+    ],
+    "Strength": [
+      { "lv": 10, "stats": "10 STR / 35 INT", "tip": "Priorize os requisitos da arma em vez do dano dos jutsus." },
+      { "lv": 25, "stats": "50 STR / 40 INT / 15 CHAK", "tip": "Arma e jutsus novos: comece a investir em CHAK." },
+      { "lv": 35, "stats": "80 STR / 30 INT / 65 CHAK", "tip": "Arma de meio de jogo: reforce os atributos principais." },
+      { "lv": 50, "stats": "85 STR / 15 FORT / 85 CHAK / 30 INT", "tip": "Pronto para uma 2ª maestria híbrida." }
+    ],
+    "Agility": [
+      { "lv": 10, "stats": "25 AGI / 25 INT", "tip": "Parecido com STR, mas com mais AGI no lugar de vida." },
+      { "lv": 25, "stats": "50 AGI / 18 FORT / 15 CHAK", "tip": "Invista CHAK para os jutsus, depois AGI e FORT." },
+      { "lv": 35, "stats": "95 AGI / 32 FORT / 30 CHAK", "tip": "Resolva os requisitos de jutsu e arma e ganhe resistência." }
+    ],
+    "Chakra": [
+      { "lv": 10, "stats": "30 FORT / 30 CHAK", "tip": "Solar é difícil. Opcional: 5 INT para usar a Kunai Dagger." },
+      { "lv": 25, "stats": "50 FORT / 50 CHAK", "tip": "Suba FORT e CHAK para sobreviver enquanto cura." },
+      { "lv": 35, "stats": "15 FORT / 85 CHAK", "tip": "Cell Regeneration liberada: a vida fica mais fácil." },
+      { "lv": 50, "stats": "67 FORT / 134 CHAK", "tip": "Diversifique com jutsus de dano ou siga como curandeiro." }
+    ]
+  },
   "MILESTONES": {
     "pt": {
       "10": "1ª Maestria",

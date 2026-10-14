@@ -183,3 +183,8 @@ button{font-family:inherit}
 }
 .b-stat{font-size:13px;color:#a7afbd}
 .b-stat strong{color:#f0a93c}
+.b-stats{display:flex;flex-direction:column;gap:6px}
+.bs-line{margin:0;font-size:13px;line-height:1.5;color:#cfc9ba}
+.bs-line strong{color:#e7e1d2}
+.bs-stats{font-weight:800;color:#f0a93c}
+.bs-src{margin:0;font-size:11px;color:#7a8aa3}
