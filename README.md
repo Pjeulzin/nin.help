@@ -70,6 +70,10 @@ No GitHub: **Settings › Pages › Build and deployment › Source: Deploy from
 
 Se for usar `nin.help`: em **Settings › Pages › Custom domain** digite `nin.help` (isso cria o arquivo `CNAME`) e no DNS do domínio aponte os registros `A` para `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`. Depois marque **Enforce HTTPS**.
 
+## Registro Ninja
+
+Quem entra no site pela primeira vez, sem filtros no link, vê antes do pergaminho uma tela em 3 etapas: escolher a vila (com as informações de `VILLAGES.info`), a maestria (com `pros`/`cons` de `MASTERIES`) e ver a ficha. "Abrir meu pergaminho" abre o guia já filtrado no nível 1; "Pular" vai direto ao pergaminho. Depois disso, o navegador lembra e não mostra de novo (botão "Refazer ficha ninja" no pergaminho). Links com `v`, `m` ou `lv` nunca mostram a tela.
+
 ## Links compartilháveis
 
 O estado vai na URL: `#v=sand&m=fire&lang=pt&lv=14`.

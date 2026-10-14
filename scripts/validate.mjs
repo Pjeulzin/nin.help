@@ -162,7 +162,7 @@ const dailyTexts = [];
     if (!isStr(D.TEXT_EN?.[t])) pending.push(`${where}: "${t.slice(0, 40)}" sem tradução em TEXT_EN`);
   }
 });
-for (const k of ['dailies', 'dailiesEarly', 'dailiesReset', 'dailiesRogue', 'noDailies', 'avoid', 'good', 'playerTip', 'vinfo', 'vinfoCommon', 'info_passive', 'info_mastery', 'info_org', 'info_items', 'info_summons', 'info_clans', 'info_become', 'statsNow', 'statsNext', 'statsSource', 'xpUnknown', 'bosses', 'bossesNote', 'respawn', 'warZone', 'noBosses', 'elites', 'elitesNote', 'eliteOf', 'eliteUnknown'])
+for (const k of ['dailies', 'dailiesEarly', 'dailiesReset', 'dailiesRogue', 'noDailies', 'avoid', 'good', 'playerTip', 'vinfo', 'vinfoCommon', 'info_passive', 'info_mastery', 'info_org', 'info_items', 'info_summons', 'info_clans', 'info_become', 'statsNow', 'statsNext', 'statsSource', 'xpUnknown', 'bosses', 'bossesNote', 'respawn', 'warZone', 'noBosses', 'elites', 'elitesNote', 'eliteOf', 'eliteUnknown', 'introKicker', 'introTitle', 'introSub', 'stepVillage', 'stepMastery', 'stepSheet', 'askVillage', 'askVillageNote', 'askMastery', 'askMasteryNote', 'rogueCard', 'rogueTag', 'chosen', 'strong', 'weak', 'routeInt', 'routeMelee', 'unlocks50', 'sheetTitle', 'sheetVillage', 'sheetMastery', 'sheetFirst', 'firstRoute', 'firstStats', 'firstDailies', 'introNext', 'back', 'skip', 'open', 'restart'])
   if (!isStr(D.I18N.pt?.[k])) err(`I18N.pt: falta o texto "${k}" usado pelo painel`);
 
 // ---- Traduções (TEXT_EN: texto em português -> inglês) ----
@@ -208,8 +208,13 @@ for (const [k, rows] of Object.entries(D.BUILDS || {})) {
 }
 for (const m of Object.values(D.MASTERIES)) if (m.stat && !D.BUILDS?.[m.stat]) pending.push(`BUILDS: sem build para o atributo ${m.stat}`);
 
+const masteryTexts = Object.entries(D.MASTERIES).flatMap(([k, m]) => ['pros', 'cons'].filter((f) => m[f] !== undefined).map((f) => {
+  if (!isStr(m[f])) err(`MASTERIES.${k}.${f}: texto vazio`);
+  else if (!isStr(D.TEXT_EN?.[m[f]])) pending.push(`MASTERIES.${k}.${f}: sem tradução em TEXT_EN`);
+  return m[f];
+}));
 const villageTexts = Object.values(D.VILLAGES).flatMap((v) => Object.values(v.info || {}));
-const texts = new Set([...D.MISSIONS.map((m) => m.name), ...dailyTexts, ...villageTexts, ...buildTexts, ...bossTexts]);
+const texts = new Set([...D.MISSIONS.map((m) => m.name), ...dailyTexts, ...villageTexts, ...buildTexts, ...bossTexts, ...masteryTexts]);
 D.BRACKETS.forEach((b, i) => {
   for (const k of ['main', 'phys', 'alt']) for (const [v, arr] of Object.entries(b[k] || {})) {
     if (!Array.isArray(arr)) continue;

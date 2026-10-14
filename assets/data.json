@@ -102,7 +102,9 @@
       "phys": false,
       "stat": "Intelligence",
       "tip": "Multi-alvo e dano alto: junte grupos de mobs e limpe em área.",
-      "tipEn": "Multi-target and high damage: pull groups of mobs and clear them with AoE."
+      "tipEn": "Multi-target and high damage: pull groups of mobs and clear them with AoE.",
+      "pros": "Muito dano, boa área e Burn rápido.",
+      "cons": "Gasta muito chakra; quase todos os jutsus saem ao seu redor."
     },
     "wind": {
       "name": "Wind",
@@ -110,7 +112,9 @@
       "phys": false,
       "stat": "Intelligence",
       "tip": "Rápido, afiado e letal: ótimo para rotacionar spawns sozinho.",
-      "tipEn": "Fast, sharp and lethal: great for rotating spawns solo."
+      "tipEn": "Fast, sharp and lethal: great for rotating spawns solo.",
+      "pros": "Kit simples com dano, AGI e utilidade: bom em tudo.",
+      "cons": "Faz de tudo, mas não é o melhor em nada."
     },
     "lightning": {
       "name": "Lightning",
@@ -118,7 +122,9 @@
       "phys": false,
       "stat": "Intelligence",
       "tip": "Dano alto e imobilização: prenda o mob enquanto ataca.",
-      "tipEn": "High damage and immobilization: lock the mob down while you attack."
+      "tipEn": "High damage and immobilization: lock the mob down while you attack.",
+      "pros": "Muito dano e stuns constantes para combos.",
+      "cons": "Gasta muito chakra e os cooldowns não acumulam: alto risco."
     },
     "earth": {
       "name": "Earth",
@@ -126,7 +132,9 @@
       "phys": false,
       "stat": "Intelligence",
       "tip": "Área ampla e controle de grupo: segura vários mobs de uma vez.",
-      "tipEn": "Wide AoE and crowd control: holds several mobs at once."
+      "tipEn": "Wide AoE and crowd control: holds several mobs at once.",
+      "pros": "Slow, stun, snare, área enorme e bloqueio de projéteis.",
+      "cons": "Upar no começo é lento; falta AGI antes do 25."
     },
     "water": {
       "name": "Water",
@@ -134,7 +142,9 @@
       "phys": false,
       "stat": "Intelligence",
       "tip": "Equilibrado e versátil: rende bem em qualquer zona.",
-      "tipEn": "Balanced and versatile: performs well in any zone."
+      "tipEn": "Balanced and versatile: performs well in any zone.",
+      "pros": "Muito dano em alvo único e Bleed longo.",
+      "cons": "A área travada atrapalha em conteúdo grande."
     },
     "medical": {
       "name": "Medical",
@@ -142,7 +152,9 @@
       "phys": true,
       "stat": "Chakra",
       "tip": "Cura, revive e veneno: rende mais em time, principalmente nos arcos.",
-      "tipEn": "Healing, revive and poison: best in a team, especially during arcs."
+      "tipEn": "Healing, revive and poison: best in a team, especially during arcs.",
+      "pros": "A melhor cura e utilidade do jogo, escalando com Chakra.",
+      "cons": "Vira alvo no PvP, não tem área e upar sozinho é difícil."
     },
     "weapon": {
       "name": "Weapon STR",
@@ -150,7 +162,9 @@
       "phys": true,
       "stat": "Strength",
       "tip": "Técnicas de armas e ferramentas ninja, com dano em Strength.",
-      "tipEn": "Weapon techniques and ninja tools, with Strength damage."
+      "tipEn": "Weapon techniques and ninja tools, with Strength damage.",
+      "pros": "Rende bastante Ryo e tem muitas opções de build pelas armas.",
+      "cons": "Jutsus fracos, gasta muito chakra e tem cooldown alto."
     },
     "weaponint": {
       "name": "Weapon INT",
@@ -158,7 +172,9 @@
       "phys": false,
       "stat": "Intelligence",
       "tip": "Técnicas de armas e ferramentas ninja, com dano em Intelligence.",
-      "tipEn": "Weapon techniques and ninja tools, with Intelligence damage."
+      "tipEn": "Weapon techniques and ninja tools, with Intelligence damage.",
+      "pros": "Rende bastante Ryo e tem muitas opções de build pelas armas.",
+      "cons": "Jutsus fracos, gasta muito chakra e tem cooldown alto."
     },
     "taijutsu": {
       "name": "Taijutsu",
@@ -166,7 +182,9 @@
       "phys": true,
       "stat": "Agility",
       "tip": "Combate corpo a corpo puro.",
-      "tipEn": "Pure hand-to-hand combat."
+      "tipEn": "Pure hand-to-hand combat.",
+      "pros": "Aproveita a AGI, com jutsus marcantes e dano de médio a alto.",
+      "cons": "Pouca área; sofre em PvP e PvE grandes."
     }
   },
   "SECOND": {
@@ -223,6 +241,36 @@
       "good": "VALE A PENA",
       "playerTip": "Dica de jogador:",
       "dailiesReset": "Guarde os Scrolls of Daily Reset até o 36, quando aparece a Medicine Supplies III.",
+      "introKicker": "REGISTRO NINJA",
+      "introTitle": "Monte sua ficha ninja",
+      "introSub": "Escolha a vila e a maestria. O pergaminho já abre no seu caminho.",
+      "stepVillage": "Vila",
+      "stepMastery": "Maestria",
+      "stepSheet": "Ficha",
+      "askVillage": "Em qual vila você vai começar?",
+      "askVillageNote": "A vila define passiva, invocações e o caminho exclusivo do nível 50. Dá para trocar depois no pergaminho.",
+      "askMastery": "Qual maestria você quer seguir?",
+      "askMasteryNote": "A 1ª maestria é escolhida no nível 10. Até lá, todo mundo upa com Agility e um pouco de HP.",
+      "rogueCard": "Já sou Rogue",
+      "rogueTag": "Todo ninja nasce numa vila. Escolha esta opção se você já é um Missing Ninja.",
+      "chosen": "ESCOLHIDA",
+      "strong": "Forte",
+      "weak": "Fraco",
+      "routeInt": "Rota INT",
+      "routeMelee": "Rota corpo a corpo",
+      "unlocks50": "Na sua vila, no 50:",
+      "sheetTitle": "Ficha ninja",
+      "sheetVillage": "Vila",
+      "sheetMastery": "Maestria",
+      "sheetFirst": "Primeiros passos",
+      "firstRoute": "Nv 1–3",
+      "firstStats": "No 10",
+      "firstDailies": "Diárias",
+      "introNext": "Continuar",
+      "back": "Voltar",
+      "skip": "Pular e ir direto para o pergaminho",
+      "open": "Abrir meu pergaminho",
+      "restart": "Refazer ficha ninja",
       "vinfo": "Sobre a vila",
       "info_passive": "Passiva",
       "info_org": "Organização exclusiva",
@@ -281,6 +329,36 @@
       "good": "WORTH IT",
       "playerTip": "Player tip:",
       "dailiesReset": "Save your Scrolls of Daily Reset until 36, when Medicine Supplies III shows up.",
+      "introKicker": "NINJA REGISTRATION",
+      "introTitle": "Build your ninja file",
+      "introSub": "Pick your village and mastery. The scroll opens on your path.",
+      "stepVillage": "Village",
+      "stepMastery": "Mastery",
+      "stepSheet": "File",
+      "askVillage": "Which village will you start in?",
+      "askVillageNote": "Your village sets your passive, summons and the exclusive level-50 branch. You can switch later on the scroll.",
+      "askMastery": "Which mastery do you want to follow?",
+      "askMasteryNote": "Your 1st mastery is chosen at level 10. Until then, everyone levels with Agility and a little HP.",
+      "rogueCard": "I'm already a Rogue",
+      "rogueTag": "Every ninja starts in a village. Pick this if you are already a Missing Ninja.",
+      "chosen": "CHOSEN",
+      "strong": "Strength",
+      "weak": "Weakness",
+      "routeInt": "INT route",
+      "routeMelee": "Melee route",
+      "unlocks50": "In your village, at 50:",
+      "sheetTitle": "Ninja file",
+      "sheetVillage": "Village",
+      "sheetMastery": "Mastery",
+      "sheetFirst": "First steps",
+      "firstRoute": "Lv 1–3",
+      "firstStats": "At 10",
+      "firstDailies": "Dailies",
+      "introNext": "Continue",
+      "back": "Back",
+      "skip": "Skip straight to the scroll",
+      "open": "Open my scroll",
+      "restart": "Redo ninja file",
       "vinfo": "About the village",
       "info_passive": "Passive",
       "info_org": "Exclusive organization",
@@ -482,7 +560,23 @@
     "Também é o alvo da Revenge on Kuraken.": "Also the target of Revenge on Kuraken.",
     "37.250 de vida.": "37,250 health.",
     "Chefe dos Oni na Land of Spirits.": "The Oni boss in the Land of Spirits.",
-    "Sound Boss do arco; os mapas de chefe são War Zone desde 19/07/2026.": "An arc Sound Boss; boss maps have been War Zones since 19/07/2026."
+    "Sound Boss do arco; os mapas de chefe são War Zone desde 19/07/2026.": "An arc Sound Boss; boss maps have been War Zones since 19/07/2026.",
+    "Muito dano, boa área e Burn rápido.": "High damage, good AoE and a fast Burn.",
+    "Gasta muito chakra; quase todos os jutsus saem ao seu redor.": "High chakra cost; most jutsu are cast around yourself.",
+    "Kit simples com dano, AGI e utilidade: bom em tudo.": "A simple kit with damage, AGI and utility: a good all-rounder.",
+    "Faz de tudo, mas não é o melhor em nada.": "Jack of all trades, master of none.",
+    "Muito dano e stuns constantes para combos.": "High damage with steady stuns for combos.",
+    "Gasta muito chakra e os cooldowns não acumulam: alto risco.": "High chakra cost and cooldowns don't stack: high risk.",
+    "Slow, stun, snare, área enorme e bloqueio de projéteis.": "Slows, stuns, snares, huge AoE and projectile blocking.",
+    "Upar no começo é lento; falta AGI antes do 25.": "Slow early leveling; lacks AGI before level 25.",
+    "Muito dano em alvo único e Bleed longo.": "Big single-target damage and a long Bleed.",
+    "A área travada atrapalha em conteúdo grande.": "Its locked AoE struggles in large-scale content.",
+    "A melhor cura e utilidade do jogo, escalando com Chakra.": "The best healing and utility in the game, scaling with Chakra.",
+    "Vira alvo no PvP, não tem área e upar sozinho é difícil.": "A focus target in PvP, no AoE, and soloing is hard.",
+    "Rende bastante Ryo e tem muitas opções de build pelas armas.": "Earns plenty of Ryo, with many build options around weapons.",
+    "Jutsus fracos, gasta muito chakra e tem cooldown alto.": "Weak jutsu, high chakra cost and long cooldowns.",
+    "Aproveita a AGI, com jutsus marcantes e dano de médio a alto.": "Makes the most of AGI, with expressive jutsu and moderate-to-high damage.",
+    "Pouca área; sofre em PvP e PvE grandes.": "Little AoE; struggles in large-scale PvP and PvE."
   },
   "BRACKETS": [
     {

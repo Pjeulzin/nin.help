@@ -125,6 +125,7 @@
     document.documentElement.lang = EN ? 'en' : 'pt-BR';
     document.title = `Nin Help — ${t.title}`;
     document.querySelectorAll('[data-t]').forEach((n) => { n.textContent = t[n.dataset.t]; });
+    renderIntro();
     $('lang-group').setAttribute('aria-label', t.lang);
     $('close').setAttribute('aria-label', t.close);
     document.querySelectorAll('.flag').forEach((f) =>
@@ -418,6 +419,157 @@
   });
 
   $('suggest-general').href = issueUrl({ title: '[Correção] ' });
+
+  // ---------- Registro Ninja: escolher vila e maestria antes do pergaminho ----------
+  const intro = { step: 0, village: null, mastery: null };
+  const STAT_ORDER = ['Intelligence', 'Strength', 'Agility', 'Chakra'];
+  const emblem = (v, size) => `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${v.d}"/></svg>`;
+
+  function showIntro(on) {
+    $('intro').hidden = !on;
+    document.querySelector('main.page').hidden = on;
+    document.body.classList.toggle('intro-on', on);
+    if (on) { intro.step = 0; renderIntro(); window.scrollTo(0, 0); }
+  }
+  function leaveIntro(apply) {
+    store.set('onboarded', '1');
+    showIntro(false);
+    if (apply && intro.village && intro.mastery) set({ village: intro.village, mastery: intro.mastery, level: 1 });
+    else update();
+    window.scrollTo(0, 0);
+  }
+  function goStep(n) {
+    intro.step = n;
+    renderIntro();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    $('intro-body').focus({ preventScroll: true });
+  }
+
+  function renderIntro() {
+    if ($('intro').hidden) return;
+    const EN = state.lang === 'en';
+    const t = D.I18N[state.lang];
+    const tr = (s) => (EN ? D.TEXT_EN[s] || s : s);
+    const body = $('intro-body');
+    const vk = intro.village, vill = vk && D.VILLAGES[vk];
+    document.querySelectorAll('#intro-steps li').forEach((li, i) => {
+      li.classList.toggle('on', i === intro.step);
+      li.classList.toggle('done', i < intro.step);
+    });
+    $('intro').style.setProperty('--glow', vill ? vill.color : '#f0a93c');
+    $('intro-back').hidden = intro.step === 0;
+    const last = intro.step === 2;
+    $('intro-next').textContent = last ? t.open : t.introNext;
+    $('intro-next').disabled = (intro.step === 0 && !vk) || (intro.step === 1 && !intro.mastery);
+
+    const head = (q, note) => {
+      const h = el('div', 'intro-q');
+      h.append(el('h2', null, q), el('p', null, note));
+      return h;
+    };
+    const infoList = (v, keys) => {
+      const dl = el('dl', 'vc-info');
+      for (const k of keys) if (v.info?.[k]) dl.append(el('dt', null, t['info_' + k]), el('dd', null, tr(v.info[k])));
+      return dl;
+    };
+
+    if (intro.step === 0) {
+      const grid = el('div', 'vc-grid');
+      for (const k of ['leaf', 'sand', 'mist', 'rogue']) {
+        const v = D.VILLAGES[k];
+        const b = el('button', `vcard${k === 'rogue' ? ' rogue' : ''}`);
+        b.type = 'button';
+        b.style.setProperty('--vc', v.color);
+        b.setAttribute('aria-pressed', String(k === vk));
+        const top = el('div', 'vc-top');
+        top.innerHTML = emblem(v, k === 'rogue' ? 30 : 44);
+        top.append(el('span', 'vc-name', k === 'rogue' ? t.rogueCard : v.name));
+        b.append(top, el('p', 'vc-note', k === 'rogue' ? t.rogueTag : (EN ? v.noteEn : v.note)));
+        if (k !== 'rogue') b.append(infoList(v, ['passive', 'mastery', 'org', 'items', 'summons']));
+        b.append(el('span', 'hanko', t.chosen));
+        b.addEventListener('click', () => { intro.village = k; renderIntro(); });
+        grid.append(b);
+      }
+      body.replaceChildren(head(t.askVillage, t.askVillageNote), grid);
+    }
+
+    if (intro.step === 1) {
+      const sec = vk && D.SECOND[vk];
+      const groups = el('div', 'mc-groups');
+      for (const stat of STAT_ORDER) {
+        const keys = Object.keys(D.MASTERIES).filter((k) => D.MASTERIES[k].stat === stat);
+        if (!keys.length) continue;
+        const g = el('section', 'mc-group');
+        g.append(el('h3', null, `${t.scales} ${stat}`));
+        const grid = el('div', 'mc-grid');
+        for (const k of keys) {
+          const m = D.MASTERIES[k];
+          const b = el('button', 'mcard');
+          b.type = 'button';
+          b.style.setProperty('--mc', m.color);
+          b.setAttribute('aria-pressed', String(k === intro.mastery));
+          const top = el('div', 'mc-top');
+          top.append(el('i', 'mc-dot'), el('span', 'mc-name', m.name), el('span', 'mc-route', m.phys ? t.routeMelee : t.routeInt));
+          b.append(top, el('p', 'mc-tip', EN ? m.tipEn : m.tip));
+          for (const [f, label] of [['pros', t.strong], ['cons', t.weak]]) if (m[f]) {
+            const p = el('p', `mc-${f}`);
+            p.append(el('b', null, `${label}: `), document.createTextNode(tr(m[f])));
+            b.append(p);
+          }
+          if (sec && sec[0] === k) b.append(el('p', 'mc-excl', `${t.unlocks50} ${sec[1]}`));
+          b.append(el('span', 'hanko', t.chosen));
+          b.addEventListener('click', () => { intro.mastery = k; renderIntro(); });
+          grid.append(b);
+        }
+        g.append(grid);
+        groups.append(g);
+      }
+      body.replaceChildren(head(t.askMastery, t.askMasteryNote), groups);
+    }
+
+    if (last) {
+      const m = D.MASTERIES[intro.mastery];
+      const sec = D.SECOND[vk];
+      const route = (s) => (s ? s[vk] || s.all : null);
+      const first = route(D.BRACKETS[0].main);
+      const stats10 = (D.BUILDS[m.stat] || []).find((r) => r.lv === 10);
+      const card = el('article', 'ficha');
+      card.style.setProperty('--vc', vill.color);
+      const side = el('div', 'ficha-side');
+      side.innerHTML = emblem(vill, 72);
+      side.append(el('span', 'ficha-kanji', '忍'));
+      const main = el('div', 'ficha-main');
+      main.append(el('h2', null, t.sheetTitle));
+      const dl = el('dl', 'ficha-fields');
+      const field = (k, v) => dl.append(el('dt', null, k), el('dd', null, v));
+      field(t.sheetVillage, vk === 'rogue' ? t.rogueCard : vill.name);
+      field(t.sheetMastery, `${m.name} · ${t.scales} ${m.stat}`);
+      if (vill.info?.passive) field(t.info_passive, tr(vill.info.passive));
+      if (sec) field(t.unlocks50.replace(/:$/, ''), `${sec[1]} (${D.MASTERIES[sec[0]].name})`);
+      main.append(dl, el('h3', null, t.sheetFirst));
+      const ul = el('ul', 'ficha-steps');
+      if (first) ul.append(el('li', null, `${t.firstRoute}: ${first[0]} · ${first[1]}`));
+      if (stats10) ul.append(el('li', null, `${t.firstStats}: ${stats10.stats}`));
+      ul.append(el('li', null, `${t.firstDailies}: ${vk === 'rogue' ? t.dailiesRogue : t.dailiesEarly}`));
+      main.append(ul);
+      card.append(side, main, el('span', 'hanko big', t.chosen));
+      body.replaceChildren(card);
+    }
+  }
+
+  $('intro-next').addEventListener('click', () => (intro.step === 2 ? leaveIntro(true) : goStep(intro.step + 1)));
+  $('intro-back').addEventListener('click', () => goStep(intro.step - 1));
+  $('intro-skip').addEventListener('click', () => leaveIntro(false));
+  $('restart').addEventListener('click', () => {
+    intro.village = state.village;
+    intro.mastery = state.mastery;
+    showIntro(true);
+  });
+
+  // Mostra o registro só para quem chega sem filtros no link e ainda não passou por ele
+  const linked = ['v', 'm', 'lv'].some((k) => hash.has(k));
+  if (!linked && !store.get('onboarded')) showIntro(true);
+
   update();
   }
 
