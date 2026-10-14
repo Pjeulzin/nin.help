@@ -284,6 +284,18 @@
     }));
     $('dl-none').hidden = daily.length > 0 || !!dlNote;
 
+    // Mobs enfurecidos da vila (até o 22), sem os que ficaram mais de 5 níveis abaixo
+    const elites = lv <= 22 ? D.ELITES.filter((e) => e.v.includes(vk) && (!e.lv || e.lv >= lv - 5)) : [];
+    $('el-sec').hidden = !elites.length;
+    $('el-list').replaceChildren(...elites.map((e) => {
+      const card = el('div', 'dl-card');
+      const head = el('div', 'dl-head');
+      head.append(mName(e, 'm-name dl-name'));
+      const stats = e.lv ? `${lvTag} ${e.lv} · ${num(e.xp)} XP` : t.eliteUnknown;
+      card.append(head, el('div', 'dl-meta', `${stats} · ${t.eliteOf} ${e.base}`), el('div', 'bs-map', e.map));
+      return card;
+    }));
+
     // Chefes de 5 níveis abaixo a 10 acima (em time, a XP só vale até 10 níveis de diferença)
     const bosses = D.BOSSES.filter((b) => b.lv >= lv - 5 && b.lv <= lv + 10);
     $('bs-list').replaceChildren(...bosses.map((b) => {

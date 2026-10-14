@@ -47,7 +47,7 @@ const isPlaceholder = (s) => typeof s === 'string' && /\[[^\]]*(confirmar|confir
 const need = (obj, keys, where) => keys.forEach((k) => { if (!isStr(obj?.[k])) err(`${where}: campo "${k}" ausente ou vazio`); });
 
 // ---- Seções obrigatórias ----
-for (const k of ['config', 'VILLAGES', 'MASTERIES', 'SECOND', 'I18N', 'TAG_EN', 'PARTY_EN', 'TEXT_EN', 'BRACKETS', 'MISSIONS', 'DAILIES', 'BOSSES', 'BUILDS', 'MILESTONES', 'BAR_MILESTONES', 'TICKS']) {
+for (const k of ['config', 'VILLAGES', 'MASTERIES', 'SECOND', 'I18N', 'TAG_EN', 'PARTY_EN', 'TEXT_EN', 'BRACKETS', 'MISSIONS', 'DAILIES', 'ELITES', 'BOSSES', 'BUILDS', 'MILESTONES', 'BAR_MILESTONES', 'TICKS']) {
   if (!(k in D)) err(`seção "${k}" não existe`);
 }
 if (errors.length) finish();
@@ -162,10 +162,21 @@ const dailyTexts = [];
     if (!isStr(D.TEXT_EN?.[t])) pending.push(`${where}: "${t.slice(0, 40)}" sem tradução em TEXT_EN`);
   }
 });
-for (const k of ['dailies', 'dailiesEarly', 'dailiesReset', 'dailiesRogue', 'noDailies', 'avoid', 'good', 'playerTip', 'vinfo', 'vinfoCommon', 'info_passive', 'info_mastery', 'info_org', 'info_items', 'info_summons', 'info_clans', 'info_become', 'statsNow', 'statsNext', 'statsSource', 'xpUnknown', 'bosses', 'bossesNote', 'respawn', 'warZone', 'noBosses'])
+for (const k of ['dailies', 'dailiesEarly', 'dailiesReset', 'dailiesRogue', 'noDailies', 'avoid', 'good', 'playerTip', 'vinfo', 'vinfoCommon', 'info_passive', 'info_mastery', 'info_org', 'info_items', 'info_summons', 'info_clans', 'info_become', 'statsNow', 'statsNext', 'statsSource', 'xpUnknown', 'bosses', 'bossesNote', 'respawn', 'warZone', 'noBosses', 'elites', 'elitesNote', 'eliteOf', 'eliteUnknown'])
   if (!isStr(D.I18N.pt?.[k])) err(`I18N.pt: falta o texto "${k}" usado pelo painel`);
 
 // ---- Traduções (TEXT_EN: texto em português -> inglês) ----
+// ---- Mobs enfurecidos ----
+(D.ELITES || []).forEach((e, i) => {
+  const where = `ELITES[${i}] (${e.name ?? '?'})`;
+  for (const k of ['name', 'base', 'map']) if (!isStr(e[k])) err(`${where}: ${k} vazio`);
+  if (e.wiki !== undefined && !isStr(e.wiki)) err(`${where}: wiki vazia`);
+  if ((e.lv === undefined) !== (e.xp === undefined)) err(`${where}: informe lv e xp juntos, ou nenhum dos dois`);
+  if (e.lv !== undefined && !isInt(e.lv)) err(`${where}: lv inválido`);
+  if (e.xp !== undefined && !(Number.isInteger(e.xp) && e.xp > 0)) err(`${where}: xp deve ser um número`);
+  if (!Array.isArray(e.v) || !e.v.length || e.v.some((x) => !villages.includes(x))) err(`${where}: v deve listar vilas`);
+});
+
 // ---- Chefes ----
 const bossTexts = [];
 (D.BOSSES || []).forEach((b, i) => {
@@ -232,6 +243,6 @@ function finish() {
   }
   console.log(errors.length
     ? `\n${errors.length} erro(s). Corrija antes de publicar.`
-    : `\n✓ data.json válido · ${D.BRACKETS?.length} faixas cobrindo 1–${MAX} · ${D.MISSIONS?.length} missões · ${D.DAILIES?.length} diárias · ${D.BOSSES?.length} chefes · ${pending.length} pendência(s)`);
+    : `\n✓ data.json válido · ${D.BRACKETS?.length} faixas cobrindo 1–${MAX} · ${D.MISSIONS?.length} missões · ${D.DAILIES?.length} diárias · ${D.BOSSES?.length} chefes · ${D.ELITES?.length} enfurecidos · ${pending.length} pendência(s)`);
   process.exit(errors.length ? 1 : 0);
 }
