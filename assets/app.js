@@ -284,6 +284,20 @@
     }));
     $('dl-none').hidden = daily.length > 0 || !!dlNote;
 
+    // Chefes de 5 níveis abaixo a 10 acima (em time, a XP só vale até 10 níveis de diferença)
+    const bosses = D.BOSSES.filter((b) => b.lv >= lv - 5 && b.lv <= lv + 10);
+    $('bs-list').replaceChildren(...bosses.map((b) => {
+      const card = el('div', 'dl-card');
+      const head = el('div', 'dl-head');
+      head.append(mName(b, 'm-name dl-name'));
+      if (b.war) head.append(el('span', 'dl-verdict avoid', t.warZone));
+      const resp = b.respawn ? ` · ${t.respawn} ${b.respawn} min` : '';
+      card.append(head, el('div', 'dl-meta', `${lvTag} ${b.lv} · ${num(b.xp)} XP${resp}`));
+      card.append(el('div', 'bs-map', tr(b.map)), el('div', 'bs-note', tr(b.note)));
+      return card;
+    }));
+    $('bs-none').hidden = bosses.length > 0;
+
     // Build
     $('b-dot').style.background = mast.color;
     $('b-name').textContent = mast.name;

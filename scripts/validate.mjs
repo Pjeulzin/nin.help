@@ -47,7 +47,7 @@ const isPlaceholder = (s) => typeof s === 'string' && /\[[^\]]*(confirmar|confir
 const need = (obj, keys, where) => keys.forEach((k) => { if (!isStr(obj?.[k])) err(`${where}: campo "${k}" ausente ou vazio`); });
 
 // ---- Seções obrigatórias ----
-for (const k of ['config', 'VILLAGES', 'MASTERIES', 'SECOND', 'I18N', 'TAG_EN', 'PARTY_EN', 'TEXT_EN', 'BRACKETS', 'MISSIONS', 'DAILIES', 'BUILDS', 'MILESTONES', 'BAR_MILESTONES', 'TICKS']) {
+for (const k of ['config', 'VILLAGES', 'MASTERIES', 'SECOND', 'I18N', 'TAG_EN', 'PARTY_EN', 'TEXT_EN', 'BRACKETS', 'MISSIONS', 'DAILIES', 'BOSSES', 'BUILDS', 'MILESTONES', 'BAR_MILESTONES', 'TICKS']) {
   if (!(k in D)) err(`seção "${k}" não existe`);
 }
 if (errors.length) finish();
@@ -162,10 +162,25 @@ const dailyTexts = [];
     if (!isStr(D.TEXT_EN?.[t])) pending.push(`${where}: "${t.slice(0, 40)}" sem tradução em TEXT_EN`);
   }
 });
-for (const k of ['dailies', 'dailiesEarly', 'dailiesReset', 'dailiesRogue', 'noDailies', 'avoid', 'good', 'playerTip', 'vinfo', 'vinfoCommon', 'info_passive', 'info_mastery', 'info_org', 'info_items', 'info_summons', 'info_clans', 'info_become', 'statsNow', 'statsNext', 'statsSource', 'xpUnknown'])
+for (const k of ['dailies', 'dailiesEarly', 'dailiesReset', 'dailiesRogue', 'noDailies', 'avoid', 'good', 'playerTip', 'vinfo', 'vinfoCommon', 'info_passive', 'info_mastery', 'info_org', 'info_items', 'info_summons', 'info_clans', 'info_become', 'statsNow', 'statsNext', 'statsSource', 'xpUnknown', 'bosses', 'bossesNote', 'respawn', 'warZone', 'noBosses'])
   if (!isStr(D.I18N.pt?.[k])) err(`I18N.pt: falta o texto "${k}" usado pelo painel`);
 
 // ---- Traduções (TEXT_EN: texto em português -> inglês) ----
+// ---- Chefes ----
+const bossTexts = [];
+(D.BOSSES || []).forEach((b, i) => {
+  const where = `BOSSES[${i}] (${b.name ?? '?'})`;
+  if (!(Number.isInteger(b.lv) && b.lv >= 1 && b.lv <= MAX + 10)) err(`${where}: lv inválido`);
+  if (i > 0 && b.lv < D.BOSSES[i - 1].lv) err(`${where}: fora de ordem; mantenha os chefes em ordem de nível`);
+  if (!isStr(b.name)) err(`${where}: name vazio`);
+  if (!(Number.isInteger(b.xp) && b.xp > 0)) err(`${where}: xp deve ser um número`);
+  if (b.respawn !== undefined && !(Number.isInteger(b.respawn) && b.respawn > 0)) err(`${where}: respawn deve ser minutos (número)`);
+  if (b.war !== undefined && b.war !== true) err(`${where}: war só pode ser true`);
+  for (const k of ['map', 'note']) if (!isStr(b[k])) err(`${where}: ${k} vazio`);
+  if (isStr(b.note)) { bossTexts.push(b.note); if (!isStr(D.TEXT_EN?.[b.note])) pending.push(`${where}: nota sem tradução em TEXT_EN`); }
+  if (isStr(b.map)) bossTexts.push(b.map);
+});
+
 // ---- Builds por nível (atributos sugeridos para cada atributo principal das maestrias) ----
 const STATS = ['Intelligence', 'Chakra', 'Strength', 'Agility'];
 const buildTexts = [];
@@ -183,7 +198,7 @@ for (const [k, rows] of Object.entries(D.BUILDS || {})) {
 for (const m of Object.values(D.MASTERIES)) if (m.stat && !D.BUILDS?.[m.stat]) pending.push(`BUILDS: sem build para o atributo ${m.stat}`);
 
 const villageTexts = Object.values(D.VILLAGES).flatMap((v) => Object.values(v.info || {}));
-const texts = new Set([...D.MISSIONS.map((m) => m.name), ...dailyTexts, ...villageTexts, ...buildTexts]);
+const texts = new Set([...D.MISSIONS.map((m) => m.name), ...dailyTexts, ...villageTexts, ...buildTexts, ...bossTexts]);
 D.BRACKETS.forEach((b, i) => {
   for (const k of ['main', 'phys', 'alt']) for (const [v, arr] of Object.entries(b[k] || {})) {
     if (!Array.isArray(arr)) continue;
@@ -217,6 +232,6 @@ function finish() {
   }
   console.log(errors.length
     ? `\n${errors.length} erro(s). Corrija antes de publicar.`
-    : `\n✓ data.json válido · ${D.BRACKETS?.length} faixas cobrindo 1–${MAX} · ${D.MISSIONS?.length} missões · ${D.DAILIES?.length} diárias · ${pending.length} pendência(s)`);
+    : `\n✓ data.json válido · ${D.BRACKETS?.length} faixas cobrindo 1–${MAX} · ${D.MISSIONS?.length} missões · ${D.DAILIES?.length} diárias · ${D.BOSSES?.length} chefes · ${pending.length} pendência(s)`);
   process.exit(errors.length ? 1 : 0);
 }
