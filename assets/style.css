@@ -308,3 +308,34 @@ body.intro-on{background:#0a0f17}
   .vcard.rogue .hanko{top:12px;margin-top:0}
 }
 @media (prefers-reduced-motion:reduce){.vcard,.mcard,.hanko,.intro-steps .step-seal{transition:none!important}}
+
+/* ---------- Abas do painel do nível ---------- */
+.d-tabs{flex:none;display:flex;gap:4px;padding:4px;border-radius:10px;background:#0a0f17;border:1px solid #1f2a3b;overflow-x:auto;scrollbar-width:none}
+.d-tabs::-webkit-scrollbar{display:none}
+.d-tab{flex:1 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:38px;padding:0 10px;border:none;border-radius:7px;background:transparent;color:#a7afbd;font:inherit;font-size:13px;font-weight:800;cursor:pointer;white-space:nowrap}
+.d-tab:hover{color:#e7e1d2;background:#141d2c}
+.d-tab[aria-selected="true"]{color:#1a1206;background:#f0a93c}
+.d-tab:focus-visible{outline:3px solid #f0a93c;outline-offset:2px}
+.d-tab-n:empty{display:none}
+.d-tab-n{min-width:18px;padding:1px 5px;border-radius:999px;font-size:11px;background:#26334a;color:#e7e1d2}
+.d-tab[aria-selected="true"] .d-tab-n{background:#1a1206;color:#f0a93c}
+.d-panel{display:flex;flex-direction:column;gap:16px}
+.d-panel[hidden]{display:none!important}
+.d-panel>.d-sec:first-child{border-top:none;padding-top:0}
+
+/* XP para o próximo nível */
+.xp-need{margin:0;font-size:15px;font-weight:800;color:#f1ead8}
+.xp-cmp{display:flex;flex-direction:column;gap:4px}
+.xp-line{margin:0;padding-left:14px;position:relative;font-size:13px;line-height:1.45;color:#cfc9ba}
+.xp-line::before{content:"";position:absolute;left:3px;top:.6em;width:5px;height:5px;border-radius:50%;background:#f0a93c}
+
+/* checklist de missões */
+.m-head{display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px}
+.m-head .d-label{margin-right:auto}
+.m-count{font-size:12px;font-weight:800;color:#7fd06b}
+.m-hide{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;color:#a7afbd;cursor:pointer}
+.m-hide input,.m-check{width:16px;height:16px;margin:0;accent-color:#7fd06b;cursor:pointer;flex:none}
+.m-check{margin-top:3px}
+.m-row.done .m-name{text-decoration:line-through;text-decoration-color:#7a8aa3;color:#7a8aa3}
+.m-row.done .m-lv{opacity:.55}
+@media (max-width:480px){.d-tab{padding:0 7px;font-size:12px;gap:4px}.d-tab-n{min-width:16px;padding:1px 4px;font-size:10px}}

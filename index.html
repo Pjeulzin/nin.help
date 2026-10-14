@@ -144,67 +144,96 @@
         <button type="button" id="next" data-t="next"></button>
       </div>
 
-      <div class="d-sec">
-        <div class="d-label" data-t="where"></div>
-        <div class="d-mob">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f0a93c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
-          <span id="s-mob"></span>
+      <div class="d-tabs" role="tablist" id="d-tabs">
+        <button type="button" role="tab" class="d-tab" id="tab-farm" data-tab="farm" aria-controls="tp-farm" aria-selected="false"><span data-t="tabFarm"></span><b class="d-tab-n" id="tn-farm"></b></button>
+        <button type="button" role="tab" class="d-tab" id="tab-missions" data-tab="missions" aria-controls="tp-missions" aria-selected="false"><span data-t="tabMissions"></span><b class="d-tab-n" id="tn-missions"></b></button>
+        <button type="button" role="tab" class="d-tab" id="tab-dailies" data-tab="dailies" aria-controls="tp-dailies" aria-selected="false"><span data-t="tabDailies"></span><b class="d-tab-n" id="tn-dailies"></b></button>
+        <button type="button" role="tab" class="d-tab" id="tab-bosses" data-tab="bosses" aria-controls="tp-bosses" aria-selected="false"><span data-t="tabBosses"></span><b class="d-tab-n" id="tn-bosses"></b></button>
+        <button type="button" role="tab" class="d-tab" id="tab-build" data-tab="build" aria-controls="tp-build" aria-selected="false"><span data-t="tabBuild"></span><b class="d-tab-n" id="tn-build"></b></button>
+      </div>
+
+      <div class="d-panel" role="tabpanel" id="tp-farm" aria-labelledby="tab-farm" hidden>
+        <div class="d-sec">
+          <div class="d-label" data-t="where"></div>
+          <div class="d-mob">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f0a93c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+            <span id="s-mob"></span>
+          </div>
+          <div class="d-zone">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg>
+            <span id="s-zone"></span>
+          </div>
+          <p class="d-text" id="s-how"></p>
+          <div class="d-box alt" id="alt" hidden>
+            <span class="d-label" data-t="alt"></span>
+            <span class="alt-line"><span id="alt-mob"></span> <span class="muted">· <span id="alt-zone"></span></span></span>
+          </div>
+          <a class="map-link" id="map-link" href="#" target="_blank" rel="noopener" hidden>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+            <span data-t="openMap"></span>
+          </a>
         </div>
-        <div class="d-zone">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg>
-          <span id="s-zone"></span>
+
+        <div class="d-sec" id="xp-sec">
+          <div class="d-label" data-t="xpTitle"></div>
+          <p class="xp-need" id="xp-need"></p>
+          <div class="xp-cmp" id="xp-cmp"></div>
+          <p class="bs-src"><span data-t="xpBless"></span> <span data-t="xpSource"></span></p>
         </div>
-        <p class="d-text" id="s-how"></p>
-        <div class="d-box alt" id="alt" hidden>
-          <span class="d-label" data-t="alt"></span>
-          <span class="alt-line"><span id="alt-mob"></span> <span class="muted">· <span id="alt-zone"></span></span></span>
+
+        <div class="d-sec" id="el-sec">
+          <div class="d-label" data-t="elites"></div>
+          <p class="dl-note" data-t="elitesNote"></p>
+          <div id="el-list" class="dl-list"></div>
         </div>
-        <a class="map-link" id="map-link" href="#" target="_blank" rel="noopener" hidden>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
-          <span data-t="openMap"></span>
-        </a>
       </div>
 
-      <div class="d-sec">
-        <div class="d-label" data-t="missions"></div>
-        <div id="m-now" class="m-list"></div>
-        <span class="muted" id="m-none" data-t="noMissions" hidden></span>
-        <div class="d-label soon" data-t="soon"></div>
-        <div id="m-soon" class="m-list"></div>
-      </div>
-
-      <div class="d-sec">
-        <div class="d-label" data-t="dailies"></div>
-        <p class="dl-note" id="dl-note" hidden></p>
-        <div id="dl-list" class="dl-list"></div>
-        <span class="muted" id="dl-none" data-t="noDailies" hidden></span>
-      </div>
-
-      <div class="d-sec" id="el-sec">
-        <div class="d-label" data-t="elites"></div>
-        <p class="dl-note" data-t="elitesNote"></p>
-        <div id="el-list" class="dl-list"></div>
-      </div>
-
-      <div class="d-sec">
-        <div class="d-label" data-t="bosses"></div>
-        <p class="dl-note" data-t="bossesNote"></p>
-        <div id="bs-list" class="dl-list"></div>
-        <span class="muted" id="bs-none" data-t="noBosses" hidden></span>
-      </div>
-
-      <div class="d-sec">
-        <div class="d-label" data-t="build"></div>
-        <div class="d-build">
-          <span class="dot" id="b-dot"></span>
-          <strong id="b-name"></strong>
-          <span class="muted" id="b-village"></span>
+      <div class="d-panel" role="tabpanel" id="tp-missions" aria-labelledby="tab-missions" hidden>
+        <div class="d-sec">
+          <div class="m-head">
+            <div class="d-label" data-t="missions"></div>
+            <span class="m-count" id="m-count"></span>
+            <label class="m-hide"><input type="checkbox" id="m-hide"> <span data-t="hideDone"></span></label>
+          </div>
+          <div id="m-now" class="m-list"></div>
+          <span class="muted" id="m-none" data-t="noMissions" hidden></span>
+          <div class="d-label soon" data-t="soon"></div>
+          <div id="m-soon" class="m-list"></div>
         </div>
-        <div class="b-stat"><span data-t="scales"></span> <strong id="b-stat"></strong></div>
-        <p class="d-text" id="b-tip"></p>
-        <div class="d-box" id="b-note"></div>
-        <div class="d-box b-stats" id="b-stats"></div>
-        <div class="d-box"><strong id="v-name"></strong> <span id="v-note"></span></div>
+      </div>
+
+      <div class="d-panel" role="tabpanel" id="tp-dailies" aria-labelledby="tab-dailies" hidden>
+        <div class="d-sec">
+          <div class="d-label" data-t="dailies"></div>
+          <p class="dl-note" id="dl-note" hidden></p>
+          <div id="dl-list" class="dl-list"></div>
+          <span class="muted" id="dl-none" data-t="noDailies" hidden></span>
+        </div>
+      </div>
+
+      <div class="d-panel" role="tabpanel" id="tp-bosses" aria-labelledby="tab-bosses" hidden>
+        <div class="d-sec">
+          <div class="d-label" data-t="bosses"></div>
+          <p class="dl-note" data-t="bossesNote"></p>
+          <div id="bs-list" class="dl-list"></div>
+          <span class="muted" id="bs-none" data-t="noBosses" hidden></span>
+        </div>
+      </div>
+
+      <div class="d-panel" role="tabpanel" id="tp-build" aria-labelledby="tab-build" hidden>
+        <div class="d-sec">
+          <div class="d-label" data-t="build"></div>
+          <div class="d-build">
+            <span class="dot" id="b-dot"></span>
+            <strong id="b-name"></strong>
+            <span class="muted" id="b-village"></span>
+          </div>
+          <div class="b-stat"><span data-t="scales"></span> <strong id="b-stat"></strong></div>
+          <p class="d-text" id="b-tip"></p>
+          <div class="d-box" id="b-note"></div>
+          <div class="d-box b-stats" id="b-stats"></div>
+          <div class="d-box"><strong id="v-name"></strong> <span id="v-note"></span></div>
+        </div>
       </div>
 
       <div class="next-box">

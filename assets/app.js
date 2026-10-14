@@ -57,6 +57,42 @@
   const posOf = (n) => `${(((n - 0.5) / MAX) * 100).toFixed(3)}%`;
   const bracketOf = (lv) => D.BRACKETS.find((b) => lv >= b.from && lv <= b.to);
 
+  // ---------- Abas do painel e checklist de missões ----------
+  const TABS = ['farm', 'missions', 'dailies', 'bosses', 'build'];
+  let tab = TABS.includes(store.get('tab')) ? store.get('tab') : 'farm';
+  function showTab(k) {
+    tab = k;
+    for (const x of TABS) {
+      const on = x === k;
+      const b = document.getElementById('tab-' + x);
+      b.setAttribute('aria-selected', String(on));
+      b.tabIndex = on ? 0 : -1;
+      document.getElementById('tp-' + x).hidden = !on;
+    }
+  }
+  TABS.forEach((k, i) => {
+    const b = document.getElementById('tab-' + k);
+    b.addEventListener('click', () => { store.set('tab', k); showTab(k); });
+    b.addEventListener('keydown', (e) => {
+      const d = { ArrowRight: 1, ArrowLeft: -1, Home: -i, End: TABS.length - 1 - i }[e.key];
+      if (d === undefined) return;
+      e.preventDefault();
+      const n = TABS[(i + d + TABS.length) % TABS.length];
+      store.set('tab', n);
+      showTab(n);
+      document.getElementById('tab-' + n).focus();
+    });
+  });
+
+  const missionKey = (m) => `${m.lv}|${m.name}`;
+  const done = new Set((() => { try { return JSON.parse(store.get('done') || '[]'); } catch (e) { return []; } })());
+  let hideDone = store.get('hideDone') === '1';
+  document.getElementById('m-hide').addEventListener('change', (e) => {
+    hideDone = e.target.checked;
+    store.set('hideDone', hideDone ? '1' : '0');
+    update();
+  });
+
   // ---------- Elementos estáticos (criados uma vez) ----------
   const villageBtns = Object.keys(D.VILLAGES).map((k) => {
     const v = D.VILLAGES[k];
@@ -254,16 +290,35 @@
       return a;
     };
 
-    $('m-now').replaceChildren(...now.map((m) => {
-      const row = el('div', 'm-row');
-      row.append(el('span', 'm-lv', `${lvTag} ${m.lv}`), mName(m, 'm-name'));
+    // Checklist: missões marcadas como feitas ficam salvas no navegador
+    const fmt = (str, o) => str.replace(/\{(\w+)\}/g, (_, k) => o[k]);
+    const isDone = (m) => done.has(missionKey(m));
+    const check = (m) => {
+      const c = el('input', 'm-check');
+      c.type = 'checkbox';
+      c.checked = isDone(m);
+      c.setAttribute('aria-label', fmt(t.markDone, { name: tr(m.name) }));
+      c.addEventListener('change', () => {
+        if (c.checked) done.add(missionKey(m)); else done.delete(missionKey(m));
+        store.set('done', JSON.stringify([...done]));
+        update();
+      });
+      return c;
+    };
+    const showNow = hideDone ? now.filter((m) => !isDone(m)) : now;
+    const showSoon = hideDone ? soon.filter((m) => !isDone(m)) : soon;
+    $('m-hide').checked = hideDone;
+    $('m-count').textContent = now.length ? fmt(t.doneCount, { done: now.filter(isDone).length, total: now.length }) : '';
+    $('m-now').replaceChildren(...showNow.map((m) => {
+      const row = el('div', 'm-row' + (isDone(m) ? ' done' : ''));
+      row.append(check(m), el('span', 'm-lv', `${lvTag} ${m.lv}`), mName(m, 'm-name'));
       if (m.lv === lv) row.append(el('span', 'm-new', t.isNew));
       return row;
     }));
-    $('m-none').hidden = now.length > 0;
-    $('m-soon').replaceChildren(...soon.map((m) => {
-      const row = el('div', 'm-row');
-      row.append(el('span', 'm-lv out', `${lvTag} ${m.lv}`), mName(m, 'm-name muted'));
+    $('m-none').hidden = showNow.length > 0;
+    $('m-soon').replaceChildren(...showSoon.map((m) => {
+      const row = el('div', 'm-row' + (isDone(m) ? ' done' : ''));
+      row.append(check(m), el('span', 'm-lv out', `${lvTag} ${m.lv}`), mName(m, 'm-name muted'));
       return row;
     }));
 
@@ -323,6 +378,26 @@
       return card;
     }));
     $('bs-none').hidden = bosses.length > 0;
+
+    // XP para o próximo nível e comparações com o que o nível oferece
+    const need = D.XP_TABLE[lv];
+    const pct = (x) => Math.max(1, Math.round((x / need) * 100));
+    $('xp-need').textContent = lv >= MAX ? t.xpMax : need ? fmt(t.xpNeed, { xp: num(need), a: lv, b: lv + 1 }) : t.xpNone;
+    const cmp = [];
+    if (need) {
+      const bestDaily = daily.filter((d) => typeof d.xp === 'number' && d.verdict !== 'avoid').sort((a, b) => b.xp - a.xp)[0];
+      if (bestDaily) cmp.push(fmt(t.xpDaily, { name: bestDaily.name, pct: pct(bestDaily.xp) }));
+      const bestElite = elites.filter((e) => e.xp).sort((a, b) => b.xp - a.xp)[0];
+      if (bestElite) cmp.push(fmt(t.xpElite, { name: bestElite.name, n: num(Math.ceil(need / bestElite.xp)) }));
+      const bestBoss = bosses.filter((b) => b.lv <= lv + 10).sort((a, b) => b.xp - a.xp)[0];
+      if (bestBoss) cmp.push(fmt(t.xpBoss, { name: bestBoss.name, pct: pct(bestBoss.xp) }));
+    }
+    $('xp-cmp').replaceChildren(...cmp.map((c) => el('p', 'xp-line', c)));
+
+    // Abas: contadores e a aba escolhida
+    const counts = { missions: now.length, dailies: daily.length, bosses: bosses.length };
+    for (const k of TABS) $('tn-' + k).textContent = counts[k] ? counts[k] : '';
+    showTab(tab);
 
     // Build
     $('b-dot').style.background = mast.color;

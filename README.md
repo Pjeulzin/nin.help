@@ -36,6 +36,7 @@ Tudo fica em `assets/data.json` (dá para editar direto pelo site do GitHub, no 
 - **Diárias (`DAILIES`)**: `{ "from": 21, "to": 35, "name": "...", "wiki": "...", "rank": "B", "xp": 78100, "v": ["leaf","sand","mist"], "pros": [...], "cons": [...] }`. Sem `to`, vale até o 70. `xp` pode ser `[mín, máx]` ou ficar de fora quando a wiki não registra (aparece "XP não registrado"). Use `"verdict": "avoid"` (Evite) ou `"good"` (Vale a pena) só com uma dica de jogador em `"tip"` explicando o motivo. Prós, contras e dicas precisam de tradução em `TEXT_EN`.
 - **Enfurecidos (`ELITES`)**: `{ "name": "Enraged Wolf", "wiki": "...", "base": "Wolf", "lv": 13, "xp": 670, "map": "...", "v": ["leaf"] }`, na ordem da corrida até o 20. `lv` e `xp` juntos, ou nenhum dos dois se a wiki não registra. Aparecem no painel até o nível 22, só da vila escolhida.
 - **Chefes (`BOSSES`)**: `{ "lv": 53, "name": "...", "wiki": "...", "xp": 22000, "respawn": 30, "map": "...", "war": true, "note": "..." }`, em ordem de nível. `respawn` em minutos e `war` são opcionais. O painel mostra os chefes de 5 níveis abaixo a 10 acima. `map` e `note` em português precisam de tradução em `TEXT_EN` (nomes de mapa do jogo não precisam).
+- **XP por nível (`XP_TABLE`)**: `{ "25": 232500 }` = XP para subir do 25 para o 26 (tabela da wiki, 1–60). Níveis sem valor confiável ficam de fora e o painel diz que a wiki não registra.
 - **Builds (`BUILDS`)**: por atributo principal (`Intelligence`, `Strength`, `Agility`, `Chakra`), uma lista `{ "lv": 20, "stats": "50 INT / 25 CHAK / 25 FORT", "tip": "..." }` em ordem de nível. O painel mostra a meta já alcançada e a próxima. A `tip` precisa de tradução em `TEXT_EN`.
 - **Inglês (`TEXT_EN`)**: `{ "texto em português": "English text" }` traduz mob, mapa, dica, nome de missão e textos das diárias. Ao mudar um texto em português, mude também a chave em `TEXT_EN`; o validador acusa chave órfã e dica sem tradução. Nomes do jogo (mobs, mapas) não precisam de entrada.
 - **Pendências**: escreva `[... a confirmar]` onde ainda não há dado; o validador lista essas pendências como aviso.
@@ -69,6 +70,10 @@ No GitHub: **Settings › Pages › Build and deployment › Source: Deploy from
 ### Domínio próprio (opcional)
 
 Se for usar `nin.help`: em **Settings › Pages › Custom domain** digite `nin.help` (isso cria o arquivo `CNAME`) e no DNS do domínio aponte os registros `A` para `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`. Depois marque **Enforce HTTPS**.
+
+## Painel do nível
+
+O painel tem abas: **Farm** (rota, XP para o próximo nível e enfurecidos), **Missões** (com checklist salvo no navegador e opção de ocultar as feitas), **Diárias**, **Chefes** e **Build**. A aba escolhida fica lembrada.
 
 ## Registro Ninja
 

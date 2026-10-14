@@ -47,7 +47,7 @@ const isPlaceholder = (s) => typeof s === 'string' && /\[[^\]]*(confirmar|confir
 const need = (obj, keys, where) => keys.forEach((k) => { if (!isStr(obj?.[k])) err(`${where}: campo "${k}" ausente ou vazio`); });
 
 // ---- Seções obrigatórias ----
-for (const k of ['config', 'VILLAGES', 'MASTERIES', 'SECOND', 'I18N', 'TAG_EN', 'PARTY_EN', 'TEXT_EN', 'BRACKETS', 'MISSIONS', 'DAILIES', 'ELITES', 'BOSSES', 'BUILDS', 'MILESTONES', 'BAR_MILESTONES', 'TICKS']) {
+for (const k of ['config', 'VILLAGES', 'MASTERIES', 'SECOND', 'I18N', 'TAG_EN', 'PARTY_EN', 'TEXT_EN', 'BRACKETS', 'MISSIONS', 'DAILIES', 'ELITES', 'XP_TABLE', 'BOSSES', 'BUILDS', 'MILESTONES', 'BAR_MILESTONES', 'TICKS']) {
   if (!(k in D)) err(`seção "${k}" não existe`);
 }
 if (errors.length) finish();
@@ -165,10 +165,18 @@ const dailyTexts = [];
     if (!isStr(D.TEXT_EN?.[t])) pending.push(`${where}: "${t.slice(0, 40)}" sem tradução em TEXT_EN`);
   }
 });
-for (const k of ['dailies', 'dailiesEarly', 'dailiesReset', 'dailiesRogue', 'noDailies', 'avoid', 'good', 'playerTip', 'vinfo', 'vinfoCommon', 'info_passive', 'info_mastery', 'info_org', 'info_items', 'info_summons', 'info_clans', 'info_become', 'statsNow', 'statsNext', 'statsSource', 'xpUnknown', 'bosses', 'bossesNote', 'respawn', 'warZone', 'noBosses', 'elites', 'elitesNote', 'eliteOf', 'eliteUnknown', 'introKicker', 'introTitle', 'introSub', 'stepVillage', 'stepMastery', 'stepSheet', 'askVillage', 'askVillageNote', 'askMastery', 'askMasteryNote', 'rogueCard', 'rogueTag', 'chosen', 'strong', 'weak', 'routeInt', 'routeMelee', 'unlocks50', 'sheetTitle', 'sheetVillage', 'sheetMastery', 'sheetFirst', 'firstRoute', 'firstStats', 'firstDailies', 'introNext', 'back', 'skip', 'open', 'restart'])
+for (const k of ['dailies', 'dailiesEarly', 'dailiesReset', 'dailiesRogue', 'noDailies', 'avoid', 'good', 'playerTip', 'vinfo', 'vinfoCommon', 'info_passive', 'info_mastery', 'info_org', 'info_items', 'info_summons', 'info_clans', 'info_become', 'statsNow', 'statsNext', 'statsSource', 'xpUnknown', 'bosses', 'bossesNote', 'respawn', 'warZone', 'noBosses', 'elites', 'elitesNote', 'eliteOf', 'eliteUnknown', 'introKicker', 'introTitle', 'introSub', 'stepVillage', 'stepMastery', 'stepSheet', 'askVillage', 'askVillageNote', 'askMastery', 'askMasteryNote', 'rogueCard', 'rogueTag', 'chosen', 'strong', 'weak', 'routeInt', 'routeMelee', 'unlocks50', 'sheetTitle', 'sheetVillage', 'sheetMastery', 'sheetFirst', 'firstRoute', 'firstStats', 'firstDailies', 'introNext', 'back', 'skip', 'open', 'restart', 'tabFarm', 'tabMissions', 'tabDailies', 'tabBosses', 'tabBuild', 'tabsLabel', 'xpTitle', 'xpNeed', 'xpMax', 'xpNone', 'xpDaily', 'xpBoss', 'xpElite', 'xpBless', 'xpSource', 'doneCount', 'hideDone', 'markDone'])
   if (!isStr(D.I18N.pt?.[k])) err(`I18N.pt: falta o texto "${k}" usado pelo painel`);
 
 // ---- Traduções (TEXT_EN: texto em português -> inglês) ----
+// ---- XP por nível ----
+for (const [k, x] of Object.entries(D.XP_TABLE || {})) {
+  if (!isInt(Number(k))) err(`XP_TABLE: nível "${k}" fora de 1–${MAX}`);
+  if (!(Number.isInteger(x) && x > 0)) err(`XP_TABLE.${k}: XP deve ser um número`);
+  const prev = D.XP_TABLE[Number(k) - 1];
+  if (prev !== undefined && x < prev) err(`XP_TABLE.${k}: XP menor que o do nível anterior (${prev}); erro de digitação?`);
+}
+
 // ---- Mobs enfurecidos ----
 (D.ELITES || []).forEach((e, i) => {
   const where = `ELITES[${i}] (${e.name ?? '?'})`;
