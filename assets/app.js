@@ -19,15 +19,25 @@
   const pick = (val, valid, fallback) => (val && valid.includes(val) ? val : fallback);
   const navLang = (navigator.language || '').toLowerCase().startsWith('pt') ? 'pt' : 'en';
 
+  // Maestria exclusiva (Gentle Fist, Fan, Bubble) só vale na vila dela; fora dela, volta para a base
+  const availFor = (mk, vk) => !D.MASTERIES[mk].v || D.MASTERIES[mk].v.includes(vk);
+  const fixMastery = (mk, vk) => (availFor(mk, vk) ? mk : D.MASTERIES[mk].base || 'fire');
+
   const state = {
     lang: pick(hash.get('lang') || store.get('lang'), ['pt', 'en'], navLang),
     village: pick(hash.get('v') || store.get('village'), Object.keys(D.VILLAGES), 'sand'),
     mastery: pick(hash.get('m') || store.get('mastery'), Object.keys(D.MASTERIES), 'fire'),
     level: Math.max(0, Math.min(MAX, parseInt(hash.get('lv'), 10) || 0))
   };
+  state.mastery = fixMastery(state.mastery, state.village);
+  if (hash.has('m') && hash.get('m') !== state.mastery) {
+    hash.set('m', state.mastery);
+    history.replaceState(null, '', '#' + hash.toString());
+  }
 
   function set(patch) {
     Object.assign(state, patch);
+    state.mastery = fixMastery(state.mastery, state.village);
     store.set('lang', state.lang);
     store.set('village', state.village);
     store.set('mastery', state.mastery);
@@ -136,7 +146,10 @@
       b.setAttribute('aria-pressed', String(on));
       svg.setAttribute('stroke', on ? D.VILLAGES[k].color : D.VILLAGES[k].ink);
     });
-    masteryBtns.forEach(({ k, b }) => b.setAttribute('aria-pressed', String(k === mk)));
+    masteryBtns.forEach(({ k, b }) => {
+      b.setAttribute('aria-pressed', String(k === mk));
+      b.hidden = !availFor(k, vk);
+    });
 
     // Sobre a vila: passiva, organização exclusiva, invocações e clãs
     $('vinfo-sum').textContent = `${t.vinfo}: ${vill.name}`;
@@ -334,12 +347,9 @@
     else if (!sec) note = lv >= 50
       ? (EN ? '2nd mastery unlocked.' : '2ª maestria liberada.')
       : (EN ? 'You choose your 2nd mastery at level 50.' : 'No nível 50 você escolhe a 2ª maestria.');
-    else if (lv >= 50) note = EN
-      ? `2nd mastery unlocked. ${vill.name} exclusive: ${sec[1]} (${D.MASTERIES[sec[0]].name} branch, scales with Strength).`
-      : `2ª maestria liberada. Exclusivo de ${vill.name}: ${sec[1]} (ramo do ${D.MASTERIES[sec[0]].name}, escala com Strength).`;
-    else note = EN
-      ? `You choose your 2nd mastery at level 50. ${vill.name} has access to the exclusive ${sec[1]} branch (scales with Strength).`
-      : `No nível 50 você escolhe a 2ª maestria. ${vill.name} tem acesso ao ramo exclusivo ${sec[1]} (escala com Strength).`;
+    else note = (EN
+      ? (lv >= 50 ? '2nd mastery unlocked. ' : 'You choose your 2nd mastery at level 50. ') + `${vill.name} exclusive since level 10: ${sec[1]} (${D.MASTERIES[sec[0]].name} branch, scales with Strength).`
+      : (lv >= 50 ? '2ª maestria liberada. ' : 'No nível 50 você escolhe a 2ª maestria. ') + `Exclusiva de ${vill.name} desde o 10: ${sec[1]} (ramo do ${D.MASTERIES[sec[0]].name}, escala com Strength).`);
     $('b-note').textContent = note;
 
     // Atributos sugeridos: a meta já alcançada (abaixo do 10, nenhuma) e a próxima
@@ -487,17 +497,20 @@
         b.append(top, el('p', 'vc-note', k === 'rogue' ? t.rogueTag : (EN ? v.noteEn : v.note)));
         if (k !== 'rogue') b.append(infoList(v, ['passive', 'mastery', 'org', 'items', 'summons']));
         b.append(el('span', 'hanko', t.chosen));
-        b.addEventListener('click', () => { intro.village = k; renderIntro(); });
+        b.addEventListener('click', () => {
+          intro.village = k;
+          if (intro.mastery) intro.mastery = fixMastery(intro.mastery, k);
+          renderIntro();
+        });
         grid.append(b);
       }
       body.replaceChildren(head(t.askVillage, t.askVillageNote), grid);
     }
 
     if (intro.step === 1) {
-      const sec = vk && D.SECOND[vk];
       const groups = el('div', 'mc-groups');
       for (const stat of STAT_ORDER) {
-        const keys = Object.keys(D.MASTERIES).filter((k) => D.MASTERIES[k].stat === stat);
+        const keys = Object.keys(D.MASTERIES).filter((k) => D.MASTERIES[k].stat === stat && availFor(k, vk));
         if (!keys.length) continue;
         const g = el('section', 'mc-group');
         g.append(el('h3', null, `${t.scales} ${stat}`));
@@ -516,7 +529,7 @@
             p.append(el('b', null, `${label}: `), document.createTextNode(tr(m[f])));
             b.append(p);
           }
-          if (sec && sec[0] === k) b.append(el('p', 'mc-excl', `${t.unlocks50} ${sec[1]}`));
+          if (m.v) b.append(el('p', 'mc-excl', `${t.unlocks50} · ${t.scales} ${m.stat}`));
           b.append(el('span', 'hanko', t.chosen));
           b.addEventListener('click', () => { intro.mastery = k; renderIntro(); });
           grid.append(b);
@@ -545,7 +558,7 @@
       field(t.sheetVillage, vk === 'rogue' ? t.rogueCard : vill.name);
       field(t.sheetMastery, `${m.name} · ${t.scales} ${m.stat}`);
       if (vill.info?.passive) field(t.info_passive, tr(vill.info.passive));
-      if (sec) field(t.unlocks50.replace(/:$/, ''), `${sec[1]} (${D.MASTERIES[sec[0]].name})`);
+      if (sec) field(t.unlocks50, `${sec[1]} (${D.MASTERIES[sec[0]].name})`);
       main.append(dl, el('h3', null, t.sheetFirst));
       const ul = el('ul', 'ficha-steps');
       if (first) ul.append(el('li', null, `${t.firstRoute}: ${first[0]} · ${first[1]}`));

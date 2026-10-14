@@ -15,7 +15,7 @@
       "noteEn": "Hardest route: you have to leave the village early and farm in Danger Zones at higher levels.",
       "info": {
         "passive": "Will of Fire: 5% de chance de reviver sozinho ao ser derrotado.",
-        "mastery": "Gentle Fist, ramo do Taijutsu liberado no 50. Escala com Strength: golpes rápidos, muito dano no 1x1 e dreno de chakra.",
+        "mastery": "Gentle Fist, ramo do Taijutsu disponível desde o 10. Escala com Strength: golpes rápidos, muito dano no 1x1 e dreno de chakra.",
         "org": "Twelve Guardian Ninja: guardam o Daimyo do País do Fogo, no alto da vila.",
         "items": "12 Guardian Waistcloth: +10 em todos os atributos (Nv 25+, só para os Twelve Guardians; cai ao morrer).",
         "summons": "Sapo (Toad) e Lesma (Slug).",
@@ -39,7 +39,7 @@
       "noteEn": "Easiest grind: training areas are close to the village.",
       "info": {
         "passive": "Invisibilidade 100% perfeita com o Cloak of Invisibility Technique: some até para quem está perto.",
-        "mastery": "Fan, ramo do Wind liberado no 50. Escala com Strength: especialista em stun, luta com leques.",
+        "mastery": "Fan, ramo do Wind disponível desde o 10. Escala com Strength: especialista em stun, luta com leques.",
         "org": "Puppet Brigade: ninjas que lutam com marionetes gigantes, em esquadrões de 3.",
         "items": "Marionetes (Sand Puppeteering): qualquer ninja da Sand aprende; têm ~550 HP e golpes de 30. A Grand Puppet, só da Puppet Brigade, tem ~700 HP e golpes de 51.",
         "summons": "Doninha (Weasel) e Falcão (Hawk).",
@@ -63,7 +63,7 @@
       "noteEn": "Second easiest, but isolated (5 min by boat). Mist's seals are inside the village (Ikayasu) and unlock the Sealed Temple.",
       "info": {
         "passive": "Corre e recarrega chakra em cima da água; as outras vilas perdem chakra na água.",
-        "mastery": "Bubble, ramo do Water liberado no 50. Escala com Strength: manobras estratégicas, usa cachimbos (pipes).",
+        "mastery": "Bubble, ramo do Water disponível desde o 10. Escala com Strength: manobras estratégicas, usa cachimbos (pipes).",
         "org": "Seven Swordsmen of the Mist: mais um título que um grupo; caçam sozinhos ou em até 3. Na Mist, a ANBU se chama Hunter-Nin.",
         "items": "Seven Swords of the Mist: espadas lendárias exclusivas da Mist (Nv 35, 80 Strength).",
         "summons": "Molusco (Clam) e Panda.",
@@ -116,6 +116,18 @@
       "pros": "Kit simples com dano, AGI e utilidade: bom em tudo.",
       "cons": "Faz de tudo, mas não é o melhor em nada."
     },
+    "fan": {
+      "name": "Fan",
+      "color": "#5fc4b0",
+      "phys": true,
+      "stat": "Strength",
+      "v": ["sand"],
+      "base": "wind",
+      "tip": "Ramo de Strength do Wind, exclusivo da Sand: luta com leques e é especialista em stun.",
+      "tipEn": "The Strength branch of Wind, exclusive to Sand: fights with fans and specialises in stuns.",
+      "pros": "Arsenal de média e longa distância, com dano e utilidade moderados.",
+      "cons": "Não ataca na diagonal e tem ataque mais lento."
+    },
     "lightning": {
       "name": "Lightning",
       "color": "#f2d04b",
@@ -145,6 +157,18 @@
       "tipEn": "Balanced and versatile: performs well in any zone.",
       "pros": "Muito dano em alvo único e Bleed longo.",
       "cons": "A área travada atrapalha em conteúdo grande."
+    },
+    "bubble": {
+      "name": "Bubble",
+      "color": "#9ad8f2",
+      "phys": true,
+      "stat": "Strength",
+      "v": ["mist"],
+      "base": "water",
+      "tip": "Ramo de Strength do Water, exclusivo da Mist: usa cachimbos (pipes) e prende o alvo com snares.",
+      "tipEn": "The Strength branch of Water, exclusive to the Mist: uses pipes and pins targets with snares.",
+      "pros": "Muita utilidade com snares e roots, e ótimo potencial de combo.",
+      "cons": "Pouco alcance e jutsus lentos: difícil para iniciantes."
     },
     "medical": {
       "name": "Medical",
@@ -185,6 +209,18 @@
       "tipEn": "Pure hand-to-hand combat.",
       "pros": "Aproveita a AGI, com jutsus marcantes e dano de médio a alto.",
       "cons": "Pouca área; sofre em PvP e PvE grandes."
+    },
+    "gentlefist": {
+      "name": "Gentle Fist",
+      "color": "#c79bf2",
+      "phys": true,
+      "stat": "Strength",
+      "v": ["leaf"],
+      "base": "taijutsu",
+      "tip": "Ramo de Strength do Taijutsu, exclusivo da Leaf: pressão no 1x1 e golpes que cancelam jutsus durante o cast.",
+      "tipEn": "The Strength branch of Taijutsu, exclusive to Leaf: 1v1 pressure and strikes that cancel jutsu mid-cast.",
+      "pros": "Considerado o mais forte no 1x1; drena chakra e tem técnica de 3 tiles à distância.",
+      "cons": "Com espada equipada, só usa a Water Needle Training."
     }
   },
   "SECOND": {
@@ -248,9 +284,9 @@
       "stepMastery": "Maestria",
       "stepSheet": "Ficha",
       "askVillage": "Em qual vila você vai começar?",
-      "askVillageNote": "A vila define passiva, invocações e o caminho exclusivo do nível 50. Dá para trocar depois no pergaminho.",
+      "askVillageNote": "A vila define passiva, invocações e uma maestria exclusiva. Dá para trocar depois no pergaminho.",
       "askMastery": "Qual maestria você quer seguir?",
-      "askMasteryNote": "A 1ª maestria é escolhida no nível 10. Até lá, todo mundo upa com Agility e um pouco de HP.",
+      "askMasteryNote": "A 1ª maestria é escolhida no nível 10, e a 2ª no 50. Até o 10, todo mundo upa com Agility e um pouco de HP.",
       "rogueCard": "Já sou Rogue",
       "rogueTag": "Todo ninja nasce numa vila. Escolha esta opção se você já é um Missing Ninja.",
       "chosen": "ESCOLHIDA",
@@ -258,7 +294,7 @@
       "weak": "Fraco",
       "routeInt": "Rota INT",
       "routeMelee": "Rota corpo a corpo",
-      "unlocks50": "Na sua vila, no 50:",
+      "unlocks50": "Exclusiva da sua vila, desde o 10",
       "sheetTitle": "Ficha ninja",
       "sheetVillage": "Vila",
       "sheetMastery": "Maestria",
@@ -336,9 +372,9 @@
       "stepMastery": "Mastery",
       "stepSheet": "File",
       "askVillage": "Which village will you start in?",
-      "askVillageNote": "Your village sets your passive, summons and the exclusive level-50 branch. You can switch later on the scroll.",
+      "askVillageNote": "Your village sets your passive, summons and an exclusive mastery. You can switch later on the scroll.",
       "askMastery": "Which mastery do you want to follow?",
-      "askMasteryNote": "Your 1st mastery is chosen at level 10. Until then, everyone levels with Agility and a little HP.",
+      "askMasteryNote": "Your 1st mastery is chosen at level 10, and your 2nd at 50. Until 10, everyone levels with Agility and a little HP.",
       "rogueCard": "I'm already a Rogue",
       "rogueTag": "Every ninja starts in a village. Pick this if you are already a Missing Ninja.",
       "chosen": "CHOSEN",
@@ -346,7 +382,7 @@
       "weak": "Weakness",
       "routeInt": "INT route",
       "routeMelee": "Melee route",
-      "unlocks50": "In your village, at 50:",
+      "unlocks50": "Exclusive to your village, from level 10",
       "sheetTitle": "Ninja file",
       "sheetVillage": "Village",
       "sheetMastery": "Mastery",
@@ -511,11 +547,11 @@
     "Yagyu, Murasame, Hoshi, Kazuki e Sakame.": "Yagyu, Murasame, Hoshi, Kazuki and Sakame.",
     "Todo personagem nasce numa vila. Vira Rogue quem é exilado pelo Kage, foge da prisão ou mata um aliado 3 vezes em Danger Zone ou War Zone.": "Every character starts in a village. You become a Rogue by being exiled by your Kage, escaping prison, or killing an ally 3 times in a Danger Zone or War Zone.",
     "Neo-Akatsuki: a organização criminosa mais temida, sediada em Takumi.": "Neo-Akatsuki: the most feared criminal organization, based in Takumi.",
-    "Gentle Fist, ramo do Taijutsu liberado no 50. Escala com Strength: golpes rápidos, muito dano no 1x1 e dreno de chakra.": "Gentle Fist, a Taijutsu branch unlocked at 50. Scales with Strength: fast strikes, heavy 1v1 damage and chakra drain.",
+    "Gentle Fist, ramo do Taijutsu disponível desde o 10. Escala com Strength: golpes rápidos, muito dano no 1x1 e dreno de chakra.": "Gentle Fist, a Taijutsu branch available from level 10. Scales with Strength: fast strikes, heavy 1v1 damage and chakra drain.",
     "12 Guardian Waistcloth: +10 em todos os atributos (Nv 25+, só para os Twelve Guardians; cai ao morrer).": "12 Guardian Waistcloth: +10 to all stats (Lv 25+, Twelve Guardians only; drops on death).",
-    "Fan, ramo do Wind liberado no 50. Escala com Strength: especialista em stun, luta com leques.": "Fan, a Wind branch unlocked at 50. Scales with Strength: a stun specialist that fights with fans.",
+    "Fan, ramo do Wind disponível desde o 10. Escala com Strength: especialista em stun, luta com leques.": "Fan, a Wind branch available from level 10. Scales with Strength: a stun specialist that fights with fans.",
     "Marionetes (Sand Puppeteering): qualquer ninja da Sand aprende; têm ~550 HP e golpes de 30. A Grand Puppet, só da Puppet Brigade, tem ~700 HP e golpes de 51.": "Puppets (Sand Puppeteering): any Sand ninja can learn them; ~550 HP and 30-damage strikes. The Grand Puppet, Puppet Brigade only, has ~700 HP and 51-damage strikes.",
-    "Bubble, ramo do Water liberado no 50. Escala com Strength: manobras estratégicas, usa cachimbos (pipes).": "Bubble, a Water branch unlocked at 50. Scales with Strength: strategic manoeuvres, uses pipes.",
+    "Bubble, ramo do Water disponível desde o 10. Escala com Strength: manobras estratégicas, usa cachimbos (pipes).": "Bubble, a Water branch available from level 10. Scales with Strength: strategic manoeuvres, uses pipes.",
     "Seven Swords of the Mist: espadas lendárias exclusivas da Mist (Nv 35, 80 Strength).": "Seven Swords of the Mist: legendary swords exclusive to the Mist (Lv 35, 80 Strength).",
     "Compre um bounty: abra o Bingo Book, veja quem tem bounty acumulado e pergunte se vende. O preço costuma ser o dobro do bounty. Combinem um lugar, você paga e ele deixa você matá-lo. Em grupo, a recompensa é dividida entre quem lutou; sozinho, fica toda com você. O mesmo ninja só dá bounty de novo 30 minutos depois. É permitido; proibido é duas pessoas ficarem se matando para acumular bounty e farmar Ryo.": "Buy a bounty: open the Bingo Book, see who has a bounty built up and ask if they'll sell it. The price is usually double the bounty. Agree on a place, pay, and they let you kill them. In a party, the reward is split among everyone who fought; solo, you keep it all. The same ninja only pays a bounty again 30 minutes later. This is allowed; what is banned is two people repeatedly killing each other to stack bounty and farm Ryo.",
     "Dá para combinar a kill com outro jogador, como na compra de bounty pelo Bingo Book: vocês se encontram, você paga e ele deixa você matá-lo. A morte conta para todos que estão com a missão ativa, e só vale em Danger Zone ou War Zone, com ele no máximo 10 níveis abaixo de você. É permitido; proibido é duas pessoas ficarem se matando para acumular bounty e farmar Ryo.": "You can arrange the kill with another player, just like buying a bounty through the Bingo Book: meet up, pay, and they let you kill them. The death counts for everyone with the mission active, and only in a Danger Zone or War Zone, with them at most 10 levels below you. This is allowed; what is banned is two people repeatedly killing each other to stack bounty and farm Ryo.",
@@ -576,7 +612,13 @@
     "Rende bastante Ryo e tem muitas opções de build pelas armas.": "Earns plenty of Ryo, with many build options around weapons.",
     "Jutsus fracos, gasta muito chakra e tem cooldown alto.": "Weak jutsu, high chakra cost and long cooldowns.",
     "Aproveita a AGI, com jutsus marcantes e dano de médio a alto.": "Makes the most of AGI, with expressive jutsu and moderate-to-high damage.",
-    "Pouca área; sofre em PvP e PvE grandes.": "Little AoE; struggles in large-scale PvP and PvE."
+    "Pouca área; sofre em PvP e PvE grandes.": "Little AoE; struggles in large-scale PvP and PvE.",
+    "Arsenal de média e longa distância, com dano e utilidade moderados.": "A mid-to-long range arsenal with moderate damage and utility.",
+    "Não ataca na diagonal e tem ataque mais lento.": "Can't attack diagonally and attacks more slowly.",
+    "Muita utilidade com snares e roots, e ótimo potencial de combo.": "Lots of utility with snares and roots, and great combo potential.",
+    "Pouco alcance e jutsus lentos: difícil para iniciantes.": "Short range and slow jutsu: hard for beginners.",
+    "Considerado o mais forte no 1x1; drena chakra e tem técnica de 3 tiles à distância.": "Considered the strongest in 1v1; drains chakra and has a ranged 3-tile technique.",
+    "Com espada equipada, só usa a Water Needle Training.": "With a sword equipped, it can only use Water Needle Training."
   },
   "BRACKETS": [
     {

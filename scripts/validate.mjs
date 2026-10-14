@@ -75,6 +75,9 @@ for (const [k, v] of Object.entries(D.VILLAGES)) {
 const masteries = Object.keys(D.MASTERIES);
 for (const [k, m] of Object.entries(D.MASTERIES)) {
   need(m, ['name', 'color', 'tip', 'tipEn'], `MASTERIES.${k}`);
+  if (m.v !== undefined && (!Array.isArray(m.v) || !m.v.length || m.v.some((x) => !villages.includes(x)))) err(`MASTERIES.${k}.v deve listar vilas (${villages.join(', ')})`);
+  if (m.v !== undefined && !D.MASTERIES[m.base]) err(`MASTERIES.${k}: maestria exclusiva precisa de "base" (a maestria para onde volta fora da vila)`);
+  if (m.base !== undefined && (!D.MASTERIES[m.base] || D.MASTERIES[m.base].v)) err(`MASTERIES.${k}.base deve ser uma maestria comum a todas as vilas`);
   if (!['Intelligence', 'Chakra', 'Strength', 'Agility'].includes(m.stat)) err(`MASTERIES.${k}.stat deve ser Intelligence, Chakra, Strength ou Agility`);
   if (typeof m.phys !== 'boolean') err(`MASTERIES.${k}.phys deve ser true ou false`);
 }

@@ -78,7 +78,7 @@ Quem entra no site pela primeira vez, sem filtros no link, vê antes do pergamin
 
 O estado vai na URL: `#v=sand&m=fire&lang=pt&lv=14`.
 - `v`: leaf | sand | mist | rogue
-- `m`: fire | wind | lightning | earth | water | medical | weapon (STR) | weaponint (INT) | taijutsu
+- `m`: fire | wind | lightning | earth | water | medical | weapon (STR) | weaponint (INT) | taijutsu | gentlefist (só Leaf) | fan (só Sand) | bubble (só Mist). Uma exclusiva em outra vila volta para a maestria base dela.
 - `lang`: pt | en
 - `lv`: 1–70
 
